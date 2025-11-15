@@ -27,6 +27,9 @@ fi
 
 [[ -f ~/.config/bash/aliases.sh   ]] && source ~/.config/bash/aliases.sh
 [[ -f ~/.config/bash/functions.sh ]] && source ~/.config/bash/functions.sh
-
 [[ -f ~/.config/bash/prompt.sh    ]] && source ~/.config/bash/prompt.sh
 
+export http_proxy="http://192.168.1.8:8080"
+export https_proxy="http://192.168.1.8:8080"
+export ftp_proxy="http://192.168.1.8:8080"
+export no_proxy="localhost,127.0.0.1,.local"
