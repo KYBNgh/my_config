@@ -22,10 +22,15 @@ alias free='free --si -h'
 alias virc='$EDITOR ~/.bashrc'
 alias srrc='source ~/.bashrc'
 alias vialias='$EDITOR ~/.config/bash/aliases.sh'
-alias f='fastfetch'
-alias r='ranger'
+alias ff='fastfetch --logo none'
 alias c='clear'
+alias y='yazi'
+alias reboot='systemctl reboot'
+alias ip='ip -color=auto'
 
 alias syu='sudo pacman -Syu'
 alias scc='yes | sudo pacman -Scc'
+alias wget='aria2c'
 
+alias sshdeb='ssh -p 2222 -i ~/.ssh/id_ed25519 levalwe@192.168.1.9'
+# \[\033[01;34m\][sudo]\[\033[00m\]
