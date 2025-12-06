@@ -20,6 +20,7 @@ do_backup(){
 }
 
 do_accept(){
+	info "Do some accept..."
 
 }
 

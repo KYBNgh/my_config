@@ -1,4 +1,5 @@
 # Aliases for ls
+alias l='ls --color=auto'
 alias ls='ls -F --color=auto --group-directories-first'
 alias ll="ls -lh --time-style=long-iso"
 alias la="ls -A"
@@ -8,7 +9,6 @@ alias ll.="ls -lh -d --time-style=long-iso .*"
 alias lt="ls -lt --time-style=long-iso"
 alias lw="ls -ldh $(pwd)"
 alias lss='du -sh .[^.]* .[!.]* * 2>/dev/null | sort -hr'
-
 # Aliases for color
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
@@ -40,4 +40,5 @@ alias ff='fastfetch --logo none'
 alias n='ncmpcpp'
 alias c='clear'
 alias y='yazi'
+alias vim='nvim'
 alias sshdeb='ssh -p 2222 -i ~/.ssh/id_ed25519 levalwe@192.168.1.9'

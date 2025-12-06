@@ -13,6 +13,7 @@ set -o vi
 bind -m vi-insert "\C-l":clear-screen
 # printf '\e[5 q'
 
+eval "$(/usr/bin/fzf --bash)"
 # Source 
 if [ -f /usr/share/bash-completion/bash_completion ]; then 
 . /usr/share/bash-completion/bash_completion 
