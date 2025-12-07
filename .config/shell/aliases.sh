@@ -9,6 +9,7 @@ alias ll.="ls -lh -d --time-style=long-iso .*"
 alias lt="ls -lt --time-style=long-iso"
 alias lw="ls -ldh $(pwd)"
 alias lss='du -sh .[^.]* .[!.]* * 2>/dev/null | sort -hr'
+
 # Aliases for color
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
@@ -17,6 +18,7 @@ alias ip='ip -color=auto'
 alias md='mkdir'
 alias rd='rmdir'
 alias rm='rm -I'
+alias ...='cd ../..'
 
 # Aliases for system
 alias df='df -h'
@@ -30,6 +32,7 @@ alias syu='sudo pacman -Syu'
 alias virc='$EDITOR ~/.bashrc'
 alias vialias='$EDITOR ~/.config/shell/aliases.sh'
 alias viprofile='$EDITOR ~/.profile'
+alias viprompt='$EDITOR ~/.config/shell/prompt.sh'
 alias visway='$EDITOR ~/.config/sway/config'
 alias vikitty='$EDITOR ~/.config/kitty/kitty.conf'
 alias srprofile='. ~/.profile'
