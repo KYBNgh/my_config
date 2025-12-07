@@ -1,3 +1,14 @@
+# ~/.config/shell/aliases.sh
+# 
+# Original copyright notice:
+# @author nate zhou
+# @since 2023,2024,2025
+# general aliases for bash/zsh
+#
+# Modifications by KYBNgh:
+# Add lss to list size
+# Add aliases for edit, source dotfiles
+
 # Aliases for ls
 alias l='ls --color=auto'
 alias ls='ls -F --color=auto --group-directories-first'
@@ -18,6 +29,8 @@ alias ip='ip -color=auto'
 alias md='mkdir'
 alias rd='rmdir'
 alias rm='rm -I'
+alias cp='cp -i'
+alias mv='mv -i'
 alias ...='cd ../..'
 
 # Aliases for system

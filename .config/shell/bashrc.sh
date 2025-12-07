@@ -1,4 +1,5 @@
 # ~/.config/shell/bashrc.sh
+# By KYBNgh
 # If not running interactively, don't do anything                                                    
 [[ $- != *i* ]] && return     
 

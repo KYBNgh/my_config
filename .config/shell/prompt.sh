@@ -1,8 +1,16 @@
 # ~/.config/shell/prompt.sh
-# Prompt for Bash
-
-# PS1='$(code=$?; if [ $code -ne 0 ]; then echo "\[\033[1;37m\][$code] \[\033[0m\]"; fi)\[\033[37m\]\u\[\033[00m\]\[\033[01;34m\]@\[\033[00m\]\[\033[37m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
-# PS2='\[\033[01;34m\]>> \[\033[00m\]'
+#
+# Base on https://github.com/gnuunixchad/dotfiles/blob/master/.bashrc
+#
+# Original copyright notice:
+# @author nate zhou
+# @since 2023,2024,2025
+#
+# Modifications by KYBNgh: 
+# Prompt like:
+# 130 foo@bar-host repo master *= $ 
+# Blue '@' sign and exit code in front of prompt
+# Blue '>>' in PS2
 
 GIT_PS1_SHOWDIRTYSTATE=1        # + for staged, * if unstaged
 GIT_PS1_SHOWSTASHSTATE=1        # $ if something is stashed.
