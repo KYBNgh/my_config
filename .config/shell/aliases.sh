@@ -37,9 +37,10 @@ alias ...='cd ../..'
 alias df='df -h'
 alias free='free --si -h'
 alias du='du -h -c'
+alias syu='sudo pacman -Syu'
+alias dmesg='sudo dmesg'
 alias reboot='systemctl reboot -i'
 alias poweroff='systemctl poweroff'
-alias syu='sudo pacman -Syu'
 
 # Aliases for edit, source dotfiles
 alias virc='$EDITOR ~/.bashrc'
@@ -48,6 +49,7 @@ alias viprofile='$EDITOR ~/.profile'
 alias viprompt='$EDITOR ~/.config/shell/prompt.sh'
 alias visway='$EDITOR ~/.config/sway/config'
 alias vikitty='$EDITOR ~/.config/kitty/kitty.conf'
+alias vidiary='$EDITOR ~/doc/diary/$(date +%Y-%m-%d.txt)'
 alias srprofile='. ~/.profile'
 alias srrc='. ~/.bashrc'
 
@@ -57,4 +59,17 @@ alias n='ncmpcpp'
 alias c='clear'
 alias y='yazi'
 alias vim='nvim'
-alias sshdeb='ssh -p 2222 -i ~/.ssh/id_ed25519 levalwe@192.168.1.9'
+
+# Aliases for ssh
+alias sshrocky='ssh takeuper@192.168.122.133'
+#alias sshdeb='ssh -p 2222 -i ~/.ssh/id_ed25519 levalwe@192.168.1.9'
+
+# Aliases for systemd services
+alias enable='systemctl enable'
+alias disable='systemctl disable'
+alias start='systemctl start'
+alias stop='systemctl stop'
+alias reload='systemctl reload'
+alias restart='systemctl restart'
+alias status='systemctl status'
+
