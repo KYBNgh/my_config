@@ -15,13 +15,14 @@ set -o vi
 bind -m vi-insert "\C-l":clear-screen
 # printf '\e[5 q'
 
-# Source completion 
-[[ -f "/usr/share/bash-completion/bash_completion" ]] && . /usr/share/bash-completion/bash_completion
-[[ -f "/usr/share/git/completion/git-prompt.sh" ]] && . /usr/share/git/completion/git-prompt.sh
+
+# Git prompt sourcing had been moved to ~/.config/shell/prompt.sh
+#[[ -f "/usr/share/git/completion/git-prompt.sh" ]] && . /usr/share/git/completion/git-prompt.sh
+
+# Disabled
 # [[ -f /usr/share/doc/find-the-command/ftc.bash ]] && . /usr/share/doc/find-the-command/ftc.bash
 
-
-# Source shell config
+[[ -f "/usr/share/bash-completion/bash_completion" ]] && . /usr/share/bash-completion/bash_completion
 [[ -f ~/.config/shell/aliases.sh   ]] && . ~/.config/shell/aliases.sh
 [[ -f ~/.config/shell/functions.sh ]] && . ~/.config/shell/functions.sh
 [[ -f ~/.config/shell/prompt.sh    ]] && . ~/.config/shell/prompt.sh

@@ -9,7 +9,7 @@
 # Add lss to list size
 # Add aliases for edit, source dotfiles
 
-# Aliases for ls
+# List
 alias l='ls --color=auto'
 alias ls='ls -F --color=auto --group-directories-first'
 alias ll="ls -lh --time-style=long-iso"
@@ -21,50 +21,52 @@ alias lt="ls -lt --time-style=long-iso"
 alias lw="ls -ldh $(pwd)"
 alias lss='du -sh .[^.]* .[!.]* * 2>/dev/null | sort -hr'
 
-# Aliases for color
+# Color
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
 
-# Aliases for file
+# Files operation
 alias md='mkdir'
 alias rd='rmdir'
 alias rm='rm -I'
 alias cp='cp -i'
 alias mv='mv -i'
-alias ...='cd ../..'
 
-# Aliases for system
-alias df='df -h'
-alias free='free --si -h'
-alias du='du -h -c'
-alias syu='sudo pacman -Syu'
-alias dmesg='sudo dmesg'
-alias reboot='systemctl reboot -i'
-alias poweroff='systemctl poweroff'
-
-# Aliases for edit, source dotfiles
+# Edit/Source configs
 alias virc='$EDITOR ~/.bashrc'
-alias vialias='$EDITOR ~/.config/shell/aliases.sh'
 alias viprofile='$EDITOR ~/.profile'
+alias vialias='$EDITOR ~/.config/shell/aliases.sh'
 alias viprompt='$EDITOR ~/.config/shell/prompt.sh'
-alias visway='$EDITOR ~/.config/sway/config'
 alias vikitty='$EDITOR ~/.config/kitty/kitty.conf'
+alias visway='$EDITOR ~/.config/sway/config'
 alias vidiary='$EDITOR ~/doc/diary/$(date +%Y-%m-%d.txt)'
+
 alias srprofile='. ~/.profile'
 alias srrc='. ~/.bashrc'
 
-# Aliases for quick
-alias ff='fastfetch --logo none'
+# SSH
+alias sshfedora='ssh takeuper@192.168.122.228'
+alias sshfedora-kitty='kitty +kitten ssh takeuper@192.168.122.228'
+
+# Else
+alias ...='cd ../..'
 alias n='ncmpcpp'
 alias c='clear'
 alias y='yazi'
+alias ff='fastfetch --logo none'
 alias vim='nvim'
 
-# Aliases for ssh
-alias sshrocky='ssh takeuper@192.168.122.133'
-#alias sshdeb='ssh -p 2222 -i ~/.ssh/id_ed25519 levalwe@192.168.1.9'
+# System
+alias sudo='sudo -p "[sudo] (%u to %U) Authentication: "'
 
-# Aliases for systemd services
+alias syu='sudo pacman -Syu'
+alias df='df -h'
+alias du='du -h -c'
+alias free='free -h'
+alias lsblk='lsblk -o NAME,RM,TYPE,SIZE,MOUNTPOINTS,TRAN,MODEL'
+
+alias reboot='systemctl reboot'
+alias poweroff='systemctl poweroff'
 alias enable='systemctl enable'
 alias disable='systemctl disable'
 alias start='systemctl start'
@@ -72,4 +74,3 @@ alias stop='systemctl stop'
 alias reload='systemctl reload'
 alias restart='systemctl restart'
 alias status='systemctl status'
-
