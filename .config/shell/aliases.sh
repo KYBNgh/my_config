@@ -34,6 +34,13 @@ alias ,g='~/git'
 alias ,gm='~/git/my_config'
 alias ,pi='~/pkg/iso'
 alias ,.c='~/.config/'
+
+# Git
+alias ga='git add .'
+alias gc='git commit'
+alias gpush='git push'
+alias gpull='git pull'
+
 # Color
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'

@@ -22,8 +22,15 @@ bind -m vi-insert "\C-l":clear-screen
 # Disabled
 # [[ -f /usr/share/doc/find-the-command/ftc.bash ]] && . /usr/share/doc/find-the-command/ftc.bash
 
-[[ -f "/usr/share/bash-completion/bash_completion" ]] && . /usr/share/bash-completion/bash_completion
-[[ -f ~/.config/shell/aliases.sh   ]] && . ~/.config/shell/aliases.sh
-[[ -f ~/.config/shell/functions.sh ]] && . ~/.config/shell/functions.sh
-[[ -f ~/.config/shell/prompt.sh    ]] && . ~/.config/shell/prompt.sh
-[[ -f ~/.config/shell/functions.sh ]] && . ~/.config/shell/functions.sh
+if [ "$PREFIX" == /data/data/com.termux/files/usr ]; then
+    [[ -f "/data/data/com.termux/files/usr/share/bash-completion/bash_completion" ]] && . /data/data/com.termux/files/usr/share/bash-completion/bash_completion
+    [[ -f ~/.config/shell/aliases_termux.sh   ]] && . ~/.config/shell/aliases_termux.sh
+    [[ -f ~/.config/shell/prompt.sh           ]] && . ~/.config/shell/prompt.sh
+    [[ -f ~/.config/shell/functions_termux.sh ]] && . ~/.config/shell/functions_termux.sh
+else
+    [[ -f "/usr/share/bash-completion/bash_completion" ]] && . /usr/share/bash-completion/bash_completion
+    [[ -f ~/.config/shell/aliases.sh   ]] && . ~/.config/shell/aliases.sh
+    [[ -f ~/.config/shell/functions.sh ]] && . ~/.config/shell/functions.sh
+    [[ -f ~/.config/shell/prompt.sh    ]] && . ~/.config/shell/prompt.sh
+    [[ -f ~/.config/shell/functions.sh ]] && . ~/.config/shell/functions.sh
+fi

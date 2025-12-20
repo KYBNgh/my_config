@@ -43,7 +43,7 @@ prompt_termux(){
     PS2='\[\033[1;38;5;2m\]>>\[\033[0m\] '
 }
 
-if [ "$PREFIX" = /data/data/com.termux/files/usr ]; then
+if [ "$PREFIX" == /data/data/com.termux/files/usr ]; then
     prompt_termux
 else
     prompt_linux
