@@ -21,6 +21,19 @@ alias lt="ls -lt --time-style=long-iso"
 alias lw="ls -ldh $(pwd)"
 alias lss='du -sh .[^.]* .[!.]* * 2>/dev/null | sort -hr'
 
+# Change directory
+alias ...='cd ../..'
+alias ,da='~/data'
+alias ,D='~/dls'
+alias ,d='~/doc'
+alias ,m='~/mus'
+alias ,v='~/vid'
+alias ,V='~/vms'
+alias ,t='~/tmp'
+alias ,g='~/git'
+alias ,gm='~/git/my_config'
+alias ,pi='~/pkg/iso'
+alias ,.c='~/.config/'
 # Color
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
@@ -34,14 +47,14 @@ alias mv='mv -i'
 
 # Edit/Source configs
 alias virc='$EDITOR ~/.bashrc'
-alias viprofile='$EDITOR ~/.profile'
+alias vipf='$EDITOR ~/.profile'
 alias vialias='$EDITOR ~/.config/shell/aliases.sh'
 alias viprompt='$EDITOR ~/.config/shell/prompt.sh'
 alias vikitty='$EDITOR ~/.config/kitty/kitty.conf'
 alias visway='$EDITOR ~/.config/sway/config'
 alias vidiary='$EDITOR ~/doc/diary/$(date +%Y-%m-%d.txt)'
 
-alias srprofile='. ~/.profile'
+alias srpf='. ~/.profile'
 alias srrc='. ~/.bashrc'
 
 # SSH
@@ -49,7 +62,6 @@ alias sshfedora='ssh takeuper@192.168.122.228'
 alias sshfedora-kitty='kitty +kitten ssh takeuper@192.168.122.228'
 
 # Else
-alias ...='cd ../..'
 alias n='ncmpcpp'
 alias c='clear'
 alias y='yazi'
