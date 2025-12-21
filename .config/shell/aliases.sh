@@ -55,13 +55,13 @@ alias cp='cp -i'
 alias mv='mv -i'
 
 # Edit/Source configs
-alias virc='$EDITOR ~/.bashrc'
-alias vipf='$EDITOR ~/.profile'
-alias vialias='$EDITOR ~/.config/shell/aliases.sh'
-alias viprompt='$EDITOR ~/.config/shell/prompt.sh'
-alias vikitty='$EDITOR ~/.config/kitty/kitty.conf'
-alias visway='$EDITOR ~/.config/sway/config'
-alias vidiary='$EDITOR ~/doc/diary/$(date +%Y-%m-%d.txt)'
+alias virc='vim ~/.bashrc'
+alias vipf='vim ~/.profile'
+alias vialias='vim ~/.config/shell/aliases.sh'
+alias viprompt='vim ~/.config/shell/prompt.sh'
+alias vikitty='vim ~/.config/kitty/kitty.conf'
+alias visway='vim ~/.config/sway/config'
+alias vidiary='vim ~/doc/diary/$(date +%Y-%m-%d.txt)'
 
 alias srpf='. ~/.profile'
 alias srrc='. ~/.bashrc'
@@ -69,6 +69,8 @@ alias srrc='. ~/.bashrc'
 # SSH
 alias sshfedora='ssh takeuper@192.168.122.228'
 alias sshfedora-kitty='kitty +kitten ssh takeuper@192.168.122.228'
+alias ssharch='ssh shorin@192.168.122.3'
+alias ssharch-kitty='kitty +kitten ssh shorin@192.168.122.3'
 
 # Else
 alias n='ncmpcpp'
