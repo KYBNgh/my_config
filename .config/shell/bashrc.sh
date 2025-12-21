@@ -29,6 +29,8 @@ if [ "$PREFIX" == /data/data/com.termux/files/usr ]; then
     [[ -f ~/.config/shell/functions_termux.sh ]] && . ~/.config/shell/functions_termux.sh
 else
     [[ -f "/usr/share/bash-completion/bash_completion" ]] && . /usr/share/bash-completion/bash_completion
+    [[ -f /usr/share/fzf/key-bindings.bash ]] && . /usr/share/fzf/key-bindings.bash
+    [[ -f /usr/share/fzf/completion.bash ]] && . /usr/share/fzf/completion.bash
     [[ -f ~/.config/shell/aliases.sh   ]] && . ~/.config/shell/aliases.sh
     [[ -f ~/.config/shell/functions.sh ]] && . ~/.config/shell/functions.sh
     [[ -f ~/.config/shell/prompt.sh    ]] && . ~/.config/shell/prompt.sh

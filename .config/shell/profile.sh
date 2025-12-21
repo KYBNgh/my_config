@@ -24,6 +24,8 @@ else
     export PAGER=
 fi
 
+export LESS="-R -F -X" 
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 # Set Proxy
 #export http_proxy="http://192.168.1.8:8080"
 #export https_proxy=$http_proxy
