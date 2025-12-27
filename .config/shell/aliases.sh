@@ -67,10 +67,7 @@ alias srpf='. ~/.profile'
 alias srrc='. ~/.bashrc'
 
 # SSH
-alias sshfedora='ssh takeuper@192.168.122.228'
-alias sshfedora-kitty='kitty +kitten ssh takeuper@192.168.122.228'
-alias ssharch='ssh shorin@192.168.122.3'
-alias ssharch-kitty='kitty +kitten ssh shorin@192.168.122.3'
+alias ssharch='TERM=xterm-256color ssh levalwe@192.168.122.46'
 
 # Else
 alias n='ncmpcpp'
