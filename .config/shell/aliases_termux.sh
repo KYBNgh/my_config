@@ -28,3 +28,12 @@ alias vim='nvim'
 
 alias sshpc='ssh -p 7891 qwq@192.168.1.3'
 alias sync-doc='rsync -av --exclude="containers" arch:/home/qwq/doc/ ~/doc'
+
+bloat ()
+{
+    local toybox="/system/bin"
+    local base="/data/data/com.termux"
+    ${toybox}/mv ${base}/files ${base}/files-main
+    ${toybox}/mv ${base}/files-bloat ${base}/files
+    pkill -9 com.termux
+}
