@@ -75,7 +75,7 @@ alias c='clear'
 alias y='yazi'
 alias qwen-run='ollama run qwen3:8b'
 alias qwen-stop='ollama stop qwen3:8b'
-alias ff='fastfetch --logo none'
+alias ff='fastfetch --logo none --color blue'
 alias vim='nvim'
 
 # System
@@ -97,3 +97,8 @@ alias stop='systemctl stop'
 alias reload='systemctl reload'
 alias restart='systemctl restart'
 alias status='systemctl status'
+
+ftc(){
+    [[ -f /usr/share/doc/find-the-command/ftc.bash ]] && . /usr/share/doc/find-the-command/ftc.bash
+    $1
+}
