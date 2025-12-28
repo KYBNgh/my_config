@@ -67,7 +67,7 @@ alias srpf='. ~/.profile'
 alias srrc='. ~/.bashrc'
 
 # SSH
-alias ssharch='TERM=xterm-256color ssh levalwe@192.168.122.46'
+alias ssharch='TERM=xterm-256color ssh mmcblk@192.168.122.183'
 
 # Else
 alias n='ncmpcpp'
