@@ -26,7 +26,7 @@ alias srrc='. ~/.bashrc'
 alias c='clear'
 alias vim='nvim'
 
-alias sshpc='ssh -p 7891 qwq@192.168.1.3'
+alias sshpc='ssh arch'
 alias sync-doc='rsync -av --exclude="containers" arch:/home/qwq/doc/ ~/doc'
 
 bloat ()
