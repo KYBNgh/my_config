@@ -67,12 +67,12 @@ alias srpf='. ~/.profile'
 alias srrc='. ~/.bashrc'
 
 # SSH
-alias ssharch='TERM=xterm-256color ssh mmcblk@192.168.122.183'
+alias ssharchvm='TERM=xterm-256color ssh archvm'
+alias sshrocky='TERM=xterm-256color ssh rocky'
 
 # Else
 alias n='ncmpcpp'
 alias c='clear'
-alias y='yazi'
 alias qwen-run='ollama run qwen3:8b'
 alias qwen-stop='ollama stop qwen3:8b'
 alias ff='fastfetch --logo none --color blue'
