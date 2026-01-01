@@ -40,7 +40,7 @@ prompt_linux(){
 
 prompt_termux(){
     PS1='$(EXIT_CODE=$?; if [ $EXIT_CODE -ne 0 ]; then echo "\[\033[1;38;5;15m\]$EXIT_CODE \[\033[0m\]";fi)\[\033[38;5;15m\]\u\[\033[0m\]\[\033[38;5;15m\]\[\033[0m\]\[\033[1;38;5;4m\] \W\[\033[0m\]\[\033[1;38;5;15m\]$(__git_ps1 " %s") \$\[\033[0m\] '
-    PS2='\[\033[1;38;5;2m\]>>\[\033[0m\] '
+    PS2='\[\033[1;38;5;4m\]>>\[\033[0m\] '
 }
 
 if [ "$PREFIX" == /data/data/com.termux/files/usr ]; then
