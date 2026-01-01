@@ -9,8 +9,8 @@
 # Modifications by KYBNgh: 
 # Prompt like:
 # 130 foo@bar-host repo master *= $ 
-# Blue '@' sign and exit code in front of prompt
-# Blue '>>' in PS2
+# Blue and green '@' sign and exit code in front of prompt
+# Blue and green '>>' in PS2
 
 # Source git prompt
 [[ -f "/usr/share/git/completion/git-prompt.sh" ]] && . /usr/share/git/completion/git-prompt.sh
