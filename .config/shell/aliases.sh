@@ -61,7 +61,7 @@ alias vialias='vim ~/.config/shell/aliases.sh'
 alias viprompt='vim ~/.config/shell/prompt.sh'
 alias vikitty='vim ~/.config/kitty/kitty.conf'
 alias visway='vim ~/.config/sway/config'
-alias vidiary='vim ~/doc/diary/$(date +%Y-%m-%d.txt)'
+alias vidiary='vim ~/doc/personal/diary/$(date +%Y-%m-%d.txt)'
 
 alias srpf='. ~/.profile'
 alias srrc='. ~/.bashrc'
