@@ -81,6 +81,7 @@ alias vim='nvim'
 # System
 alias sudo='sudo -p "[sudo] (%u to %U) Authentication: "'
 
+alias pm='sudo pacman'
 alias syu='sudo pacman -Syu'
 alias df='df -h'
 alias du='du -h -c'
