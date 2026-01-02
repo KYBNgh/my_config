@@ -7,20 +7,15 @@ shopt -s histappend
 shopt -s checkwinsize
 shopt -s autocd
 shopt -s globstar
+
+HISTFILE="$XDG_DATA_HOME/bash/bash_history"
 HISTCONTROL=ignoreboth
-HISTSIZE=5000
-HISTFILESIZE=10000
+HISTSIZE=50000
+HISTFILESIZE=100000
+HISTIGNORE="cd:ls:ll:la:pwd:exit:clear:history:bg:fg"
 
 set -o vi
 bind -m vi-insert "\C-l":clear-screen
-# printf '\e[5 q'
-
-
-# Git prompt sourcing had been moved to ~/.config/shell/prompt.sh
-#[[ -f "/usr/share/git/completion/git-prompt.sh" ]] && . /usr/share/git/completion/git-prompt.sh
-
-# Disabled
-# [[ -f /usr/share/doc/find-the-command/ftc.bash ]] && . /usr/share/doc/find-the-command/ftc.bash
 
 if [ "$PREFIX" == /data/data/com.termux/files/usr ]; then
     [[ -f "/data/data/com.termux/files/usr/share/bash-completion/bash_completion" ]] && . /data/data/com.termux/files/usr/share/bash-completion/bash_completion

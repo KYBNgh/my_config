@@ -9,7 +9,12 @@ export PATH="${HOME}/.local/bin:$PATH"
 
 if [ "$PREFIX" == /data/data/com.termux/files/usr ]; then
     export PATH="${PATH}:/system/bin"
+else
+    export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+    export LESSHISTFILE="$XDG_DATA_HOME/less/less_history"
 fi
+
+
 # Set EDITOR: prefer nvim > vim > (empty)
 if command -v nvim >/dev/null 2>&1; then
     export EDITOR=nvim

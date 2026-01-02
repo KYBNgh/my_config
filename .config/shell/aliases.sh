@@ -53,6 +53,7 @@ alias rd='rmdir'
 alias rm='rm -I'
 alias cp='cp -i'
 alias mv='mv -i'
+alias ul='unlink'
 
 # Edit/Source configs
 alias virc='vim ~/.bashrc'
