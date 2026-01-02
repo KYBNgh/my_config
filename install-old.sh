@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Setup config
-set -e
+set -euo pipefail
 repo_dir="$(cd "$(dirname "${BASE_SOURCE[0]}")" && pwd )"
 
 # Functions

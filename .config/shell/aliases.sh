@@ -87,7 +87,6 @@ alias syu='sudo pacman -Syu'
 alias df='df -h'
 alias du='du -h -c'
 alias free='free -h'
-alias lsblk='lsblk -o NAME,RM,TYPE,SIZE,MOUNTPOINTS,TRAN,MODEL'
 alias dmesg='sudo dmesg'
 
 alias reboot='systemctl reboot'
