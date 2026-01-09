@@ -103,3 +103,27 @@ ftc(){
     [[ -f /usr/share/doc/find-the-command/ftc.bash ]] && . /usr/share/doc/find-the-command/ftc.bash
     $1
 }
+
+debian(){
+    local _CON_TERM="xterm-256color"
+    local _CON_MAIN_DIR="${HOME}/vms/containers"
+    local _CON_SYS="debian-sid"
+    local _CON_USER="mmc0"
+    local _CON_HOST="localhost"
+
+#   echo "Terminal   :${_CON_TERM}"
+    echo "Systemd-nspawn Container Manager"
+    echo ""
+    echo "Sys : ${_CON_SYS}"
+    echo "User: ${_CON_USER}"
+    echo "Host: ${_CON_HOST}"
+
+    echo "Request sudo promission..."
+    sudo systemd-nspawn\
+        --background=\
+        --setenv=TERM="${_CON_TERM}"\
+        --hostname ${_CON_HOST}\
+        --user=${_CON_USER}\
+        --directory ${_CON_MAIN_DIR}/${_CON_SYS}/
+
+}

@@ -20,8 +20,6 @@ if command -v nvim >/dev/null 2>&1; then
     export EDITOR=nvim
 elif command -v vim >/dev/null 2>&1; then
     export EDITOR=vim
-else
-    export EDITOR=
 fi
 
 # Set PAGER: prefer bat > less > (empty)
@@ -29,12 +27,14 @@ if command -v bat >/dev/null 2>&1; then
     export PAGER=bat
 elif command -v less >/dev/null 2>&1; then
     export PAGER=less
-else
-    export PAGER=
 fi
 
 export LESS="-R -F -X" 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export BROWSER="zen"
+
+
+
 # Set Proxy
 #export http_proxy="http://192.168.1.8:8080"
 #export https_proxy=$http_proxy
