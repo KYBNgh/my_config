@@ -27,7 +27,7 @@ alias c='clear'
 alias vim='nvim'
 
 alias sshpc='ssh arch'
-alias sync-doc='rsync -av --exclude="containers" arch:/home/qwq/doc/ ~/doc'
+alias sync-doc='rsync -av --exclude="containers" arch:/home/mmc0/doc/ ~/doc'
 
 bloat ()
 {
