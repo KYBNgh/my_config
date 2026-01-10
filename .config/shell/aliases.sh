@@ -127,3 +127,17 @@ debian(){
         --directory ${_CON_MAIN_DIR}/${_CON_SYS}/
 
 }
+
+cleanup(){
+    echo "Doing clean..."
+
+    echo "Removing pacman package cache..."
+    echo "Request sudo promission..."
+    yes | sudo pacman -Scc
+    
+    echo "Removing ~/.cache ..."
+    rm -rvf ~/.cache
+    mkdir -p ~/.cache/mpd
+    
+    echo "Completed!"
+}
