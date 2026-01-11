@@ -1,7 +1,11 @@
 # ~/.config/shell/bashrc.sh
 # By KYBNgh
 # If not running interactively, don't do anything                                                    
-[[ $- != *i* ]] && return     
+
+case $- in # check shell options
+    *i*) ;; # interactive shell
+      *) return;; # don't do anything
+esac
 
 shopt -s histappend
 shopt -s checkwinsize
