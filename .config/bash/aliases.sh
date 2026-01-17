@@ -1,3 +1,14 @@
+# ~/.config/bash/aliases.sh 
+# General aliases
+#
+# Original copyright notice:
+# @author nate zhou
+# @since 2023,2024,2025
+# general aliases for bash/zsh
+#
+# Modifications by @KYBNgh
+
+# List
 alias l='ls --color=auto'
 alias ls='ls -F --color=auto --group-directories-first'
 alias ll="ls -lh --time-style=long-iso"
@@ -9,40 +20,37 @@ alias lt="ls -lt --time-style=long-iso"
 alias lw="ls -ldh $(pwd)"
 alias lss='du -sh .[^.]* .[!.]* * 2>/dev/null | sort -hr'
 
-alias grep='grep --color=auto'
+# Change directory
+alias ...='cd ../..'
 
+# Git
+alias ga='git add .'
+alias gc='git commit'
+alias gpush='git push'
+alias gpull='git pull'
+
+# Color
+alias grep='grep --color=auto'
+alias ip='ip -color=auto'
+
+# Files operation
 alias md='mkdir'
 alias rd='rmdir'
 alias rm='rm -I'
 alias cp='cp -i'
 alias mv='mv -i'
+alias ul='unlink'
 
+# Source configs
 alias virc='vim ~/.bashrc'
 alias vipf='vim ~/.profile'
-alias vialias='vim ~/.config/shell/aliases_termux.sh'
 alias srpf='. ~/.profile'
 alias srrc='. ~/.bashrc'
 
+# Else
 alias c='clear'
-alias vim='nvim'
+alias ff='fastfetch --logo none --color blue'
 
-alias sshpc='ssh arch'
-alias sync-doc='rsync -av --exclude="containers" arch:/home/mmc0/doc/ ~/doc'
-
-dev()
-{
-    local toybox="/system/bin"
-    local base="/data/data/com.termux"
-    ${toybox}/mv ${base}/files ${base}/files-main
-    ${toybox}/mv ${base}/files-dev ${base}/files
-    pkill -9 com.termux
-}
-
-tmoe()
-{
-    local toybox="/system/bin"
-    local base="/data/data/com.termux"
-    ${toybox}/mv ${base}/files ${base}/files-main
-    ${toybox}/mv ${base}/files-tmoe ${base}/files
-    pkill -9 com.termux
-}
+alias df='df -h'
+alias du='du -h -c'
+alias free='free -h'
