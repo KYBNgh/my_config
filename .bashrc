@@ -37,5 +37,6 @@ else
     [[ -f "/usr/share/bash-completion/bash_completion" ]] && . /usr/share/bash-completion/bash_completion
     [[ -f "/usr/share/fzf/key-bindings.bash" ]] && . /usr/share/fzf/key-bindings.bash
     [[ -f "/usr/share/fzf/completion.bash"   ]] && . /usr/share/fzf/completion.bash
+    [[ -f ${HOME}/.config/bash/${HOSTNAME}/aliases.sh    ]] && . ${HOME}/.config/bash/${HOSTNAME}/aliases.sh
     [[ -f ${HOME}/.config/bash/${HOSTNAME}/prompt.sh    ]] && . ${HOME}/.config/bash/${HOSTNAME}/prompt.sh
 fi
