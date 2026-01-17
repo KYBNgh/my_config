@@ -29,7 +29,7 @@ BASH_CONFIG="${HOME}/.config/bash"
 
 [[ -f "${BASH_CONFIG}/aliases.sh" ]] && . ${BASH_CONFIG}/aliases.sh
 
-if [ "$PREFIX" == /data/data/com.termux/files/usr ]; then
+if [ "$PREFIX" = /data/data/com.termux/files/usr ]; then
     [[ -f "${PREFIX}/share/bash-completion/bash_completion" ]] && . /data/data/com.termux/files/usr/share/bash-completion/bash_completion
     [[ -f "${BASH_CONFIG}/termux/aliases.sh" ]] && . ${BASH_CONFIG}/termux/aliases.sh
     [[ -f "${BASH_CONFIG}/termux/prompt.sh"  ]] && . ${BASH_CONFIG}/termux/prompt.sh
