@@ -21,6 +21,10 @@ HISTIGNORE="cd:ls:ll:la:pwd:exit:clear:history:bg:fg"
 set -o vi
 bind -m vi-insert "\C-l":clear-screen
 
+if [ "$TERM" == "foot" ]; then
+    export TERM=xterm-256color
+fi
+
 if [ "$PREFIX" == /data/data/com.termux/files/usr ]; then
     [[ -f "/data/data/com.termux/files/usr/share/bash-completion/bash_completion" ]] && . /data/data/com.termux/files/usr/share/bash-completion/bash_completion
     [[ -f ~/.config/shell/aliases_termux.sh   ]] && . ~/.config/shell/aliases_termux.sh

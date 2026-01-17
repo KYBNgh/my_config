@@ -7,6 +7,7 @@ fi
 # Set PATH
 export PATH="${HOME}/.local/bin:$PATH"
 
+
 if [ "$PREFIX" == /data/data/com.termux/files/usr ]; then
     export PATH="${PATH}:/system/bin"
 else

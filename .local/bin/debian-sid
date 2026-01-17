@@ -1,0 +1,24 @@
+#!/usr/bin/bash
+# @KYBNgh
+# ~/./bin/debian
+CON_TERM="xterm-256color"
+CON_MAIN_DIR="/home/mmc0/vms/containers"
+CON_SYS="debian-sid"
+CON_USER="mmc0"
+CON_HOST="localhost"
+
+echo "Systemd-nspawn Container Manager"
+echo ""
+echo "Sys : ${CON_SYS}"
+echo "User: ${CON_USER}"
+echo "Host: ${CON_HOST}"
+echo "Terminal   :${CON_TERM}"
+
+echo "Request sudo promission..."
+
+sudo systemd-nspawn\
+    --background=\
+    --setenv=TERM="${CON_TERM}"\
+    --hostname ${CON_HOST}\
+    --user=${CON_USER}\
+    --directory ${CON_MAIN_DIR}/${CON_SYS}/
