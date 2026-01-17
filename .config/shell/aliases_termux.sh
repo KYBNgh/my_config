@@ -29,11 +29,20 @@ alias vim='nvim'
 alias sshpc='ssh arch'
 alias sync-doc='rsync -av --exclude="containers" arch:/home/mmc0/doc/ ~/doc'
 
-bloat ()
+dev()
 {
     local toybox="/system/bin"
     local base="/data/data/com.termux"
     ${toybox}/mv ${base}/files ${base}/files-main
-    ${toybox}/mv ${base}/files-bloat ${base}/files
+    ${toybox}/mv ${base}/files-dev ${base}/files
+    pkill -9 com.termux
+}
+
+tmoe()
+{
+    local toybox="/system/bin"
+    local base="/data/data/com.termux"
+    ${toybox}/mv ${base}/files ${base}/files-main
+    ${toybox}/mv ${base}/files-tmoe ${base}/files
     pkill -9 com.termux
 }
