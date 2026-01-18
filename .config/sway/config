@@ -213,8 +213,10 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
     bindsym Print exec grim
-    
+   
+    bindsym $mod+Alt+l exec swaylock
     exec "fcitx5 -d"
+    exec "mako &"
     exec_always pkill -9 swaybg || true && swaybg -i ${HOME}/.local/share/swaypaper
     exec_always pkill -9 waybar || true && waybar 
     
