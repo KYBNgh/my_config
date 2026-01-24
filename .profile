@@ -37,11 +37,11 @@ export XDG_CONFIG_HOME="${HOME}/.config"
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 export LESS="-R -F -X" 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export BROWSER="zen"
+export BROWSER="firefox"
 
 # Start sway session in tty
 if [ -z "$WAYLAND_DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] ; then
-    exec sway
+   sway
 fi
 # Set Proxy
 #export http_proxy="http://192.168.1.8:8080"
