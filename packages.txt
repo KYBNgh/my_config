@@ -9,12 +9,14 @@ base
 base-devel
 bash-completion
 bat
+bc
 bridge-utils
 btop
 debootstrap
 dhcpcd
 dictd
 dnsmasq
+dosfstools
 edk2-shell
 efibootmgr
 exfatprogs
@@ -26,8 +28,7 @@ fcitx5-configtool
 fcitx5-gtk
 fcitx5-qt
 find-the-command
-firejail
-flatpak
+firefox
 foot
 fuzzel
 fzf
@@ -52,6 +53,7 @@ motrix-electron
 mpc
 mpd
 mpv
+ncdu
 ncmpcpp
 neovim
 networkmanager
@@ -67,7 +69,6 @@ paru
 pavucontrol
 pipewire-alsa
 pipewire-pulse
-plymouth
 qemu-audio-pipewire
 qemu-audio-spice
 qemu-base
@@ -80,6 +81,7 @@ qemu-tools
 qemu-ui-dbus
 qemu-ui-gtk
 qemu-ui-spice-app
+ranger
 rsync
 smartmontools
 spice
@@ -102,10 +104,7 @@ vulkan-intel
 waybar
 wf-recorder
 wl-clipboard
-wofi
 xdg-user-dirs
 xwayland-satellite
-yazi
 yt-dlp
-zen-browser
 zram-generator
