@@ -36,8 +36,9 @@ fi
 export XDG_CONFIG_HOME="${HOME}/.config"
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 export LESS="-R -F -X" 
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export BROWSER="firefox"
+
+[ -x /usr/bin/bat ] && export MANROFFOPT="-c" && export MANPAGER="sh -c 'col -bx | bat --pager \"less -XR\" -l man -p'"
 
 # Start sway session in tty
 if [ -z "$WAYLAND_DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] ; then

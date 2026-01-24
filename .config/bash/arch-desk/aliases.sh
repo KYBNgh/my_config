@@ -4,7 +4,7 @@
 # Original copyright notice:
 # @author nate zhou
 # @since 2023,2024,2025
-# general aliases for bash/zsh
+# aliases for bash for arch-desk machine
 #
 # Modifications by @KYBNgh
 
@@ -23,14 +23,6 @@ alias ,pi='~/pkg/iso'
 alias ,.c='~/.config/'
 alias ,img='/var/lib/libvirt/images/'
 
-# Files operation
-alias md='mkdir'
-alias rd='rmdir'
-alias rm='rm -I'
-alias cp='cp -i'
-alias mv='mv -i'
-alias ul='unlink'
-
 # Edit/Source configs
 alias vialias='vim ${BASH_CONFIG}/arch-desk/aliases.sh'
 alias viprompt='vim ${BASH_CONFIG}/arch-desk/prompt.sh'
@@ -41,7 +33,6 @@ alias vidiary='vim ~/doc/personal/diary/$(date +%Y-%m-%d.txt)'
 alias n='ncmpcpp'
 alias qwen-run='ollama run qwen3:8b'
 alias qwen-stop='ollama stop qwen3:8b'
-alias vim='nvim'
 
 # System
 alias sudo='sudo -p "[sudo] (%u to %U) Authentication: "'

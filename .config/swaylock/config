@@ -1,34 +1,30 @@
-# @author nate zhou
-# @since 2023,2024,2025
+# Visual effect
+image="${HOME}/.local/share/lockpaper"
+font=SourceCodePro
+font-size=18
 
-ignore-empty-password
+indicator-radius=70 
+indicator-thickness=10
 show-failed-attempts
-daemonize
 
-image="$HOME/.local/share/lockscreen"
-scaling=fill
 indicator-caps-lock
 
-indicator-radius=65
-indicator-thickness=10
-font=SourceCodePro
-font-size=20
-
-ring-color=427b58
+# Colors
+ring-color=4297fd
 key-hl-color=111111
 bs-hl-color=bbccddcc
 
-ring-clear-color=427b58
+ring-clear-color=4297fd
 inside-clear-color=bbccddcc
-text-clear-color=111111
+text-clear-color=1c1e24
 
-ring-wrong-color=427b58
+ring-wrong-color=4297fd
 inside-wrong-color=bbccddcc
-text-wrong-color=111111
+text-wrong-color=1c1e24
 
-ring-ver-color=427b58
+ring-ver-color=4297fd
 inside-ver-color=bbccddcc
-text-ver-color=111111
+text-ver-color=1c1e24
 
 ring-caps-lock-color=427b58
 inside-caps-lock-color=bbccddcc
