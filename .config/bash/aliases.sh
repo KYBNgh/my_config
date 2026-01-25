@@ -26,6 +26,7 @@ alias ...='cd ../..'
 # Git
 alias ga='git add .'
 alias gc='git commit'
+alias gd='git diff' 
 alias gpush='git push'
 alias gpull='git pull'
 

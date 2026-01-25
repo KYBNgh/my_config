@@ -10,18 +10,16 @@
 
 # Change directory
 alias ,da='~/data'
-alias ,D='~/dls'
-alias ,d='~/doc'
+alias ,d='~/dls'
+alias ,D='~/doc'
 alias ,m='~/mus'
-alias ,v='~/vid'
-alias ,V='~/vms'
+alias ,V='~/vid'
+alias ,v='~/vms'
 alias ,t='~/tmp'
 alias ,g='~/git'
-alias ,gm='~/git/my_config'
-alias ,gt='~/git/tmp'
-alias ,pi='~/pkg/iso'
+alias ,gc='~/git/my_config'
+alias ,gl='~/git/my_linux'
 alias ,.c='~/.config/'
-alias ,img='/var/lib/libvirt/images/'
 
 # Edit/Source configs
 alias vialias='vim ${BASH_CONFIG}/arch-desk/aliases.sh'
