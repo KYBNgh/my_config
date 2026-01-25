@@ -1,8 +1,9 @@
 \.git
 \.gitignore
-\.gitmodules
 
 ^/README.*
 ^/LICENSE.*
 
 packages.txt
+boot
+install.sh
