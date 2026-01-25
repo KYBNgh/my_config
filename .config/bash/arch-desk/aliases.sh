@@ -29,6 +29,8 @@ alias vidiary='vim ~/doc/personal/diary/$(date +%Y-%m-%d.txt)'
 
 # Else
 alias n='ncmpcpp'
+alias r='ranger'
+alias wsk="wshowkeys -a bottom -F 'SourceCodePro 30' -l 60 &"
 alias qwen-run='ollama run qwen3:8b'
 alias qwen-stop='ollama stop qwen3:8b'
 

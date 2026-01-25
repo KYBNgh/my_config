@@ -2,11 +2,6 @@
 # @KYBNgh
 # Source ~/.bashrc
 
-if [ -f ~/.bashrc ]; then
-     . ~/.bashrc
-fi
-
-
 # Set PATH
 export PATH="${HOME}/.local/bin:$PATH"
 
@@ -39,6 +34,10 @@ export LESS="-R -F -X"
 export BROWSER="firefox"
 
 [ -x /usr/bin/bat ] && export MANROFFOPT="-c" && export MANPAGER="sh -c 'col -bx | bat --pager \"less -XR\" -l man -p'"
+
+if [ -f ~/.bashrc ]; then
+     . ~/.bashrc
+fi
 
 # Start sway session in tty
 if [ -z "$WAYLAND_DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] ; then
