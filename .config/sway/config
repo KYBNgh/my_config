@@ -216,10 +216,15 @@ bindsym $mod+r mode "resize"
    
     bindsym $mod+Alt+l exec swaylock
     exec "fcitx5 -d"
-    exec "mako &"
+    exec "dunst -d"
     exec_always pkill -9 swaybg || true && swaybg -i ${HOME}/.local/share/swaypaper
-    exec_always pkill -9 waybar || true && waybar
-    
+    exec_always autotiling
+
+bar {
+    position top
+    swaybar_command waybar
+}
+
 #
 # Status Bar:
 #
