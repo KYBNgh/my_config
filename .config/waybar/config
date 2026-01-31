@@ -5,6 +5,9 @@
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
     "modules-right": [
+        "custom/network-mib",
+        "cpu",
+        "memory",
         "network",
         "pulseaudio",
         "clock"
@@ -25,12 +28,34 @@
         "max-length": 80
     },
 
+ "cpu": {
+        "format": " {usage}% ",
+        "interval": 1,
+        "max-length": 10
+    },
+
+    "memory": {
+        "format": " {used:0.1f}/{total:0.1f}GiB",
+        "interval": 2,
+        "max-length": 15
+    },
+
     "network": {
+        "format": " {bandwidthDownBytes}/s ↓↑ {bandwidthUpBytes}/s",
         "format-wifi": " {essid}",
         "format-ethernet": "󰈀 {ipaddr}",
         "format-disconnected": "󰅛 Disconnected",
-        "tooltip-format": "{ifname}: {ipaddr} / {netmask}"
+        "tooltip-format": "{ifname}: {ipaddr} / {netmask}",
+        "interval": 1,
+        "max-length": 25,
+        "on-click": "nm-connection-editor"
     },
+
+    "custom/network-mib": {
+    "exec": "${XDG_CONFIG_HOME}/waybar/scripts/waybar-net-mib.sh",
+    "interval": 1,
+    "return-type": "json"
+},
 
     "pulseaudio": {
         "format": "{icon} {volume}%",
