@@ -218,7 +218,7 @@ bindsym $mod+r mode "resize"
     exec "fcitx5 -d"
     exec "mako &"
     exec_always pkill -9 swaybg || true && swaybg -i ${HOME}/.local/share/swaypaper
-    exec_always pkill -9 waybar || true && waybar 
+    exec_always pkill -9 waybar || true && waybar
     
 #
 # Status Bar:

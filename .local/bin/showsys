@@ -1,0 +1,109 @@
+#!/bin/sh
+# watchboard - POSIX system info (Linux & Android compatible)
+
+# --- Colors ---
+white_bold=$(tput bold 2>/dev/null; tput setaf 7 2>/dev/null)
+reset=$(tput sgr0 2>/dev/null)
+[ -z "$white_bold" ] && white_bold=""
+[ -z "$reset" ] && reset=""
+
+# --- Detect OS ---
+get_os_name() {
+    # Try standard os-release first
+    for f in /etc/os-release /usr/lib/os-release; do
+        if [ -r "$f" ]; then
+            awk -F '=' '
+                $1 == "PRETTY_NAME" {
+                    gsub(/^"|"$/, "", $2)
+                    print $2
+                    exit
+                }
+            ' "$f" && return
+        fi
+    done
+
+    # Detect Android
+    if [ -d /system/app ] && [ -f /system/build.prop ]; then
+        # Optional: extract Android version
+        ver=$(awk -F '=' '/^ro.build.version.release=/ {print $2; exit}' /system/build.prop 2>/dev/null)
+        if [ -n "$ver" ]; then
+            echo "Android $ver"
+        else
+            echo "Android"
+        fi
+        return
+    fi
+
+    echo "Unknown OS"
+}
+
+# --- Shell detection ---
+detect_shell() {
+    if [ -n "${SHELL}" ]; then
+        printf '%s\n' "${SHELL##*/}"
+        return
+    fi
+    # Fallback: try to get current interpreter name
+    ps_out=$(ps -p $$ 2>/dev/null)
+    case "$ps_out" in
+        *sh*|*ksh*|*bash*|*zsh*)
+            echo "$ps_out" | awk 'NR>1 {print $NF; exit}' | xargs basename 2>/dev/null || echo "sh"
+            ;;
+        *)
+            echo "sh"
+            ;;
+    esac
+}
+
+# --- Basic Info ---
+os_name=$(get_os_name)
+kernel=$(uname -r 2>/dev/null || echo "unknown")
+hostname=$(uname -n 2>/dev/null || echo "localhost")
+user=$(id -un 2>/dev/null || echo "unknown")
+shell=$(detect_shell)
+term=${TERM:-unknown}
+
+# --- Output Header ---
+printf "%sOS:%s      %s\n" "$white_bold" "$reset" "$os_name"
+printf "%sKernel:%s  %s\n" "$white_bold" "$reset" "$kernel"
+printf "%sHost:%s    %s\n" "$white_bold" "$reset" "$hostname"
+printf "%sUser:%s    %s\n" "$white_bold" "$reset" "$user"
+printf "%sShell:%s   %s\n" "$white_bold" "$reset" "$shell"
+printf "%sTerm:%s    %s\n" "$white_bold" "$reset" "$term"
+printf "\n"
+
+# --- Memory & Swap (in GB, 1 decimal) ---
+if [ -r /proc/meminfo ]; then
+    printf "%sMemory:%s\n" "$white_bold" "$reset"
+    awk '
+    /^MemTotal:/ { total = $2 }
+    /^MemAvailable:/ { avail = $2 }
+    /^SwapTotal:/ { swapt = $2 }
+    /^SwapFree:/ { swapf = $2 }
+    END {
+        used_mem = (total - avail) / (1024*1024)
+        total_mem = total / (1024*1024)
+        printf "  Used: %.1fG / %.1fG\n", used_mem, total_mem
+
+        if (swapt > 0) {
+            used_swap = (swapt - swapf) / (1024*1024)
+            total_swap = swapt / (1024*1024)
+            printf "  Swap: %.1fG / %.1fG\n", used_swap, total_swap
+        } else {
+            printf "  Swap: none\n"
+        }
+    }' /proc/meminfo
+else
+    printf "%sMemory:%s [unavailable]\n" "$white_bold" "$reset"
+fi
+
+printf "\n"
+
+# --- Disk Usage ---
+printf "%sDisk:%s\n" "$white_bold" "$reset"
+df -h 2>/dev/null | awk '
+NR == 1 { next }
+$6 ~ /^\/(home|data)?$/ {
+    gsub(/%/,"",$5)
+    printf "  %-6s %sB / %sB (%s%%)\n", $6, $3, $2, $5
+}'
