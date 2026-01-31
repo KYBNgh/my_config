@@ -1,0 +1,52 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["sway/window"],
+    "modules-right": [
+        "network",
+        "pulseaudio",
+        "clock"
+    ],
+
+    "sway/workspaces": {
+        "format": "{icon}",
+        "on-scroll-up": "swaymsg workspace next",
+        "on-scroll-down": "swaymsg workspace prev"
+    },
+
+    "sway/mode": {
+        "format": "MODE: {}",
+        "max-length": 20
+    },
+
+    "sway/window": {
+        "max-length": 80
+    },
+
+    "network": {
+        "format-wifi": " {essid}",
+        "format-ethernet": "󰈀 {ipaddr}",
+        "format-disconnected": "󰅛 Disconnected",
+        "tooltip-format": "{ifname}: {ipaddr} / {netmask}"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 {volume}%",
+        "format-icons": {
+            "headphone": "",
+            "default": ["", "", ""]
+        },
+        "scroll-step": 5,
+        "on-click-right": "pavucontrol"
+    },
+
+    "clock": {
+        "format": " {:%H:%M:%S}",
+        "tooltip-format": "<big>{:%Y-%m-%d}</big>\n{:%A}",
+        "interval": 1
+    }
+}
+
