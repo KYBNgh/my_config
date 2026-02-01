@@ -26,7 +26,7 @@ case $YN in
         ln -v -s ${HOME}/.config/readline/inputrc ${HOME}/.inputrc
         else
         info "Removing termux links"
-        unlink -v ~/.termux
+        unlink ~/.termux
         
         fi
         ;;
