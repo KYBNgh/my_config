@@ -40,7 +40,7 @@ fi
 
 # Start sway session in tty
 if [ -z "$WAYLAND_DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] ; then
-   sway
+   exec sway
 fi
 # Set Proxy
 #export http_proxy="http://192.168.1.8:8080"
