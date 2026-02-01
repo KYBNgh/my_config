@@ -10,7 +10,7 @@
         "memory",
         "network",
         "pulseaudio",
-        "clock"
+        "custom/clock"
     ],
 
     "sway/workspaces": {
@@ -24,9 +24,11 @@
         "max-length": 20
     },
 
-    "sway/window": {
-        "max-length": 80
-    },
+   "sway/window": {
+    "max-length": 50,
+    "min-length": 10,
+    "ellipsis": true
+},
 
  "cpu": {
         "format": " {usage}% ",
@@ -47,13 +49,14 @@
         "format-disconnected": "󰅛 Disconnected",
         "tooltip-format": "{ifname}: {ipaddr} / {netmask}",
         "interval": 1,
-        "max-length": 25,
+        "max-length": 20,
         "on-click": "nm-connection-editor"
     },
 
     "custom/network-mib": {
     "exec": "${XDG_CONFIG_HOME}/waybar/scripts/waybar-net-mib.sh",
     "interval": 1,
+    "max-length": 18,
     "return-type": "json"
 },
 
@@ -68,10 +71,9 @@
         "on-click-right": "pavucontrol"
     },
 
-    "clock": {
-        "format": " {:%H:%M:%S}",
-        "tooltip-format": "<big>{:%Y-%m-%d}</big>\n{:%A}",
-        "interval": 1
+     "custom/clock": {
+        "exec": "${XDG_CONFIG_HOME}/waybar/scripts/clock.sh",
+        "return-type": "json"
     }
 }
 

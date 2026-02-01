@@ -1,4 +1,3 @@
-/* === 全局重置（保持你的极简风格） === */
 * {
     border: none;
     border-radius: 0;
@@ -13,7 +12,6 @@ window#waybar {
     padding: 0;
 }
 
-/* === 左侧：工作区 === */
 #workspaces {
     margin: 0 4px;
 }
@@ -27,37 +25,33 @@ window#waybar {
 
 #workspaces button.focused {
     color: #ffffff;
-    border-bottom: 2px solid #008df8;  /* your blue! */
+    border-bottom: 2px solid #008df8;  /*blue! */
 }
 
 #workspaces button.urgent {
-    color: #ff000f;       /* your red */
+    color: #ff000f;       /*red */
     border-bottom: 2px solid #ff000f;
 }
 
-/* === 中部：窗口标题 === */
 #window {
     padding: 0 10px;
     margin: 0 4px;
-    /* 保持透明，聚焦内容 */
     background: transparent;
 }
 
-/* === 右侧：所有监控模块统一样式 === */
 #cpu,
 #memory,
 #custom-network-mib,
 #network,
 #pulseaudio,
-#clock {
+#custom-clock {
     padding: 0 10px;
     margin: 0 4px;
     background: #2a2a2a;   /* slightly lighter than bg */
     border-radius: 4px;
-    transition: background 0.2s ease; /* 平滑悬停过渡 */
+    transition: background 0.2s ease;
 }
 
-/* 悬停高亮效果 */
 #cpu:hover,
 #memory:hover,
 #custom-network-mib:hover,
@@ -67,11 +61,21 @@ window#waybar {
     background: #333333;
 }
 
-/* === 模式指示器（保持原样） === */
 #mode {
     background: #008df8;
     color: #232323;
     padding: 0 8px;
     margin-left: 6px;
     font-weight: bold;
+}
+
+tooltip {
+    background: #2a2a2a;
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-family: "Source Code Pro", monospace;
+    font-size: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 4px;
 }
