@@ -26,7 +26,7 @@ NEW_DIRS='git doc '
 
 # Upgrade
 termux-setup-storage
-sed -i 's@packages.termux.org@mirrors.ustc.edu.cn/termux@' $PREFIX/etc/apt/sources.list
+echo 'deb https://mirrors.ustc.edu.cn/termux/termux-main stable main' > $PREFIX/usr/etc/apt/sources.list
 apt update
 
 # Forcing upgrade, answer 'y'
