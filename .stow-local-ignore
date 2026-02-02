@@ -4,6 +4,8 @@
 ^/README.*
 ^/LICENSE.*
 
-packages.txt
-boot/*
 install.sh
+packages.txt
+
+boot/
+root/

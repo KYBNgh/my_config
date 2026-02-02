@@ -14,12 +14,12 @@ else
 fi
 
 info "PWD: `pwd`"
-echo -n "Do you want to continue? (y/n)"
-read -n 1 YN
+info "If you want to undo, type 'stow -D -t ~ .'"
+read -p "Do you want to continue? (y/n) " -n 1 YN
 case $YN in
     [Yy])
-        info "Running command: stow -t . ~"
-        stow -t . ~
+        info "Running command: stow -t ~ . --adopt"
+        stow -t ~ . --adopt
 
         if [ "${IS_TERMUX}" = "true" ]; then
         info "Creating symlink for inputrc"
@@ -27,7 +27,6 @@ case $YN in
         else
         info "Removing termux links"
         unlink ~/.termux
-        
         fi
         ;;
     * )
