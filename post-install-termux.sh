@@ -80,7 +80,9 @@ do
 done
 
 # Clone repo
-DOTFILES_URL='https://github.com/KYBNgh/my_config.git'
-git clone ${DOTFILES_URL} ~/git
-cd ~/git/my_config/
+# DOTFILES_URL='https://github.com/KYBNgh/my_config.git'
+# git clone ${DOTFILES_URL} ~/git
+
+DOTFILES_DIR="$HOME/git/my_config/"
+cd $DOTFILES_DIR
 ./install.sh
