@@ -43,7 +43,7 @@ if [ -z "$WAYLAND_DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] ; th
    exec sway
 fi
 # Set Proxy
-#export http_proxy="http://192.168.1.8:8080"
+#export http_proxy="http://192.168.31.20:8080"
 #export https_proxy=$http_proxy
-#export ftp_proxy="http://192.168.1.8:8080"
+#export ftp_proxy="http://192.168.31.20:8080"
 #export no_proxy="localhost,127.0.0.1,.local"
