@@ -33,7 +33,7 @@ apt update
 yes | apt  upgrade 
 
 # Change back source list which change by foring upgrade
-sed -i 's@packages.termux.org@mirrors.ustc.edu.cn/termux@' $PREFIX/etc/apt/sources.list
+echo 'deb https://mirrors.ustc.edu.cn/termux/termux-main stable main' > $PREFIX/etc/apt/sources.list
 
 # Remove packages
 apt purge -y ${PURGE_PKG}
