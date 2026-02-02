@@ -22,9 +22,7 @@ cd ~/git
 
 git clone https://github.com/KYBNgh/my_config.git ~/git/
 ```
-3. Create symlinks
+3. Running post-install script 
 ```sh
-# There is a script available!
-# You just need run it!
 ./install.sh
 ```
