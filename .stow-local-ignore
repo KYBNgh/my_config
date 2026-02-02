@@ -4,6 +4,7 @@
 ^/README.*
 ^/LICENSE.*
 
+post-install*
 install.sh
 packages.txt
 
