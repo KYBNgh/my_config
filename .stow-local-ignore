@@ -4,7 +4,8 @@
 ^/README.*
 ^/LICENSE.*
 
-post-install*
+post-install-arch.sh
+post-install-termux.sh
 install.sh
 packages.txt
 
