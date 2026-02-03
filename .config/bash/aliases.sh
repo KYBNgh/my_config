@@ -40,7 +40,10 @@ alias rd='rmdir'
 alias rm='rm -I'
 alias cp='cp -i'
 alias mv='mv -i'
-alias vim='nvim'
+
+if command -v nvim >/dev/null 2>&1; then
+    alias vim='nvim'
+fi
 
 # Source configs
 alias virc='vim ~/.bashrc'
