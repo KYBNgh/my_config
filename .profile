@@ -38,12 +38,13 @@ if [ -f ~/.bashrc ]; then
      . ~/.bashrc
 fi
 
-# Start sway session in tty
-if [ -z "$WAYLAND_DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] ; then
-   exec sway
-fi
 # Set Proxy
 #export http_proxy="http://192.168.31.20:8080"
 #export https_proxy=$http_proxy
 #export ftp_proxy="http://192.168.31.20:8080"
 #export no_proxy="localhost,127.0.0.1,.local"
+
+# Start sway session in tty
+if [ -z "$WAYLAND_DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] ; then
+   exec sway
+fi
