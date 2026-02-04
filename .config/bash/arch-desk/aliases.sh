@@ -48,11 +48,6 @@ alias reload='systemctl reload'
 alias restart='systemctl restart'
 alias status='systemctl status'
 
-ftc(){
-    [[ -f /usr/share/doc/find-the-command/ftc.bash ]] && . /usr/share/doc/find-the-command/ftc.bash
-    $1
-}
-
 cleanup(){
     echo "Doing clean..."
     

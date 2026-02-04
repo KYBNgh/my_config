@@ -35,6 +35,7 @@ if [ "$PREFIX" = /data/data/com.termux/files/usr ]; then
     [[ -f "${BASH_CONFIG}/termux/aliases.sh" ]] && . ${BASH_CONFIG}/termux/aliases.sh
     [[ -f "${BASH_CONFIG}/termux/prompt.sh"  ]] && . ${BASH_CONFIG}/termux/prompt.sh
 else
+    [[ -f "/usr/share/doc/pkgfile/command-not-found.bash" ]] && . /usr/share/doc/pkgfile/command-not-found.bash
     [[ -f "/usr/share/bash-completion/bash_completion" ]] && . /usr/share/bash-completion/bash_completion
     [[ -f "/usr/share/fzf/key-bindings.bash" ]] && . /usr/share/fzf/key-bindings.bash
     [[ -f "/usr/share/fzf/completion.bash"   ]] && . /usr/share/fzf/completion.bash
