@@ -1,4 +1,10 @@
 #!/bin/sh
 filename=$(date +%Y%m%d-%H%M%S).png
 filedir=${HOME}/pic/shot
-grim ${filedir}/${filename} && notify-send -u low -i camera-photo-symbolic "Screenshot" "Saved: ${filename}" 
+if grim "${filedir}/${filename}"; then
+    notify-send -u low -i camera-photo-symbolic 'Screenshot' "Saved: ${filename}"
+else
+    grim
+    grim && notify-send 'Failed to save to ~/pic/shot/' 'running fall back command...'
+fi
+

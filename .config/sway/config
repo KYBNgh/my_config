@@ -150,9 +150,10 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
     bindsym Print exec ${HOME}/.local/bin/screenshoter.sh
+
     bindsym $mod+Alt+l exec swaylock
-    exec_always pkill fcitx5 || true && fcitx5 -d && notify-send 'Fcitx5 done'
-    exec_always pkill mako || true && mako && notify-send 'mako done'
+    exec_always pkill fcitx5 || true && fcitx5 -d
+    exec_always pkill mako || true && mako
     exec_always pkill swaybg || true && swaybg -i ${HOME}/.local/share/swaypaper 
     exec_always autotiling
 
