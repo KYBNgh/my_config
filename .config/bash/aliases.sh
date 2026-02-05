@@ -24,6 +24,7 @@ alias lss='du -sh .[^.]* .[!.]* * 2>/dev/null | sort -hr'
 alias ...='cd ../..'
 
 # Git
+alias gs='git status'
 alias ga='git add .'
 alias gc='git commit'
 alias gd='git diff' 
