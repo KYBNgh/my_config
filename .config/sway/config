@@ -148,6 +148,9 @@ bindsym $mod+r mode "resize"
     # Special keys to adjust brightness via brightnessctl
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+    
+    bindsym --locked Shift+KP_Add exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+    bindsym --locked Shift+KP_Subtract exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
     # Special key to take a screenshot with grim
     bindsym Print exec ${HOME}/.local/bin/screenshoter.sh
 
