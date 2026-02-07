@@ -1,0 +1,11 @@
+#!/bin/sh
+echo "Doing clean..."
+echo "Removing pacman package cache..."
+echo "Request sudo promission..."
+yes | sudo pacman -Scc
+sudo rm -rvf /var/cache/pacman/pkg/*
+echo "Removing ~/.cache ..."
+rm -rf ~/.cache
+mkdir -vp ~/.cache/mpd
+mkdir -vp ~/.cache/minecraft
+echo "Completed!"

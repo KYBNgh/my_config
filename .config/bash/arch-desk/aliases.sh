@@ -48,20 +48,3 @@ alias reload='systemctl reload'
 alias restart='systemctl restart'
 alias status='systemctl status'
 
-cleanup(){
-    echo "Doing clean..."
-    
-    df -h /
-    echo "Removing pacman package cache..."
-    echo "Request sudo promission..."
-    yes | sudo pacman -Scc
-    df -h /
-
-    df -h /home
-    echo "Removing ~/.cache ..."
-    rm -rf ~/.cache
-    mkdir -p ~/.cache/mpd
-    mkdir -p ~/.cache/minecraft
-    df -h /home
-    echo "Completed!"
-}
