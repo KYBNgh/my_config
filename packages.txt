@@ -12,7 +12,7 @@ bash-completion
 bat
 bc
 btop
-dash
+btrfs-progs
 devtools-archlinuxcn
 dhclient
 dnsmasq
@@ -26,10 +26,11 @@ fcitx5-chinese-addons
 fcitx5-configtool
 fcitx5-gtk
 fcitx5-qt
+fcitx5-rime
 fcitx5-skin-fluentdark-git
 firefox
+firejail
 foot
-fuse2
 fuzzel
 fzf
 gimp
@@ -37,6 +38,7 @@ git
 grim
 hmcl-bin
 intel-ucode
+iptables
 jq
 kdenlive
 kitty
@@ -46,7 +48,6 @@ libvirt
 linux
 linux-firmware-intel
 linux-firmware-realtek
-linux-firmware-whence
 linux-headers
 linux-lts
 localsend
@@ -54,7 +55,6 @@ lvm2
 mako
 man-db
 memtest86+-efi
-mosh
 mpc
 mpd
 mpv
@@ -71,10 +71,10 @@ openssh
 pacman-contrib
 paru
 pavucontrol
-pfetch
 pipewire-alsa
 pipewire-pulse
 pkgfile
+polkit
 qemu-audio-pipewire
 qemu-audio-spice
 qemu-base
@@ -88,10 +88,10 @@ qemu-ui-dbus
 qemu-ui-gtk
 qemu-ui-spice-app
 ranger
+rime-ice-git
 rsync
 scrcpy
 slurp
-smartmontools
 spice
 stow
 sway
@@ -100,13 +100,14 @@ swayimg
 swaylock
 systemd-resolvconf
 telegram-desktop
+terminus-font
 tldr
 tmux
 tree
-ttf-jetbrains-mono-nerd
 ttf-sourcecodepro-nerd
 ttyper
 udisks2
+ufw
 unzip
 usbutils
 vim
@@ -120,4 +121,3 @@ xdg-user-dirs
 xwayland-satellite
 yt-dlp
 zram-generator
-zsh
