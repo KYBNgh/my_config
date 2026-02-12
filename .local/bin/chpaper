@@ -1,0 +1,23 @@
+#!/bin/sh
+# ~/.local/bin/chwallpaper
+# Usage: chwallpaper ~/pic/wallpaper.png
+
+wallpaper="${HOME}/.local/share/swaypaper"
+lockpaper="${HOME}/.local/share/lockpaper"
+
+
+if [ $# -ne 1 ]; then
+    echo "You must type the path of the wallpaper!"
+    exit 1
+fi
+
+image=$1
+
+if [ ! -f "$image" ]; then
+    echo "The wallpaper must be a regular file!"
+    exit 1
+fi
+
+ln -svf $1 $wallpaper && notify-send -u low 'Wallpaper' "Wallpaper set to $image"
+ln -svf $1 $lockpaper && notify-send -u low 'Lockpaper' "Lockpaper set to $image"
+swaymsg reload

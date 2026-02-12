@@ -48,3 +48,5 @@ alias reload='systemctl reload'
 alias restart='systemctl restart'
 alias status='systemctl status'
 
+
+alias dl='yt-dlp'
