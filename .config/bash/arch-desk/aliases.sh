@@ -31,6 +31,8 @@ alias vidiary='vim ~/doc/personal/diary/$(date +%Y-%m-%d.txt)'
 alias n='ncmpcpp'
 alias r='ranger'
 alias icat='kitten icat'
+alias dl='yt-dlp'
+alias si='swayimg'
 alias wsk="wshowkeys -a bottom -F 'SourceCodePro 30' -l 60 &"
 alias qwen-run='ollama run qwen3:8b'
 alias qwen-stop='ollama stop qwen3:8b'
@@ -49,4 +51,3 @@ alias restart='systemctl restart'
 alias status='systemctl status'
 
 
-alias dl='yt-dlp'
