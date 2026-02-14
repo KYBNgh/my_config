@@ -18,6 +18,6 @@ if [ ! -f "$image" ]; then
     exit 1
 fi
 
+swaymsg reload
 ln -svf $1 $wallpaper && notify-send -u low 'Wallpaper' "Wallpaper set to $image"
 ln -svf $1 $lockpaper && notify-send -u low 'Lockpaper' "Lockpaper set to $image"
-swaymsg reload

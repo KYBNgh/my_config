@@ -1,4 +1,4 @@
-# profile
+# ~/.profile
 # @KYBNgh
 # Source ~/.bashrc
 

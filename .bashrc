@@ -1,4 +1,4 @@
-# ${HOME}/.config/bash/bashrc.sh
+# ~/.bashrc
 # @KYBNgh
 
 case $- in # check shell options

@@ -1,3 +1,4 @@
+# ~/.config/bash/arch-desk/prompt.sh
 # Bash prompt for arch-desk
 #
 # Original copyright notice:
