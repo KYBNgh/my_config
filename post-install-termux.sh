@@ -6,7 +6,7 @@ PURGE_PKG='nano ed'
 
 # Packages to install
 # Editor, vim or neovim
-INSTALL_PKG='neovim '
+INSTALL_PKG='vim '
 # Shell extra
 INSTALL_PKG+='bash-completion '
 # Dotfiles manager

@@ -7,7 +7,7 @@ export PATH="${HOME}/.local/bin:$PATH"
 
 
 if [ "$PREFIX" == /data/data/com.termux/files/usr ]; then
-    export PATH="${PATH}:/system/bin"
+    export PATH="${PATH}:/data/data/com.termux/bin:/system/bin"
 fi
 
 export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
