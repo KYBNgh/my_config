@@ -1,0 +1,54 @@
+*filter
+:ufw6-user-input - [0:0]
+:ufw6-user-output - [0:0]
+:ufw6-user-forward - [0:0]
+:ufw6-before-logging-input - [0:0]
+:ufw6-before-logging-output - [0:0]
+:ufw6-before-logging-forward - [0:0]
+:ufw6-user-logging-input - [0:0]
+:ufw6-user-logging-output - [0:0]
+:ufw6-user-logging-forward - [0:0]
+:ufw6-after-logging-input - [0:0]
+:ufw6-after-logging-output - [0:0]
+:ufw6-after-logging-forward - [0:0]
+:ufw6-logging-deny - [0:0]
+:ufw6-logging-allow - [0:0]
+:ufw6-user-limit - [0:0]
+:ufw6-user-limit-accept - [0:0]
+### RULES ###
+
+### tuple ### deny tcp 137:139 ::/0 any ::/0 in comment=4e657442494f53202854435029
+-A ufw6-user-input -p tcp -m multiport --dports 137:139 -j DROP
+
+### tuple ### deny udp 137:139 ::/0 any ::/0 in comment=4e657442494f53202855445029
+-A ufw6-user-input -p udp -m multiport --dports 137:139 -j DROP
+
+### tuple ### deny any 445 ::/0 any ::/0 in comment=534d422f43494653
+-A ufw6-user-input -p tcp --dport 445 -j DROP
+-A ufw6-user-input -p udp --dport 445 -j DROP
+
+### tuple ### allow any any ::/0 any ::/0 in_virbr0
+-A ufw6-user-input -i virbr0 -j ACCEPT
+
+### tuple ### allow any any ::/0 any ::/0 out_virbr0
+-A ufw6-user-output -o virbr0 -j ACCEPT
+
+### tuple ### allow any 8080 ::/0 any ::/0 in comment=507974686f6e2048545450
+-A ufw6-user-input -p tcp --dport 8080 -j ACCEPT
+-A ufw6-user-input -p udp --dport 8080 -j ACCEPT
+
+### END RULES ###
+
+### LOGGING ###
+-A ufw6-after-logging-input -j LOG --log-prefix "[UFW BLOCK] " -m limit --limit 3/min --limit-burst 10
+-I ufw6-logging-deny -m conntrack --ctstate INVALID -j RETURN -m limit --limit 3/min --limit-burst 10
+-A ufw6-logging-deny -j LOG --log-prefix "[UFW BLOCK] " -m limit --limit 3/min --limit-burst 10
+-A ufw6-logging-allow -j LOG --log-prefix "[UFW ALLOW] " -m limit --limit 3/min --limit-burst 10
+### END LOGGING ###
+
+### RATE LIMITING ###
+-A ufw6-user-limit -m limit --limit 3/minute -j LOG --log-prefix "[UFW LIMIT BLOCK] "
+-A ufw6-user-limit -j REJECT
+-A ufw6-user-limit-accept -j ACCEPT
+### END RATE LIMITING ###
+COMMIT

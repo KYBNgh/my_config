@@ -1,0 +1,10 @@
+# LUKS /dev/mapper/cryptimage LABEL=archlinux
+# Btrfs subvolumes 
+UUID=af0c662d-5ca7-4b3c-959b-25122350d55f	/         	btrfs     	rw,noatime,compress=zstd:3,ssd,space_cache=v2,discard=async,subvol=/@	0 0
+
+UUID=af0c662d-5ca7-4b3c-959b-25122350d55f	/home     	btrfs     	rw,noatime,compress=zstd:3,ssd,space_cache=v2,discard=async,subvol=/@home	0 0
+
+UUID=af0c662d-5ca7-4b3c-959b-25122350d55f	/var      	btrfs     	rw,noatime,compress=zstd:3,ssd,space_cache=v2,discard=async,subvol=/@var	0 0
+
+# Boot partition
+UUID=AEC9-20A3      	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
