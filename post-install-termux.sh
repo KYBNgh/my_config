@@ -19,7 +19,7 @@ INSTALL_PKG+='fzf bat which tree unzip termux-api '
 # INSTALL_PKG+='<your packages> '
 
 # New directories to make in ~
-NEW_DIRS='git doc '
+NEW_DIRS='git '
 # Add more ...
 # NEW_DIRS+='<your directories> '
 
@@ -30,9 +30,9 @@ echo 'deb https://mirrors.ustc.edu.cn/termux/termux-main stable main' > $PREFIX/
 apt update
 
 # Forcing upgrade, answer 'y'
-yes | apt  upgrade 
+yes | apt upgrade 
 
-# Change back source list which change by foring upgrade
+# Change back source list which was changed by foring upgrade
 echo 'deb https://mirrors.ustc.edu.cn/termux/termux-main stable main' > $PREFIX/etc/apt/sources.list
 
 # Remove packages
@@ -70,10 +70,9 @@ for mapping in \
 do
     src="${mapping%:*}"
     dst="${mapping#*:}"
-    
+
     if [[ -d "$MAIN/$src" ]]; then
-        ln -sfn "$MAIN/$src" "$HOME/$dst"
-        echo "$src -> $dst"
+        ln -svfn "$MAIN/$src" "$HOME/$dst"
     else
         echo "$src do not exist, skipped"
     fi
