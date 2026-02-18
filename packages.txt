@@ -13,16 +13,14 @@ bat
 bc
 btop
 btrfs-progs
-catimg
+calc
 dash
-debootstrap
 devtools-archlinuxcn
 dhclient
 dnsmasq
 dosfstools
 edk2-shell
 efibootmgr
-erofs-utils
 exfatprogs
 fastfetch
 fcitx5
@@ -42,7 +40,6 @@ gimp
 git
 grim
 hmcl-bin
-hyfetch
 intel-ucode
 iptables
 jq
@@ -61,6 +58,7 @@ localsend
 mako
 man-db
 memtest86+-efi
+motrix-electron
 mpc
 mpd
 mpv
@@ -77,6 +75,7 @@ obsidian-icon-theme
 openbsd-netcat
 openssh
 pacman-contrib
+pacseek-bin
 paru
 pavucontrol
 pipewire-alsa
