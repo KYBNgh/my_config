@@ -33,6 +33,7 @@ alias r='ranger'
 alias icat='kitten icat'
 alias dl='yt-dlp'
 alias si='swayimg'
+alias lfcd='$(lf -print-last-dir )'
 alias wsk="wshowkeys -a bottom -F 'SourceCodePro 30' -l 60 &"
 alias qwen-run='ollama run qwen3:8b'
 alias qwen-stop='ollama stop qwen3:8b'
@@ -40,14 +41,3 @@ alias qwen-stop='ollama stop qwen3:8b'
 # System
 alias sudo='sudo -p "[sudo] (%u to %U) Authentication: "'
 alias dmesg='sudo dmesg'
-alias reboot='systemctl reboot'
-alias poweroff='systemctl poweroff'
-alias enable='systemctl enable'
-alias disable='systemctl disable'
-alias start='systemctl start'
-alias stop='systemctl stop'
-alias reload='systemctl reload'
-alias restart='systemctl restart'
-alias status='systemctl status'
-
-
