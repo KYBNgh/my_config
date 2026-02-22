@@ -1,6 +1,7 @@
 # ~/.config/bash/aliases.sh 
 # General aliases
 #
+# GPL 3.0
 # Original copyright notice:
 # @author nate zhou
 # @since 2023,2024,2025
