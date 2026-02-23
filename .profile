@@ -12,6 +12,7 @@ if [ "$PREFIX" = /data/data/com.termux/files/usr ]; then
         export PATH="${PATH}:/data/data/com.termux/bin:/system/bin"
     else
         export PATH="${PATH}:/system/bin"
+    fi
 fi
 
 
