@@ -28,18 +28,17 @@ fi
 
 BASH_CONFIG="${HOME}/.config/bash"
 
-[[ -f "${BASH_CONFIG}/aliases.sh" ]] && . ${BASH_CONFIG}/aliases.sh
+if [ -f "${BASH_CONFIG}/aliases.sh" ]; then . ${BASH_CONFIG}/aliases.sh; fi
 
 if [ "$PREFIX" = /data/data/com.termux/files/usr ]; then
-    [[ -f "${PREFIX}/share/bash-completion/bash_completion" ]] && . /data/data/com.termux/files/usr/share/bash-completion/bash_completion
-    [[ -f "${BASH_CONFIG}/termux/aliases.sh" ]] && . ${BASH_CONFIG}/termux/aliases.sh
-    [[ -f "${BASH_CONFIG}/termux/prompt.sh" ]] && . ${BASH_CONFIG}/termux/prompt.sh
+    if [ -f "${PREFIX}/share/bash-completion/bash_completion" ]; then . /data/data/com.termux/files/usr/share/bash-completion/bash_completion; fi
+    if [ -f "${BASH_CONFIG}/termux/aliases.sh" ]; then . ${BASH_CONFIG}/termux/aliases.sh; fi
+    if [ -f "${BASH_CONFIG}/termux/prompt.sh" ]; then . ${BASH_CONFIG}/termux/prompt.sh; fi
 else
-    [[ -f "/usr/share/doc/pkgfile/command-not-found.bash" ]] && . /usr/share/doc/pkgfile/command-not-found.bash
-    [[ -f "/usr/share/bash-completion/bash_completion" ]] && . /usr/share/bash-completion/bash_completion
-    [[ -f "/usr/share/fzf/key-bindings.bash" ]] && . /usr/share/fzf/key-bindings.bash
-    [[ -f "/usr/share/fzf/completion.bash" ]] && . /usr/share/fzf/completion.bash
-    [[ -f "/usr/bin/thefuck" ]] && eval "$(thefuck --alias)"
-    [[ -f ${HOME}/.config/bash/${HOSTNAME}/aliases.sh    ]] && . ${HOME}/.config/bash/${HOSTNAME}/aliases.sh
-    [[ -f ${HOME}/.config/bash/${HOSTNAME}/prompt.sh    ]] && . ${HOME}/.config/bash/${HOSTNAME}/prompt.sh
+    if [ -f "/usr/share/doc/pkgfile/command-not-found.bash" ]; then . /usr/share/doc/pkgfile/command-not-found.bash;fi
+    if [ -f "/usr/share/bash-completion/bash_completion" ]; then . /usr/share/bash-completion/bash_completion;fi
+    if [ -f "/usr/share/fzf/key-bindings.bash" ]; then . /usr/share/fzf/key-bindings.bash;fi
+    if [ -f "/usr/share/fzf/completion.bash" ]; then . /usr/share/fzf/completion.bash;fi
+    if [ -f ${HOME}/.config/bash/${HOSTNAME}/aliases.sh ]; then . ${HOME}/.config/bash/${HOSTNAME}/aliases.sh;fi
+    if [ -f ${HOME}/.config/bash/${HOSTNAME}/prompt.sh ]; then . ${HOME}/.config/bash/${HOSTNAME}/prompt.sh;fi
 fi
