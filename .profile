@@ -32,6 +32,8 @@ export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 export LESS="-R -F -X" 
 export BROWSER="firefox"
 
+export LIBVIRT_DEFAULT_URI=qemu:///system
+
 [ -x /usr/bin/bat ] && export MANROFFOPT="-c" && export MANPAGER="sh -c 'col -bx | bat --pager \"less -XR\" -l man -p'"
 
 if [ -f ~/.bashrc ]; then
