@@ -19,8 +19,7 @@ HISTFILE="$XDG_DATA_HOME/bash/bash_history"
 HISTCONTROL=ignoreboth
 HISTSIZE=50000
 HISTFILESIZE=100000
-HISTIGNORE="cd:ls:ll:la:pwd:exit:clear:history:bg:fg:fuck:ff:lsblk"
-
+HISTIGNORE="cd:ls:ll:la:c:pwd:exit:clear:history:bg:fg:ff:lsblk"
 
 if [ "$TERM" = "foot" ]; then
     export TERM=xterm-256color
@@ -42,3 +41,5 @@ else
     if [ -f ${HOME}/.config/bash/${HOSTNAME}/aliases.sh ]; then . ${HOME}/.config/bash/${HOSTNAME}/aliases.sh;fi
     if [ -f ${HOME}/.config/bash/${HOSTNAME}/prompt.sh ]; then . ${HOME}/.config/bash/${HOSTNAME}/prompt.sh;fi
 fi
+
+unset BASH_CONFIG

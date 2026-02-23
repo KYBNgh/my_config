@@ -3,15 +3,17 @@
 # Source ~/.bashrc
 
 # Set PATH
-export PATH="${HOME}/.local/bin:$PATH"
-
-
-if [ "$PREFIX" == /data/data/com.termux/files/usr ]; then
-    export PATH="${PATH}:/data/data/com.termux/bin:/system/bin"
+if [ -d "${HOME}/.local/bin" ]; then
+    export PATH="${HOME}/.local/bin"
 fi
 
-export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
-export LESSHISTFILE="$XDG_DATA_HOME/less/less_history"
+if [ "$PREFIX" = /data/data/com.termux/files/usr ]; then
+    if [ -d "/data/data/com.termux/bin" ]; then
+        export PATH="${PATH}:/data/data/com.termux/bin:/system/bin"
+    else
+        export PATH="${PATH}:/system/bin"
+fi
+
 
 # Set EDITOR: prefer nvim > vim > (empty)
 if command -v nvim >/dev/null 2>&1; then
@@ -27,7 +29,15 @@ elif command -v less >/dev/null 2>&1; then
     export PAGER=less
 fi
 
+if [ "$TERM" = "foot" ]; then
+    export TERM=xterm-256color
+fi
+
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 export XDG_CONFIG_HOME="${HOME}/.config"
+
+export LESSHISTFILE="$XDG_DATA_HOME/less/less_history"
+
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 export LESS="-R -F -X" 
 export BROWSER="firefox"
