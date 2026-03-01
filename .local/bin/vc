@@ -1,0 +1,2 @@
+#!/bin/sh
+virsh start $1 && virsh console $1

@@ -42,4 +42,3 @@ else
     if [ -f ${HOME}/.config/bash/${HOSTNAME}/prompt.sh ]; then . ${HOME}/.config/bash/${HOSTNAME}/prompt.sh;fi
 fi
 
-unset BASH_CONFIG
