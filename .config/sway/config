@@ -187,7 +187,7 @@ bar {
 
 include /etc/sway/config.d/*
 
-input * xkb_options caps:swapescape
+input * xkb_options caps:escape
 input type:keyboard xkb_numlock enabled
 
 default_border pixel 2
