@@ -1,5 +1,11 @@
-font=Source Code Pro
+font=Source Code Pro 12
 background-color=#2a2a2aE6
 text-color=#ffffff
 border-color=#232323
+border-size=2
+width=400
+height=200
+padding=12,16
+margin=8
 default-timeout=5000
+max-history=10
