@@ -1,5 +1,5 @@
 #!/bin/sh
-# ~/.local/bin/kmesg-watcher
+# ~/.local/bin/kmsg-watcher
 
 journalctl -k -f -n 0 -o cat --output-fields=MESSAGE -p 3 | while read line; do
     [ -z "$line" ] && continue

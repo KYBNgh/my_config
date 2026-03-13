@@ -36,9 +36,8 @@ alias dl='yt-dlp'
 alias si='swayimg'
 alias lfcd='$(lf -print-last-dir )'
 alias wsk="wshowkeys -a bottom -F 'SourceCodePro 30' -l 60 &"
-alias qwen-run='ollama run qwen3:8b'
-alias qwen-stop='ollama stop qwen3:8b'
+alias qwen-run='ollama run qwen3:9'
+alias qwen-stop='ollama stop qwen3:9b'
 
 # System
-alias sudo='sudo -p "(%u to %U) "'
 alias dmesg='sudo dmesg'
