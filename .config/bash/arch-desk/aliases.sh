@@ -28,16 +28,17 @@ alias visway='vim ~/.config/sway/config'
 alias vidiary='vim ~/doc/personal/diary/$(date +%Y-%m-%d.txt)'
 
 # Else
+alias sudo='sudo -p "pw? : "'
 alias n='ncmpcpp'
 alias r='ranger'
 alias icat='kitten icat'
-alias lb='lsblk -o NAME,SIZE,TYPE,MOUNTPOINTS'
+alias lb='lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINTS'
 alias dl='yt-dlp'
 alias si='swayimg'
 alias lfcd='$(lf -print-last-dir )'
 alias wsk="wshowkeys -a bottom -F 'SourceCodePro 30' -l 60 &"
-alias qwen-run='ollama run qwen3:9'
-alias qwen-stop='ollama stop qwen3:9b'
+alias qwen-run='ollama run qwen3.5:9b'
+alias qwen-stop='ollama stop qwen3.5:9b'
 
 # System
 alias dmesg='sudo dmesg'

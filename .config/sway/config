@@ -159,7 +159,7 @@ bindsym $mod+r mode "resize"
     exec foot --serve
     exec_always pkill fcitx5 || true && fcitx5 -d
     exec_always pkill mako || true && mako
-    exec_always pkill swaybg || true && swaybg -i ${HOME}/.local/share/swaypaper 
+    exec_always pkill swaybg || true && swaybg -i ${HOME}/.local/share/swaypaper -m full
     exec_always autotiling
 
 bar {

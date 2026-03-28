@@ -6,7 +6,7 @@
 # absolute path. No other format is supported.
 # 
 XDG_DESKTOP_DIR="$HOME/.local/xdg-dirs/desk"
-XDG_DOWNLOAD_DIR="$HOME/"
+XDG_DOWNLOAD_DIR="$HOME/dls"
 XDG_TEMPLATES_DIR="$HOME/.local/xdg-dirs/tplt"
 XDG_PUBLICSHARE_DIR="$HOME/pub"
 XDG_DOCUMENTS_DIR="$HOME/doc"

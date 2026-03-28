@@ -57,7 +57,7 @@ alias srrc='. ~/.bashrc'
 # Else
 alias c='clear'
 alias ff='fastfetch --logo none --color blue'
-
+alias ncdu='ncdu --color dark'
 alias df='df -h'
 alias du='du -h -c'
 alias free='free -h'
