@@ -1,4 +1,4 @@
-# ~/.config/systemd/user/kernel-watcher.service
+# ~/.config/systemd/user/kmsg-watcher.service
 [Unit]
 Description=Kernel messages watcher
 
