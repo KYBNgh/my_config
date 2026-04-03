@@ -33,7 +33,7 @@ alias n='ncmpcpp'
 alias r='ranger'
 alias icat='kitten icat'
 alias lb='lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINTS'
-alias dl='yt-dlp'
+alias getvid='yt-dlp -f "bestvideo[height<=1080][vcodec*=hev][ext=mp4]+bestaudio[ext=m4a]" --merge-output-format mp4'
 alias si='swayimg'
 alias lfcd='$(lf -print-last-dir )'
 alias wsk="wshowkeys -a bottom -F 'SourceCodePro 30' -l 60 &"

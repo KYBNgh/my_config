@@ -29,3 +29,7 @@ set mark-symlinked-directories on
 
 # Alt + S, sudo sth.
 "\es": "sudo "
+
+# Set ^L to exec clear
+"\C-l": ""
+"\C-l": "clear \n"
