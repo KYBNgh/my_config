@@ -55,6 +55,7 @@ alias srpf='. ~/.profile'
 alias srrc='. ~/.bashrc'
 
 # Else
+alias ncdu='ncdu --color dark '
 alias c='clear'
 alias ff='fastfetch --logo none --color blue'
 alias ncdu='ncdu --color dark'
