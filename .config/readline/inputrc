@@ -31,5 +31,4 @@ set mark-symlinked-directories on
 "\es": "sudo "
 
 # Set ^L to exec clear
-"\C-l": ""
 "\C-l": "clear \n"

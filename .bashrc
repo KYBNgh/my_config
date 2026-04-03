@@ -12,7 +12,8 @@ shopt -s autocd
 shopt -s globstar
 
 set -o vi
-bind -m vi-insert "\C-l":clear-screen
+bind -m vi-insert
+bind -m "\C-l": "clear \n"
 umask 0077
 
 HISTFILE="$XDG_DATA_HOME/bash/bash_history"
