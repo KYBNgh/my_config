@@ -11,7 +11,14 @@ shopt -s checkwinsize
 shopt -s autocd
 shopt -s globstar
 
+# Set vi mode
 set -o vi
+bind -m vi-command 'Control-l: clear-screen'
+bind -m vi-insert 'Control-l: clear-screen'
+
+# Make doas completion as sudo
+complete -cf doas
+
 umask 0077
 
 HISTFILE="$XDG_DATA_HOME/bash/bash_history"

@@ -28,7 +28,6 @@ alias visway='vim ~/.config/sway/config'
 alias vidiary='vim ~/doc/personal/diary/$(date +%Y-%m-%d.txt)'
 
 # Else
-alias sudo=doas
 alias n='ncmpcpp'
 alias r='ranger'
 alias icat='kitten icat'

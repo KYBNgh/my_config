@@ -1,0 +1,1 @@
+for i in `pidof ollama`; do echo -1000 | doas tee /proc/$i/oom_score_adj; done
