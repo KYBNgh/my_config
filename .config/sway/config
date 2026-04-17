@@ -202,17 +202,3 @@ client.placeholder      #2a2a2a #232323 #555555
 client.background       #232323
 
 font Source Code Pro Medium 10
-
-output VGA-1 {
-    mode 1920x1080@60Hz
-    position 0 0
-}
-
-output DVI-I-1 {
-    mode 1024x768@60.004Hz
-    position 1920 0
-}
-
-workspace 1 output VGA-1
-workspace 10 output DVI-I-1
-workspace 1

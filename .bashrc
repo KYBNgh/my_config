@@ -25,7 +25,7 @@ HISTFILE="$XDG_DATA_HOME/bash/bash_history"
 HISTCONTROL=ignoreboth
 HISTSIZE=50000
 HISTFILESIZE=100000
-HISTIGNORE="cd:ls:ll:la:c:pwd:exit:clear:history:bg:fg:ff:lsblk"
+HISTIGNORE="cd:ls:ll:la:c:pwd:exit:clear:history:bg:fg:ff:lsblk:lb:#:.."
 
 if [ "$TERM" = "foot" ]; then
     export TERM=xterm-256color
