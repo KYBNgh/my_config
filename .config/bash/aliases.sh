@@ -35,7 +35,7 @@ alias gpull='git pull'
 
 # Color
 alias grep='grep --color=auto'
-alias ip='ip -color=auto'
+alias ip='ip -c'
 
 # Files operation
 alias md='mkdir'
