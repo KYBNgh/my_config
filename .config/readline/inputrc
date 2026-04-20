@@ -23,9 +23,7 @@ set vi-cmd-mode-string \1\e[2 q\2
 
 set echo-control-characters off
 
-set colored-stats on
 set visible-stats on
-set mark-symlinked-directories on
 
 # Alt + D, doas sth.
 "\ed": "doas "
