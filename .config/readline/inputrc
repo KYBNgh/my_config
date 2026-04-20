@@ -27,5 +27,5 @@ set colored-stats on
 set visible-stats on
 set mark-symlinked-directories on
 
-# Alt + S, sudo sth.
-"\es": "sudo "
+# Alt + D, doas sth.
+"\ed": "doas "
