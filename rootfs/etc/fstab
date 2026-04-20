@@ -1,10 +1,21 @@
 # LUKS /dev/mapper/cryptimage LABEL=archlinux
 # Btrfs subvolumes 
-UUID=af0c662d-5ca7-4b3c-959b-25122350d55f	/         	btrfs     	rw,noatime,compress=zstd:3,ssd,space_cache=v2,discard=async,subvol=/@	0 0
+UUID=eed00a30-615c-4ce0-af67-cd13984e5863	/         	btrfs     	rw,noatime,compress=zstd:3,ssd,space_cache=v2,discard=async,subvol=@		0 0
 
-UUID=af0c662d-5ca7-4b3c-959b-25122350d55f	/home     	btrfs     	rw,noatime,compress=zstd:3,ssd,space_cache=v2,discard=async,subvol=/@home	0 0
+UUID=eed00a30-615c-4ce0-af67-cd13984e5863	/home     	btrfs     	rw,noatime,compress=zstd:3,ssd,space_cache=v2,discard=async,subvol=@home	0 0
 
-UUID=af0c662d-5ca7-4b3c-959b-25122350d55f	/var      	btrfs     	rw,noatime,compress=zstd:3,ssd,space_cache=v2,discard=async,subvol=/@var	0 0
+UUID=eed00a30-615c-4ce0-af67-cd13984e5863	/var      	btrfs     	rw,noatime,compress=zstd:3,ssd,space_cache=v2,discard=async,subvol=@var		0 0
 
 # Boot partition
-UUID=AEC9-20A3      	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+UUID=C82C-7088      	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+
+# Tmpfs 
+# pacman packages cache
+tmpfs /var/cache/pacman/pkg tmpfs rw,size=4G,nr_inodes=400k,mode=0755 0 0
+
+# Other system
+# /dev/sdb3
+UUID=f32ad939-d380-41f2-857f-0e34abb8c908	/mnt/dumb 	ext4      	nofail,rw,noatime	0 2
+
+# /dev/sdb2
+UUID=1C4E-1A79      	/mnt/dumb/boot/efi	vfat      	nofail,rw,noatime,fmask=0077,dmask=0077,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2

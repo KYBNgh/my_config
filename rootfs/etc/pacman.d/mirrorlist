@@ -1,12 +1,12 @@
 # Mirrors in China
-Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
-Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
-Server = https://mirror.nju.edu.cn/archlinux/$repo/os/$arch
 
-##
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
+Server = https://mirrors.bfsu.edu.cn/archlinux/$repo/os/$arch
+Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
+
+
 ## Arch Linux repository mirrorlist
 ## Generated on 2026-02-13
-##
 
 ## Worldwide
 #Server = https://fastly.mirror.pkgbuild.com/$repo/os/$arch
