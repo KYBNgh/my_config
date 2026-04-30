@@ -1,9 +1,9 @@
 #!/bin/sh
 echo "Doing clean..."
 echo "Removing pacman package cache..."
-echo "Request sudo promission..."
-yes | sudo pacman -Scc
-sudo rm -rvf /var/cache/pacman/pkg/*
+echo "Request root promission..."
+yes | doas pacman -Scc
+doas rm -rvf /var/cache/pacman/pkg/*
 echo "Removing ~/.cache ..."
 rm -rvf ~/.cache
 mkdir -vp ~/.cache/mpd
