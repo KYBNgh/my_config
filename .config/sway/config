@@ -189,6 +189,8 @@ include /etc/sway/config.d/*
 
 input * xkb_options caps:escape
 input type:keyboard xkb_numlock enabled
+input * repeat_delay 500
+input * repeat_rate 40
 
 default_border pixel 2
 default_floating_border pixel 2

@@ -18,7 +18,7 @@ bind -m vi-insert 'Control-l: clear-screen'
 
 # Make doas completion as sudo
 complete -cf doas
-
+ulimit -c unlimited
 umask 0077
 
 HISTFILE="$XDG_DATA_HOME/bash/bash_history"
