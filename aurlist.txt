@@ -1,0 +1,6 @@
+dmg2img
+fcitx5-skin-fluentdark-git
+fortune-mod-off
+namida-bin
+piliplus-bin
+wshowkeys-mao-git
