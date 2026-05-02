@@ -48,7 +48,7 @@ export XDG_CONFIG_HOME="${HOME}/.config"
 export LESSHISTFILE="$XDG_DATA_HOME/less/less_history"
 
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
-export LESS="-R -F -X" 
+export LESS="-R -i -F -X -M -S" 
 export BROWSER="firefox"
 
 # export LIBVIRT_DEFAULT_URI=qemu:///system

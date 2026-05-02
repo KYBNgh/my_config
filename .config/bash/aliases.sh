@@ -56,6 +56,7 @@ alias srrc='. ~/.bashrc'
 
 # Else
 alias ncdu='ncdu --color dark '
+alias bat='bat --paging=never --color=auto --style="plain" --italic-text=never'
 alias c='clear'
 alias ff='fastfetch --logo none --color blue'
 alias ncdu='ncdu --color dark'
