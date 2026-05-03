@@ -29,8 +29,14 @@ elif command -v vim >/dev/null 2>&1; then
     export EDITOR=vim
 fi
 
+# XDG's
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+export XDG_CONFIG_HOME="${HOME}/.config"
+export BROWSER="firefox"
+
 export PAGER=less
-export LESS="-R -i -F -X -M -S" 
+export LESS="-R -i -F -X -M -S"
+export LESSHISTFILE="$XDG_DATA_HOME/less/less_history"
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 
 # If terminal is foot, set it to xterm-256color
@@ -38,20 +44,12 @@ if [ "$TERM" = "foot" ]; then
     export TERM=xterm-256color
 fi
 
-# XDG's
-export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
-export XDG_CONFIG_HOME="${HOME}/.config"
-
-export LESSHISTFILE="$XDG_DATA_HOME/less/less_history"
-
-export BROWSER="firefox"
-
 # export LIBVIRT_DEFAULT_URI=qemu:///system
 
 [ -x /usr/bin/bat ] && export MANROFFOPT="-c" && export MANPAGER="sh -c 'col -bx | bat --pager \"less -XR\" -l man -p'"
 
 if [ -f ~/.bashrc ]; then
-     . ~/.bashrc
+    . ~/.bashrc
 fi
 
 # Set Proxy
@@ -61,6 +59,6 @@ fi
 # export no_proxy="localhost,127.0.0.1,.local"
 
 # Start sway session in TTY
-if [ -z "$WAYLAND_DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] ; then
-   exec sway
+if [ -z "$WAYLAND_DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
+    exec sway
 fi
