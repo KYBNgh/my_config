@@ -1,4 +1,4 @@
-^\.git/
+^\.git$
 
 LICENSE
 README\.md
@@ -8,7 +8,7 @@ README\.md
 
 \.config/.*\.raw/
 
-rootfs/
+^rootfs$
 
 \.DS_Store
 \.swp
