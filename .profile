@@ -29,12 +29,9 @@ elif command -v vim >/dev/null 2>&1; then
     export EDITOR=vim
 fi
 
-# Set PAGER: prefer bat > less
-if command -v bat >/dev/null 2>&1; then
-    export PAGER=bat
-elif command -v less >/dev/null 2>&1; then
-    export PAGER=less
-fi
+export PAGER=less
+export LESS="-R -i -F -X -M -S" 
+export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 
 # If terminal is foot, set it to xterm-256color
 if [ "$TERM" = "foot" ]; then
@@ -47,8 +44,6 @@ export XDG_CONFIG_HOME="${HOME}/.config"
 
 export LESSHISTFILE="$XDG_DATA_HOME/less/less_history"
 
-export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
-export LESS="-R -i -F -X -M -S" 
 export BROWSER="firefox"
 
 # export LIBVIRT_DEFAULT_URI=qemu:///system
