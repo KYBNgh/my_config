@@ -1,0 +1,23 @@
+set nocompatible
+syntax on
+filetype plugin indent on
+
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+
+set viminfofile=$HOME/.local/state/vim/viminfo
+
+call plug#begin('~/.config/vim/plugged')
+    Plug 'chrisbra/Colorizer'
+    call plug#end()
+
+let g:colorizer_auto_color = 1
+let g:colorizer_auto_filetypes = ['*']
+
+let mapleader="\\"
+nmap <leader>c :ColorHighlight<CR>
+
+set t_Co=256
