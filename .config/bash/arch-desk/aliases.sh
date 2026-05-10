@@ -8,19 +8,6 @@
 #
 # Modifications by @KYBNgh
 
-# Change directory
-alias ,da='~/data'
-alias ,d='~/dls'
-alias ,D='~/doc'
-alias ,m='~/mus'
-alias ,V='~/vid'
-alias ,v='~/vms'
-alias ,t='~/tmp'
-alias ,g='~/git'
-alias ,gc='~/git/my_config'
-alias ,gl='~/git/my_linux'
-alias ,.c='~/.config/'
-
 # Edit/Source configs
 alias vialias='vim ${BASH_CONFIG}/arch-desk/aliases.sh'
 alias viprompt='vim ${BASH_CONFIG}/arch-desk/prompt.sh'
@@ -29,15 +16,11 @@ alias vidiary='vim ~/doc/personal/diary/$(date +%Y-%m-%d.txt)'
 
 # Else
 alias n='ncmpcpp'
-alias r='ranger'
 alias icat='kitten icat'
 alias lb='lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINTS'
-alias getvid='yt-dlp -f "bestvideo[height<=1080][vcodec*=hev][ext=mp4]+bestaudio[ext=m4a]" --merge-output-format mp4'
 alias si='swayimg'
 alias lfcd='$(lf -print-last-dir )'
 alias wsk="wshowkeys -a bottom -F 'SourceCodePro 30' -l 60 &"
-alias qwen-run='ollama run qwen3.5:9b'
-alias qwen-stop='ollama stop qwen3.5:9b'
 
 # System
-alias dmesg='sudo dmesg'
+alias dmesg='doas dmesg'

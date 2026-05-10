@@ -25,6 +25,8 @@ bind -m vi-insert 'Control-l: clear-screen'
 complete -cf doas
 umask 0077
 
+# History
+mkdir -p "$(dirname "$HISTFILE")"
 HISTFILE="$XDG_DATA_HOME/bash/bash_history"
 HISTCONTROL=ignoreboth
 HISTSIZE=50000

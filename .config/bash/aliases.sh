@@ -21,9 +21,6 @@ alias lt="ls -lt --time-style=long-iso"
 alias lw="ls -ldh $(pwd)"
 alias lss='du -sh .[^.]* .[!.]* * 2>/dev/null | sort -hr'
 
-# Change directory
-alias ...='cd ../..'
-
 # Git
 alias gs='git status'
 alias ga='git add .'
@@ -38,15 +35,11 @@ alias grep='grep --color=auto'
 alias ip='ip -c'
 
 # Files operation
-alias md='mkdir'
+alias md='mkdir -p'
 alias rd='rmdir'
 alias rm='rm -I'
 alias cp='cp -i'
 alias mv='mv -i'
-
-if command -v nvim >/dev/null 2>&1; then
-    alias vim='nvim'
-fi
 
 # Source configs
 alias virc='vim ~/.bashrc'
@@ -62,6 +55,10 @@ alias ncdu='ncdu --color dark'
 alias df='df -h'
 alias du='du -h -c'
 alias free='free -h'
+
+if command -v nvim >/dev/null 2>&1; then
+    alias vim='nvim'
+fi
 
 if command -v bat 2>&1 >/dev/null; then
     alias cat='bat --paging=never --color=auto --style="plain" --italic-text=never'
