@@ -1,4 +1,4 @@
-# ~/.config/bash/aliases.sh 
+# ~/.config/bash/aliases.sh
 # General aliases
 #
 # GPL 3.0
@@ -56,10 +56,13 @@ alias srrc='. ~/.bashrc'
 
 # Else
 alias ncdu='ncdu --color dark '
-alias bat='bat --paging=never --color=auto --style="plain" --italic-text=never'
 alias c='clear'
 alias ff='fastfetch --logo none --color blue'
 alias ncdu='ncdu --color dark'
 alias df='df -h'
 alias du='du -h -c'
 alias free='free -h'
+
+if command -v bat 2>&1 >/dev/null; then
+    alias cat='bat --paging=never --color=auto --style="plain" --italic-text=never'
+fi

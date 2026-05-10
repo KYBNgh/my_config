@@ -1,6 +1,5 @@
 # ~/.profile
 # @KYBNgh
-# Source ~/.bashrc
 
 # Set PATH
 # Add user's private bin(scripts)
@@ -13,7 +12,7 @@ if [ -d "${HOME}/.local/app" ]; then
     export PATH="${HOME}/.local/app:${PATH}"
 fi
 
-# For Termux, add system bin
+# For Termux, add /system/bin
 if [ "$PREFIX" = "/data/data/com.termux/files/usr" ]; then
     if [ -d "/data/data/com.termux/bin" ]; then
         export PATH="${PATH}:/data/data/com.termux/bin:/system/bin"
@@ -29,13 +28,13 @@ elif command -v vim >/dev/null 2>&1; then
     export EDITOR=vim
 fi
 
-# Set vim config dir
+# Set vim config dirctory
 if [ "$EDITOR" = "vim" ]; then
     export VIMINIT='source ~/.config/vim/vimrc'
     export VIMCONFIG=~/.config/vim
 fi
-	
-# XDG's
+
+# XDG's dirctories
 export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 export XDG_CONFIG_HOME="${HOME}/.config"
 export BROWSER="firefox"
@@ -45,24 +44,28 @@ export LESS="-R -i -F -X -M -S"
 export LESSHISTFILE="$XDG_DATA_HOME/less/less_history"
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 
-# If terminal is foot, set it to xterm-256color
-if [ "$TERM" = "foot" ]; then
-    export TERM=xterm-256color
-fi
-
-# export LIBVIRT_DEFAULT_URI=qemu:///system
-
+# Man page
 [ -x /usr/bin/bat ] && export MANROFFOPT="-c" && export MANPAGER="sh -c 'col -bx | bat --pager \"less -XR\" -l man -p'"
 
+# Source bashrc
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
-# Set Proxy
-# export http_proxy="http://192.168.31.20:8080"
-# export https_proxy=$http_proxy
-# export ftp_proxy="http://192.168.31.20:8080"
-# export no_proxy="localhost,127.0.0.1,.local"
+# Set Proxy, as a fuintion
+proxy-up() {
+    export http_proxy="http://192.168.31.20:8080"
+    export https_proxy=$http_proxy
+    export ftp_proxy="http://192.168.31.20:8080"
+    export no_proxy="localhost,127.0.0.1,.local"
+}
+
+proxy-down() {
+    unset http_proxy
+    unset https_proxy
+    unset ftp_proxy
+    unset no_proxy
+}
 
 # Start sway session in TTY
 if [ -z "$WAYLAND_DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
