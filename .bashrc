@@ -26,12 +26,13 @@ complete -cf doas
 umask 0077
 
 # History
-mkdir -p "$(dirname "$HISTFILE")"
 HISTFILE="$XDG_DATA_HOME/bash/bash_history"
 HISTCONTROL=ignoreboth
 HISTSIZE=50000
 HISTFILESIZE=100000
 HISTIGNORE="cd:ls:ll:la:c:pwd:exit:clear:history:bg:fg:ff:lsblk:lb:#:.."
+
+mkdir -p "$(dirname "$HISTFILE")"
 
 BASH_CONFIG="${HOME}/.config/bash"
 
