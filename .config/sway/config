@@ -152,15 +152,16 @@ bindsym $mod+r mode "resize"
     bindsym --locked Shift+KP_Add exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ -l 1.0
     bindsym --locked Shift+KP_Subtract exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%- -l 1.0
     # Special key to take a screenshot with grim
-    bindsym Print exec ${HOME}/.local/bin/screenshoter_full.sh
-    bindsym Shift+Print exec ${HOME}/.local/bin/screenshoter_slurp.sh
+    bindsym Print exec $HOME/.local/bin/screenshoter_full.sh
+    bindsym Shift+Print exec $HOME/.local/bin/screenshoter_slurp.sh
 
     bindsym $mod+Alt+l exec swaylock
-    exec foot --serve
-    exec_always pkill fcitx5 || true && fcitx5 -d
-    exec_always pkill mako || true && mako
-    exec_always pkill swaybg || true && swaybg -i ${HOME}/.local/share/swaypaper -m full
-    exec_always pkill autotiling || true && autotiling
+    exec foot --server
+    exec autotiling
+    exec fcitx5 -d
+    exec mako
+    exec_always pkill swaybg || true && swaybg -i $HOME/.local/share/swaypaper -m full
+    exec_always makoctl reload
 
 bar {
     position top
