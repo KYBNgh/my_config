@@ -1,0 +1,4 @@
+#!/bin/sh
+echo "Error: inaccessable or not found."
+echo "Try: vi "
+exit 127

@@ -1,0 +1,4 @@
+#!/bin/sh
+echo "Error: unmount: not found."
+echo "Try: umount."
+exit 127

@@ -3,5 +3,5 @@
 
 journalctl -k -f -n 0 -o cat --output-fields=MESSAGE -p 3 | while read line; do
     [ -z "$line" ] && continue
-    notify-send -u critical -t 86400000 "Linux Kernel" "$line"
+    notify-send -u critical -t 10 "Linux Kernel" "$line"
 done

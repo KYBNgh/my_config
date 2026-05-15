@@ -106,8 +106,8 @@ hide-when-typing=yes
 [colors-dark]
 alpha=0.6
 # alpha-mode=default # Can be `default`, `matching` or `all`
-background=141719
-foreground=bec7cf
+# background=242424
+# foreground=ffffff
 # flash=7f7f00
 # flash-alpha=0.5
 
@@ -115,22 +115,22 @@ foreground=bec7cf
 
 ## Normal/regular colors (color palette 0-7)
 regular0=232323  # black
-regular1=ce333c  # red
-regular2=33ce49  # green
-regular3=cec733  # yellow
-regular4=3374ce  # blue
+regular1=ff000f  # red
+regular2=8ce10b  # green
+regular3=ffb900  # yellow
+regular4=008df8  # blue
 regular5=6d43a6  # magenta
-regular6=40ab7b  # cyan
-regular7=bec7cf  # white
+regular6=00d8eb  # cyan
+regular7=ffffff  # white
 
 ## Bright colors (color palette 8-15)
 bright0=444444   # bright black
-bright1=ee4659   # bright red
+bright1=ff2740   # bright red
 bright2=abe15b   # bright green
 bright3=ffd242   # bright yellow
 bright4=0092ff   # bright blue
 bright5=9a5feb   # bright magenta
-bright6=3da795   # bright cyan
+bright6=67fff0   # bright cyan
 bright7=ffffff   # bright white
 
 ## dimmed colors (see foot.ini(5) man page)
