@@ -50,7 +50,7 @@ if [ "$PREFIX" = /data/data/com.termux/files/usr ]; then
     fi
 
     if [ -d "${BASH_CONFIG}/termux/unshare" ]; then
-        for unshare in "${BASH_CONFIG}/termux/unshare/*"; do . "$unshare"; done
+        for unshare in ${BASH_CONFIG}/termux/unshare/*; do . "$unshare"; done
     fi
 
 else
@@ -66,7 +66,7 @@ else
     fi
 
     if [ -d "${BASH_CONFIG}/${HOSTNAME}/unshare" ]; then
-        for unshare in "${BASH_CONFIG}/${HOSTNAME}/unshare/*"; do . "$unshare"; done
+        for unshare in ${BASH_CONFIG}/${HOSTNAME}/unshare/*; do . "$unshare"; done
     fi
 fi
 
