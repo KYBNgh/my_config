@@ -42,6 +42,8 @@ export BROWSER="firefox"
 export PAGER=less
 export LESS="-R -i -F -X -M -S"
 export LESSHISTFILE="$XDG_DATA_HOME/less/less_history"
+export CALCHISTFILE="$XDG_DATA_HOME/calc/calc_history"
+
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 
 # Man page
