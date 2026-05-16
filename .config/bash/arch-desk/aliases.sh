@@ -24,3 +24,4 @@ alias wsk="wshowkeys -a bottom -F 'SourceCodePro 30' -l 60 &"
 
 # System
 alias dmesg='doas dmesg'
+alias vim='/usr/bin/vim'

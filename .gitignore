@@ -1,2 +1,3 @@
 .config/vim/plugged/
 .config/vim/autoload/
+.config/vim/.*
