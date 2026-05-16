@@ -16,9 +16,6 @@ bison
 btop
 btrfs-progs
 calc
-clang
-clash-verge-rev
-code
 compsize
 dash
 debugedit
@@ -33,7 +30,6 @@ fakeroot
 fastfetch
 fcitx5
 fcitx5-chinese-addons
-fcitx5-configtool
 fcitx5-gtk
 fcitx5-qt
 fcitx5-rime
@@ -53,12 +49,14 @@ grim
 guile
 hmcl-bin
 htop
+hwloc
 imagemagick
 intel-ucode
 iotop
 iptables
 jq
 jre-openjdk
+kdenlive
 kexec-tools
 kitty
 less
@@ -72,7 +70,6 @@ linux-firmware-realtek
 linux-headers
 linux-lts
 localsend
-lolcat
 lsof
 lynis
 m4
@@ -110,6 +107,7 @@ podman
 podman-compose
 polkit
 pv
+python-pip
 qemu-audio-pipewire
 qemu-audio-spice
 qemu-base
@@ -138,13 +136,16 @@ tailscale
 telegram-desktop
 terminus-font
 texinfo
+thunar
 tmux
 tree
 ttf-sourcecodepro-nerd
+ttyper
 udisks2
 ufw
 unzip
 usbutils
+vim
 virt-manager
 virt-viewer
 vulkan-intel
@@ -160,3 +161,5 @@ yazi
 yt-dlp
 zathura
 zram-generator
+zsh
+zsh-completions
