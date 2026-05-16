@@ -29,10 +29,8 @@ elif command -v vim >/dev/null 2>&1; then
 fi
 
 # Set vim config dirctory
-if [ "$EDITOR" = "vim" ]; then
-    export VIMINIT='source ~/.config/vim/vimrc'
-    export VIMCONFIG=~/.config/vim
-fi
+export VIMINIT='source ~/.config/vim/vimrc'
+export VIMCONFIG=~/.config/vim
 
 # XDG's dirctories
 export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
