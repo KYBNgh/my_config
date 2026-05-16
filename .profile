@@ -52,21 +52,6 @@ if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
-# Set Proxy, as a fuintion
-proxy-up() {
-    export http_proxy="http://192.168.31.20:8080"
-    export https_proxy=$http_proxy
-    export ftp_proxy="http://192.168.31.20:8080"
-    export no_proxy="localhost,127.0.0.1,.local"
-}
-
-proxy-down() {
-    unset http_proxy
-    unset https_proxy
-    unset ftp_proxy
-    unset no_proxy
-}
-
 # Start sway session in TTY
 if [ -z "$WAYLAND_DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
     exec sway

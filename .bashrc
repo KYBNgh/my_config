@@ -1,9 +1,9 @@
 # ~/.bashrc
 # @KYBNgh
 
-case $- in # check shell options
-    *i*) ;; # interactive shell
-      *) return;; # don't do anything
+case $- in   # check shell options
+*i*) ;;      # interactive shell
+*) return ;; # don't do anything
 esac
 
 # If terminal is foot, set it to xterm-256color
@@ -46,11 +46,32 @@ if [ "$PREFIX" = /data/data/com.termux/files/usr ]; then
 else
 
     # PC config
-    if [ -f "/usr/share/doc/pkgfile/command-not-found.bash" ]; then . /usr/share/doc/pkgfile/command-not-found.bash;fi
-    if [ -f "/usr/share/fzf/key-bindings.bash" ]; then . /usr/share/fzf/key-bindings.bash;fi
-    if [ -f "/usr/share/fzf/completion.bash" ]; then . /usr/share/fzf/completion.bash;fi
-    if [ -f ${HOME}/.config/bash/${HOSTNAME}/aliases.sh ]; then . ${HOME}/.config/bash/${HOSTNAME}/aliases.sh;fi
-    if [ -f ${HOME}/.config/bash/${HOSTNAME}/prompt.sh ]; then . ${HOME}/.config/bash/${HOSTNAME}/prompt.sh;fi
+    if [ -f "/usr/share/doc/pkgfile/command-not-found.bash" ]; then . /usr/share/doc/pkgfile/command-not-found.bash; fi
+    if [ -f "/usr/share/fzf/key-bindings.bash" ]; then . /usr/share/fzf/key-bindings.bash; fi
+    if [ -f "/usr/share/fzf/completion.bash" ]; then . /usr/share/fzf/completion.bash; fi
+    if [ -f ${HOME}/.config/bash/${HOSTNAME}/aliases.sh ]; then . ${HOME}/.config/bash/${HOSTNAME}/aliases.sh; fi
+    if [ -f ${HOME}/.config/bash/${HOSTNAME}/prompt.sh ]; then . ${HOME}/.config/bash/${HOSTNAME}/prompt.sh; fi
 
 fi
 
+# Set Proxy, as a fuintion
+proxy-up-lan() {
+    export http_proxy="http://192.168.31.20:8080"
+    export https_proxy=$http_proxy
+    export ftp_proxy="http://192.168.31.20:8080"
+    export no_proxy="localhost,127.0.0.1,.local"
+}
+
+proxy-up-local() {
+    export http_proxy="http://127.0.0.1:7897"
+    export https_proxy=$http_proxy
+    export ftp_proxy="http://127.0.0.1:7897"
+    export no_proxy="localhost,127.0.0.1,.local"
+}
+
+proxy-down() {
+    unset http_proxy
+    unset https_proxy
+    unset ftp_proxy
+    unset no_proxy
+}
