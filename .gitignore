@@ -1,3 +1,5 @@
 .config/vim/plugged/
 .config/vim/autoload/
 .config/vim/.*
+
+.config/bash/*/unshare/

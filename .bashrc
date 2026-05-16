@@ -33,8 +33,8 @@ HISTFILESIZE=100000
 HISTIGNORE="cd:ls:ll:la:c:pwd:exit:clear:history:bg:fg:ff:lsblk:lb:#:.."
 
 BASH_CONFIG="${HOME}/.config/bash"
-if command -v fzf 2>&1 > /dev/null; then
-    eval  "$(fzf --bash)"
+if command -v fzf 2>&1 >/dev/null; then
+    eval "$(fzf --bash)"
 fi
 
 if [ -f "${BASH_CONFIG}/aliases.sh" ]; then . ${BASH_CONFIG}/aliases.sh; fi
@@ -44,6 +44,14 @@ if [ "$PREFIX" = /data/data/com.termux/files/usr ]; then
     # Termux config
     if [ -f "${BASH_CONFIG}/termux/aliases.sh" ]; then . ${BASH_CONFIG}/termux/aliases.sh; fi
     if [ -f "${BASH_CONFIG}/termux/prompt.sh" ]; then . ${BASH_CONFIG}/termux/prompt.sh; fi
+
+    if [ -d "${BASH_CONFIG}/termux/completions" ]; then
+        for completion in ${BASH_CONFIG}/termux/completions/*; do . "${completion}"; done
+    fi
+
+    if [ -d "${BASH_CONFIG}/termux/unshare" ]; then
+        for unshare in "${BASH_CONFIG}/termux/unshare/*"; do . "$unshare"; done
+    fi
 
 else
 
@@ -57,6 +65,9 @@ else
         for completion in ${BASH_CONFIG}/${HOSTNAME}/completions/*; do . "${completion}"; done
     fi
 
+    if [ -d "${BASH_CONFIG}/${HOSTNAME}/unshare" ]; then
+        for unshare in "${BASH_CONFIG}/${HOSTNAME}/unshare/*"; do . "$unshare"; done
+    fi
 fi
 
 # Set Proxy, as functions
