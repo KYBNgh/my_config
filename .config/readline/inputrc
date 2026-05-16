@@ -25,5 +25,8 @@ set echo-control-characters off
 
 set visible-stats on
 
+set page-completions off
+set completion-query-items 0
+
 # Alt + D, doas sth.
 "\ed": "doas "
