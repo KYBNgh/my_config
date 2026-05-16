@@ -49,8 +49,12 @@ else
     if [ -f "/usr/share/doc/pkgfile/command-not-found.bash" ]; then . /usr/share/doc/pkgfile/command-not-found.bash; fi
     if [ -f "/usr/share/fzf/key-bindings.bash" ]; then . /usr/share/fzf/key-bindings.bash; fi
     if [ -f "/usr/share/fzf/completion.bash" ]; then . /usr/share/fzf/completion.bash; fi
-    if [ -f ${HOME}/.config/bash/${HOSTNAME}/aliases.sh ]; then . ${HOME}/.config/bash/${HOSTNAME}/aliases.sh; fi
-    if [ -f ${HOME}/.config/bash/${HOSTNAME}/prompt.sh ]; then . ${HOME}/.config/bash/${HOSTNAME}/prompt.sh; fi
+    if [ -f "${BASH_CONFIG}/${HOSTNAME}/aliases.sh" ]; then . ${HOME}/.config/bash/${HOSTNAME}/aliases.sh; fi
+    if [ -f "${BASH_CONFIG}/${HOSTNAME}/prompt.sh" ]; then . ${HOME}/.config/bash/${HOSTNAME}/prompt.sh; fi
+
+    if [ -d "${BASH_CONFIG}/${HOSTNAME}/completions" ]; then
+        for completion in ${BASH_CONFIG}/${HOSTNAME}/completions/*; do . "${completion}"; done
+    fi
 
 fi
 

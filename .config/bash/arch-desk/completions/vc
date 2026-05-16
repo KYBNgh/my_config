@@ -1,0 +1,11 @@
+_vc_completion() {
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    local vms
+    vms=$(virsh list --all --name 2>/dev/null)
+
+    local IFS=$'\n'
+    COMPREPLY=($(compgen -W "$vms" -- "$cur"))
+}
+complete -F _vc_completion vc
