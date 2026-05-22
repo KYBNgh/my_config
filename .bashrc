@@ -25,6 +25,9 @@ bind -m vi-insert 'Control-l: clear-screen'
 complete -cf doas
 umask 0077
 
+# GPG
+export GPG_TTY=$(tty) 
+
 # History
 HISTFILE="$XDG_DATA_HOME/bash/bash_history"
 HISTCONTROL=ignoreboth
@@ -91,3 +94,4 @@ proxy-down() {
     unset ftp_proxy
     unset no_proxy
 }
+
