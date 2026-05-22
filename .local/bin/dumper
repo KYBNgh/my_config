@@ -1,0 +1,35 @@
+#!/bin/sh
+set -e
+
+if [ $# -lt 2 ] || [ $# -gt 3 ]; then
+    echo "Usage: $0 <source-directory> <output-directory> [prefix]" >&2
+    exit 1
+fi
+
+src="$1"
+outdir="$2"
+prefix="${3:-crypted_dump}"
+
+if [ ! -d "$src" ]; then
+    echo "Error: source directory '$src' not found." >&2
+    exit 1
+fi
+
+if [ ! -d "$outdir" ]; then
+    echo "Error: output directory '$outdir' not found." >&2
+    exit 1
+fi
+
+timestamp=$(date +'%Y-%m-%d_%H%M%S')
+tmpfile="${outdir}/${prefix}_${timestamp}.tar.zst.gpg"
+
+tar cf - "$src" | pv -t -r | zstd -T0 -c - | gpg --symmetric --cipher-algo AES256 -o "$tmpfile"
+
+# SHA256 hash (requires sha256sum)
+hash=$(sha256sum "$tmpfile" | cut -d' ' -f1)
+outfile="${outdir}/${prefix}_${timestamp}_sha256_${hash}.tar.zst.gpg"
+mv "$tmpfile" "$outfile"
+
+echo "sha256: $hash"
+echo
+
