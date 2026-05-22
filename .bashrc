@@ -24,8 +24,6 @@ bind -m vi-insert 'Control-l: clear-screen'
 # Make doas completion as sudo
 complete -cf doas
 umask 0077
-
-# GPG
 export GPG_TTY=$(tty) 
 
 # History
@@ -36,8 +34,13 @@ HISTFILESIZE=100000
 HISTIGNORE="cd:ls:ll:la:c:pwd:exit:clear:history:bg:fg:ff:lsblk:lb:#:.."
 
 BASH_CONFIG="${HOME}/.config/bash"
+
 if command -v fzf 2>&1 >/dev/null; then
     eval "$(fzf --bash)"
+fi
+
+if [ -x /usr/bin/dircolors ]; then
+    eval "$(dircolors -b)"
 fi
 
 if [ -f "${BASH_CONFIG}/aliases.sh" ]; then . ${BASH_CONFIG}/aliases.sh; fi
