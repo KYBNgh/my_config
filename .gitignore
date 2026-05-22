@@ -3,3 +3,5 @@
 .config/vim/.*
 
 .config/bash/*/unshare/
+
+ ~/.config/systemd/user/*wants
