@@ -1,7 +1,6 @@
 adobe-source-code-pro-fonts
 adobe-source-han-sans-cn-fonts
 android-tools
-ansible
 arch-install-scripts
 archlinuxcn-keyring
 aria2
@@ -43,8 +42,8 @@ fzf
 gc
 gcc
 gdb
-gimp
 git
+glow
 grim
 guile
 hmcl-bin
@@ -60,6 +59,7 @@ kdenlive
 kexec-tools
 kitty
 less
+lf
 libisl
 libmpc
 libnotify
@@ -135,8 +135,8 @@ systemd-resolvconf
 tailscale
 telegram-desktop
 terminus-font
+tesseract-data-eng
 texinfo
-thunar
 tmux
 tree
 ttf-sourcecodepro-nerd
@@ -154,12 +154,15 @@ wev
 wf-recorder
 which
 wl-clipboard
+wmenu
 xdg-desktop-portal-wlr
+xdg-ninja-git
 xdg-user-dirs
+xorg-xauth
 xwayland-satellite
-yazi
 yt-dlp
 zathura
+zathura-pdf-mupdf
 zram-generator
 zsh
 zsh-completions
