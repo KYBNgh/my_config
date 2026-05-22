@@ -8,12 +8,6 @@
 #
 # Modifications by @KYBNgh
 
-# Edit/Source configs
-alias vialias='vim ${BASH_CONFIG}/arch-desk/aliases.sh'
-alias viprompt='vim ${BASH_CONFIG}/arch-desk/prompt.sh'
-alias visway='vim ~/.config/sway/config'
-alias vidiary='vim ~/doc/personal/diary/$(date +%Y-%m-%d.txt)'
-
 # Else
 alias n='ncmpcpp'
 alias icat='kitten icat'
@@ -24,4 +18,3 @@ alias wsk="wshowkeys -a bottom -F 'SourceCodePro 30' -l 60 &"
 
 # System
 alias dmesg='doas dmesg'
-alias vim='/usr/bin/vim'

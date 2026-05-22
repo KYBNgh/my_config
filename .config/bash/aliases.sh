@@ -41,12 +41,6 @@ alias rm='rm -I'
 alias cp='cp -i'
 alias mv='mv -i'
 
-# Source configs
-alias virc='vim ~/.bashrc'
-alias vipf='vim ~/.profile'
-alias srpf='. ~/.profile'
-alias srrc='. ~/.bashrc'
-
 # Else
 alias ncdu='ncdu --color dark '
 alias c='clear'
@@ -54,10 +48,6 @@ alias ff='fastfetch --logo none --color cyan'
 alias df='df -h'
 alias du='du -h -c'
 alias free='free -h'
-
-if command -v nvim >/dev/null 2>&1; then
-    alias vim='nvim'
-fi
 
 if command -v bat 2>&1 >/dev/null; then
     alias cat='command bat --paging=never --color=auto --style="plain" --italic-text=never'

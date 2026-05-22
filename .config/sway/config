@@ -1,15 +1,20 @@
+include /etc/sway/config.d/*
+
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
 set $term footclient
+set $term2 kitty
 set $menu fuzzel 
 
     # Start a terminal
     bindsym $mod+Return exec $term
+    bindsym $mod+Shift+Return exec $term2
 
     # Kill focused window
     bindsym $mod+q kill
@@ -28,7 +33,8 @@ set $menu fuzzel
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    # bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaymsg exit
 #
 # Moving around:
 #
@@ -140,54 +146,35 @@ bindsym $mod+r mode "resize"
 #
 # Utilities:
 #
-    # Special keys to adjust volume via PulseAudio
-    bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
-    bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
-    bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
-    bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
-    # Special keys to adjust brightness via brightnessctl
-    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
-    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
-    
+
     bindsym --locked Shift+KP_Add exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ -l 1.0
     bindsym --locked Shift+KP_Subtract exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%- -l 1.0
+    
     # Special key to take a screenshot with grim
     bindsym Print exec $HOME/.local/bin/screenshoter_full.sh
     bindsym Shift+Print exec $HOME/.local/bin/screenshoter_slurp.sh
 
+    # Lock the screen
     bindsym $mod+Alt+l exec swaylock
+    
+    # Launcher daemons
     exec foot --server
     exec autotiling
     exec fcitx5 -d
     exec mako
-    exec_always pkill swaybg || true && swaybg -i $HOME/.local/share/swaypaper -m full
     exec_always makoctl reload
 
-bar {
-    position top
-    swaybar_command waybar
+    # Waybar
+    bar {
+        position top
+        swaybar_command waybar
 }
+    
+    # Background
+    output * bg $HOME/.local/share/swaypaper fill
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-# bar {
-#     position top
-# 
-#     # When the status_command prints a new line to stdout, swaybar updates.
-#     # The default just shows the current date and time.
-#     status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-# 
-#     colors {
-#         statusline #ffffff
-#         background #323232
-#         inactive_workspace #32323200 #32323200 #5c5c5c
-#     }
-# }
-
-include /etc/sway/config.d/*
-
+# Key bindings
+# ESC, CapsLock, all for ESC
 input * xkb_options caps:escape
 input type:keyboard xkb_numlock enabled
 input * repeat_delay 500
@@ -196,7 +183,7 @@ input * repeat_rate 40
 default_border pixel 2
 default_floating_border pixel 2
 
-# Focus: soft gray border (not blue!)
+# Focus: soft gray border
 client.focused          #555555 #232323 #aaaaaa
 client.focused_inactive #333333 #232323 #777777
 client.unfocused        #2a2a2a #232323 #555555
