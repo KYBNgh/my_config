@@ -63,6 +63,8 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
 export BROWSER="firefox"
 
+export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
+
 # Man page
 [ -x /usr/bin/bat ] && export MANROFFOPT="-c" && export MANPAGER="sh -c 'col -bx | bat --pager \"less -XR\" -l man -p'"
 
