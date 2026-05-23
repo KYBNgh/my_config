@@ -1,0 +1,77 @@
+# Bash completion for ollama
+
+_ollama_list_models() {
+    ollama list 2>/dev/null | awk 'NR>1 {print $1}'
+}
+
+_ollama_ps_models() {
+    ollama ps 2>/dev/null | awk 'NR>1 {print $1}'
+}
+
+_ollama_completion() {
+    local cur prev words cword
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    cword=$COMP_CWORD
+    words=("${COMP_WORDS[@]}")
+
+    # Find the subcommand, skipping leading global options (e.g. --verbose)
+    local cmd=""
+    local i
+    for ((i=1; i < cword; i++)); do
+        if [[ ${words[i]} != -* ]]; then
+            cmd="${words[i]}"
+            break
+        fi
+    done
+
+    # No subcommand yet: complete commands and/or global flags
+    if [[ -z "$cmd" ]]; then
+        if [[ ${cur} == -* ]]; then
+            COMPREPLY=( $(compgen -W "-h --help --nowordwrap --verbose -v --version" -- ${cur}) )
+        else
+            COMPREPLY=( $(compgen -W "serve create show run stop pull push signin signout list ps cp rm launch help" -- ${cur}) )
+        fi
+        return
+    fi
+
+    # We have a subcommand; handle its arguments
+    case "$cmd" in
+        run|show|pull|push|cp|rm)
+            if [[ ${cur} == -* ]]; then
+                COMPREPLY=( $(compgen -W "-h --help --nowordwrap --verbose -v --version" -- ${cur}) )
+            else
+                local models
+                models=$(_ollama_list_models)
+                COMPREPLY=( $(compgen -W "$models" -- ${cur}) )
+            fi
+            ;;
+        stop)
+            if [[ ${cur} == -* ]]; then
+                COMPREPLY=( $(compgen -W "-h --help --nowordwrap --verbose -v --version" -- ${cur}) )
+            else
+                local running
+                running=$(_ollama_ps_models)
+                COMPREPLY=( $(compgen -W "$running" -- ${cur}) )
+            fi
+            ;;
+        create)
+            if [[ ${prev} == "-f" ]]; then
+                COMPREPLY=( $(compgen -f -- ${cur}) )
+            elif [[ ${cur} == -* ]]; then
+                COMPREPLY=( $(compgen -W "-h --help -f" -- ${cur}) )
+            fi
+            # No completion for the model name (it's a new name)
+            ;;
+        list|ps|serve|signin|signout|launch|help)
+            if [[ ${cur} == -* ]]; then
+                COMPREPLY=( $(compgen -W "-h --help" -- ${cur}) )
+            fi
+            ;;
+        *)
+            # Unknown command – fall back to nothing
+            ;;
+    esac
+}
+
+complete -F _ollama_completion ollama
