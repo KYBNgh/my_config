@@ -27,7 +27,6 @@ noblacklist /run/user/1000/at-spi
 noblacklist /dev/dri
 noblacklist /dev/null
 
-
 whitelist /dev/null
 whitelist ${HOME}/.config/dconf
 whitelist /dev/dri
@@ -53,4 +52,3 @@ seccomp
 
 env GTK2_RC_FILES=${HOME}/.config/gtk-2.0/gtkrc
 env GTK_THEME=Reversal-Dark:dark
-dbus-user.talk org.freedesktop.impl.portal.Settings
