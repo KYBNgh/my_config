@@ -8,4 +8,6 @@ echo "Removing ~/.cache ..."
 rm -rvf ~/.cache
 mkdir -vp ~/.cache/mpd
 mkdir -vp ~/.cache/minecraft
+mkdir -vp ~/.cache/zsh
+
 echo "Completed!"
