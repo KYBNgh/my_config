@@ -1,1 +1,9 @@
+set hidden
+set dirfirst
+set dircounts
+set number
+set mouse
+set autoquit
+set preview
+
 map D delete
