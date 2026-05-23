@@ -1,2 +1,3 @@
 #!/bin/sh
 yes | sudo pacman -Scc
+sudo rm -rvf /var/cache/pacman/pkg/*

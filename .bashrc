@@ -22,7 +22,7 @@ bind -m vi-command 'Control-l: clear-screen'
 bind -m vi-insert 'Control-l: clear-screen'
 
 # Make doas completion as sudo
-complete -cf doas
+complete -F _command doas
 umask 0077
 export GPG_TTY=$(tty) 
 

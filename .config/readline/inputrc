@@ -11,6 +11,11 @@ set menu-complete-display-prefix on
 "\t": menu-complete
 "\e[Z": menu-complete-backward
 
+"\C-k": previous-history
+"\C-j": next-history
+
+"\C-\b": backward-kill-word
+
 set mark-symlinked-directories on
 set colored-completion-prefix on
 set colored-stats on
@@ -28,5 +33,3 @@ set visible-stats on
 set page-completions off
 set completion-query-items 0
 
-# Alt + D, doas sth.
-"\ed": "doas "

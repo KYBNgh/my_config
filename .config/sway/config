@@ -8,9 +8,12 @@ set $left h
 set $down j
 set $up k
 set $right l
+
 set $term footclient
 set $term2 kitty
+
 set $menu fuzzel 
+set $menu2 wmenu-run
 
     # Start a terminal
     bindsym $mod+Return exec $term
@@ -21,6 +24,7 @@ set $menu fuzzel
 
     # Start your launcher
     bindsym $mod+d exec $menu
+    bindsym $mod+Shift+d exec $menu2
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.

@@ -1,0 +1,14 @@
+#!/bin/sh
+podman run -d \
+    --network=host \
+  -v /srv/open-webui/data:/app/backend/data \
+  -e OLLAMA_BASE_URL=http://localhost:11434 \
+  -e WEBUI_SECRET_KEY='vPs9gf54axAtjTWY' \
+  -e RAG_ENABLED=false \
+  -e RAG_EMBEDDING_ENGINE="" \
+  -e RAG_EMBEDDING_MODEL="" \
+  -e RAG_RERANKING_MODEL="" \
+  --name open-webui \
+  --restart unless-stopped \
+  --replace \
+  ghcr.io/open-webui/open-webui:main
