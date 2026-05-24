@@ -1,0 +1,4 @@
+#!/bin/sh
+for domain in $(virsh list --name); do
+    virsh shutdown "$domain"
+done

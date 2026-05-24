@@ -1,4 +1,4 @@
 #!/bin/sh
 echo "Error: $(basename $0): inaccessable or not found."
-echo "Try: vi "
+echo "Try: vi."
 exit 127

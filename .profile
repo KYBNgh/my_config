@@ -74,6 +74,6 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # Start sway session in TTY
-if [ -z "$WAYLAND_DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-    exec sway
-fi
+# if [ -z "$WAYLAND_DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
+#    exec sway
+# fi
