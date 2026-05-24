@@ -1,13 +1,31 @@
 #!/bin/sh
-echo "Doing clean..."
-echo "Removing pacman package cache..."
-echo "Request root promission..."
+
+echo "Disk usage:"
+df -h /
+
+echo "Removing orphan packages ..."
+doas pacman -Rnsc $(pacman -Qdtq)
+
+echo "Removing all pacman packages cache ..."
 yes | doas pacman -Scc
+
+echo "Cleaning /var/cache/pacman/pkg/ ..."
 doas rm -rvf /var/cache/pacman/pkg/*
+
+echo "Cleaning journal ..."
+doas journalctl --vacuum-time=3d
+
+echo "Computing ~/.cache size ..."
+du -sh ~/.cache 2>/dev/null
 echo "Removing ~/.cache ..."
-rm -rvf ~/.cache
+rm -rf ~/.cache
+
+echo "Mkdiring ..."
 mkdir -vp ~/.cache/mpd
 mkdir -vp ~/.cache/minecraft
 mkdir -vp ~/.cache/zsh
+
+echo "Disk usage:"
+df -h /
 
 echo "Completed!"

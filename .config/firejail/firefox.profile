@@ -59,3 +59,5 @@ whitelist ${HOME}/tmp
 # Reject ~/.mozilla
 blacklist ${HOME}/.mozilla
 blacklist ${HOME}/dls
+blacklist ${HOME}/.pki
+

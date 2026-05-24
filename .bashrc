@@ -32,8 +32,9 @@ HISTCONTROL=ignoreboth
 HISTSIZE=50000
 HISTFILESIZE=100000
 HISTIGNORE="cd:ls:ll:la:c:pwd:exit:clear:history:bg:fg:ff:lsblk:lb:#:.."
-
 BASH_CONFIG="${HOME}/.config/bash"
+
+mkdir -p "$(dirname "$HISTFILE")" 2>/dev/null
 
 if command -v fzf 2>&1 >/dev/null; then
     eval "$(fzf --bash)"
@@ -52,18 +53,17 @@ if [ "$PREFIX" = /data/data/com.termux/files/usr ]; then
     if [ -f "${BASH_CONFIG}/termux/prompt.sh" ]; then . ${BASH_CONFIG}/termux/prompt.sh; fi
 
     if [ -d "${BASH_CONFIG}/termux/completions" ]; then
-        for completion in ${BASH_CONFIG}/termux/completions/*; do . "${completion}"; done
+        for completion in "${BASH_CONFIG}"/termux/completions/*; do . "${completion}"; done
     fi
 
     if [ -d "${BASH_CONFIG}/termux/unshare" ]; then
-        for unshare in ${BASH_CONFIG}/termux/unshare/*; do . "$unshare"; done
+        for unshare in "${BASH_CONFIG}"/termux/unshare/*; do . "$unshare"; done
     fi
 
 else
 
     # PC config
     if [ -f "/usr/share/doc/pkgfile/command-not-found.bash" ]; then . /usr/share/doc/pkgfile/command-not-found.bash; fi
-    if [ -f "/usr/share/fzf/key-bindings.bash" ]; then . /usr/share/fzf/key-bindings.bash; fi
     if [ -f "${BASH_CONFIG}/${HOSTNAME}/aliases.sh" ]; then . ${HOME}/.config/bash/${HOSTNAME}/aliases.sh; fi
     if [ -f "${BASH_CONFIG}/${HOSTNAME}/prompt.sh" ]; then . ${HOME}/.config/bash/${HOSTNAME}/prompt.sh; fi
 
@@ -72,7 +72,7 @@ else
     fi
 
     if [ -d "${BASH_CONFIG}/${HOSTNAME}/unshare" ]; then
-        for unshare in ${BASH_CONFIG}/${HOSTNAME}/unshare/*; do . "$unshare"; done
+        for unshare in "${BASH_CONFIG}"/"${HOSTNAME}"/unshare/*; do . "$unshare"; done
     fi
 fi
 
