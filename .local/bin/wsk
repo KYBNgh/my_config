@@ -1,0 +1,9 @@
+#!/bin/sh
+# toggle wshowkeys
+if pgrep wshowkeys; then
+    pkill -TERM wshowkeys
+    notify-send -u low 'wshowkeys' "Killed wshowkeys"
+else
+    wshowkeys -a bottom -F 'SourceCodePro 30' -l 60 &
+    notify-send -u low 'wshowkeys' "Launched wshowkeys"
+fi

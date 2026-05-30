@@ -1,0 +1,12 @@
+#!/bin/sh
+
+audio="alsa_output.pci-0000_00_1b.0.analog-stereo.monitor"
+time="$(date +'%Y%m%d_%H%M%S')"
+format='mp4'
+output="${1:-$HOME/vid/shot/$time.$format}"
+
+echo
+echo "$0: the video will be saved as $output" 
+echo
+exec wf-recorder -a="$audio" -f "$output"
+

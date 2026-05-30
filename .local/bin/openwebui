@@ -1,4 +1,6 @@
 #!/bin/sh
+
+systemctl is-active ollama.service || doas systemctl start ollama.service
 podman run -d \
     --network=host \
   -v /srv/open-webui/data:/app/backend/data \
