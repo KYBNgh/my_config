@@ -22,7 +22,7 @@ cd ~/git
 
 git clone https://github.com/KYBNgh/my_config.git ~/git/
 ```
-3. Running post-install script 
+3. Run stow to install
 ```sh
-./install.sh
+stow -t ~ .
 ```
