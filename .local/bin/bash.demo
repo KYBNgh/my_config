@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+exec bash --rcfile <(echo -e '
+
+        bind "set completion-ignore-case off"
+        bind "set show-all-if-ambiguous off"
+        bind "set menu-complete-display-prefix off"
+        bind "set echo-control-characters on"
+
+        PS1="XwO:\w\$ "
+
+        echo "Entered a demo mode shell"
+     ')
+
+

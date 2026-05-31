@@ -14,7 +14,6 @@ alias icat='kitten icat'
 alias lb='lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINTS'
 alias si='swayimg'
 alias lfcd='$(lf -print-last-dir )'
-alias wsk="wshowkeys -a bottom -F 'SourceCodePro 30' -l 60 &"
 
 # System
 alias dmesg='doas dmesg'
