@@ -1,6 +1,11 @@
 # ~/.profile
 # @KYBNgh
 
+# Set Termux flags
+if [ -v TERMUX_VERSION ]; then
+    export is_termux=true
+fi
+
 # Set PATH
 # Add user's private bin(scripts)
 if [ -d "${HOME}/.local/bin" ]; then
@@ -12,13 +17,10 @@ if [ -d "${HOME}/.local/app" ]; then
     export PATH="${HOME}/.local/app:${PATH}"
 fi
 
-# For Termux, add /system/bin
-if [ "$PREFIX" = "/data/data/com.termux/files/usr" ]; then
-    if [ -d "/data/data/com.termux/bin" ]; then
-        export PATH="${PATH}:/data/data/com.termux/bin:/system/bin"
-    else
-        export PATH="${PATH}:/system/bin"
-    fi
+# Add android bin and customize dgobal bin for Termux
+if [ -v is_termux ]; then
+    if [ -d "/data/data/com.termux/bin" ]; then export PATH="${PATH}:/data/data/com.termux/bin:/system/bin" ; fi
+    export PATH="${PATH}:/system/bin"
 fi
 
 # Set EDITOR: prefer nvim > vim
@@ -33,6 +35,7 @@ if [ "$EDITOR" = "vim" ]; then
     export VIMINIT='source ~/.config/vim/vimrc'
     export VIMCONFIG=~/.config/vim
 fi
+
 # XDG dirctories
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -73,7 +76,7 @@ if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
-# Start sway session in TTY
+# Start sway session in TTY, but it had been replaced by ly-dm
 # if [ -z "$WAYLAND_DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
 #    exec sway
 # fi
