@@ -1,7 +1,6 @@
 clash-verge-rev-bin
-dmg2img
+doas-sudo-shim
 fcitx5-skin-fluentdark-git
-fortune-mod-off
-pacseek-bin
 piliplus-bin
+vidoas
 wshowkeys-mao-git
