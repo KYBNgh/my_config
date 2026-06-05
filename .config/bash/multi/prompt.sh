@@ -1,5 +1,5 @@
-# ~/.config/bash/arch-desk/prompt.sh
-# Bash prompt for arch-desk
+# ~/.config/bash/multi/prompt.sh
+# Bash prompt for multi
 #
 # Original copyright notice:
 # @author nate zhou
