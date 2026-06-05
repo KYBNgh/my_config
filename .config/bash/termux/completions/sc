@@ -1,0 +1,14 @@
+_sc() {
+    if ! declare -F _comp_cmd_ssh >/dev/null 2>&1; then
+        if declare -F _completion_loader >/dev/null 2>&1; then
+            _completion_loader ssh
+        fi
+        if ! declare -F _comp_cmd_ssh >/dev/null 2>&1; then
+            return 0
+        fi
+    fi
+
+    _comp_cmd_ssh sc "$@"
+}
+
+complete -F _sc sc
