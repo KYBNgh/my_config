@@ -162,6 +162,8 @@ bindsym $mod+r mode "resize"
     # Lock the screen
     bindsym $mod+Alt+l exec swaylock
     bindsym $mod+Shift+s exec $HOME/.local/bin/wsk
+
+    bindsym $mod+Ctrl+l exec makoctl dismiss --all
     
     # Launcher daemons
     exec foot --server
