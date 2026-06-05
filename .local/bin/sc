@@ -1,6 +1,24 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+count=0
+max_retries=10
 
 until ssh "$@"; do
-    printf "%s\n" "$0: ssh connection seems to be disconnected."
-    printf "%s\n" "$0: reconnecting..."
+    exit=$?
+
+    if ((count >= max_retries)); then 
+        printf "%s" "sc: limit out($max_retries times)";
+        break;
+    fi
+
+    ((count++))
+    printf "%s\n" "sc: ssh connection was broken";
+    printf "%s" "sc: retry in 3 sec, press Enter for retry immediately ($count/$max_retries)";
+
+    read -r -t 3 dummy;
+
+    printf "%s\n" "sc: reconnecting...";
+
 done
+
+exit "$exit"
