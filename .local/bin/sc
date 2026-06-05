@@ -1,0 +1,6 @@
+#!/bin/sh
+
+until ssh "$@"; do
+    printf "%s\n" "$0: ssh connection seems to be disconnected."
+    printf "%s\n" "$0: reconnecting..."
+done
