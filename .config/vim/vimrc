@@ -14,6 +14,7 @@ set viminfofile=$HOME/.local/state/vim/viminfo
 
 call plug#begin('~/.config/vim/plugged')
     Plug 'chrisbra/Colorizer'
+    Plug 'lifepillar/vim-mucomplete'
 call plug#end()
 
 let g:colorizer_auto_color = 1
