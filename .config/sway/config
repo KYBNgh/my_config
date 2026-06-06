@@ -166,10 +166,10 @@ bindsym $mod+r mode "resize"
     bindsym $mod+Ctrl+l exec makoctl dismiss --all
     
     # Launcher daemons
-    exec foot --server
     exec autotiling
     exec fcitx5 -d
     exec mako
+    exec_always pgrep foot || foot --server
     exec_always makoctl reload
 
     # Waybar
