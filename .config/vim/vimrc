@@ -1,9 +1,14 @@
 set nocompatible
-set laststatus=2
 set number relativenumber
 set mouse=a
 syntax on
 filetype plugin indent on
+
+if exists('$TMUX')
+        set laststatus=1
+else
+        set laststatus=2
+endif
 
 set tabstop=4
 set softtabstop=4
