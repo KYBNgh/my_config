@@ -1,47 +1,59 @@
 #!/usr/bin/env bash
 
-count=0;
-max_retries=10;
+count=0
+max_retries=10
+ssh_args=("$@")
 
 if (($# == 0)); then
-    ssh;
-    exit 0;
+    ssh
+    exit 0
 fi
 
-until ssh "$@"; do
-    exit_code=$?;
+if [[ -n "$TERMUX_VERSION" ]]; then
+    rssi="$(termux-wifi-connectioninfo | jq -r .rssi)"
+    # -127 means no signal
+    if ((rssi <= -70 && rssi != -127)); then
+        printf "%s\n" "sc: Wi-Fi signal is weak"
+        printf "%s\n" "sc: enabling SSH compression"
+        ssh_args=("-C" "${ssh_args[@]}")
+    fi
+fi
 
-    if ((count >= max_retries)); then 
+until ssh "${ssh_args[@]}"; do
+    exit_code=$?
+    interrupted=0
+
+    if ((count >= max_retries)); then
         printf "\n"
-        printf "%s\n" "sc: limit out($max_retries times)";
-        break;
+        printf "%s\n" "sc: limit reached ($max_retries retries)"
+        break
     fi
 
-    ((count++));
+    ((count++))
 
-    # Reset the terminal
+    # reset the terminal
     printf '\033[?1006l\033[?1002l\033[?1000l\033[?1l\033[?25h\033[?1049l'
 
-    printf "\n";
-    printf "%s\n" "sc: ssh exited with $exit_code";
-    printf "%s\n" "sc: retry in 3 sec ($count/$max_retries)";
-    printf "%s" "sc: press return to retry immediately ";
+    printf "\n"
+    printf "%s\n" "sc: ssh exited with $exit_code"
+    printf "%s\n" "sc: retry in 3 sec ($count/$max_retries)"
+    printf "%s"   "sc: press return to retry immediately "
 
-    for ((i=3; i>=1; i--)); do
-        printf "%d..." "$i";
+    for ((i = 3; i >= 1; i--)); do
+        printf "%d..." "$i"
         if read -r -s -t 1 -n 1 dummy; then
-            interrupted=1;
-            break;
+            interrupted=1
+            break
         fi
     done
 
     printf "\n"
-    
+
     if ((interrupted)); then
-        printf "\n%s\n" "sc: reconnecting...";
-        printf "\n";
+        printf "\n%s\n" "sc: reconnecting..."
+        printf "\n"
     fi
 
 done
 
-exit ${exit_code:-0};
+exit "${exit_code:-0}"
