@@ -23,12 +23,7 @@ if [ -v is_termux ]; then
     export PATH="${PATH}:/system/bin"
 fi
 
-# Set EDITOR: prefer nvim > vim
-if command -v nvim >/dev/null 2>&1; then
-    export EDITOR=nvim
-elif command -v vim >/dev/null 2>&1; then
-    export EDITOR=vim
-fi
+export EDITOR=vim
 
 # Set vim config dirctory
 if [ "$EDITOR" = "vim" ]; then
