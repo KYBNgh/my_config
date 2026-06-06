@@ -6,4 +6,6 @@ set mouse
 set autoquit
 set preview
 
+set promptfmt "\033[38;5;15m%u\033[0m\033[1;38;5;4m@\033[0m\033[38;5;15m%h \033[0m\033[1;38;5;4m%w\033[0m "
 map D delete
+
