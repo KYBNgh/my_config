@@ -9,5 +9,5 @@ set preview
 set promptfmt "\033[38;5;15m%u\033[0m\033[1;38;5;4m@\033[0m\033[38;5;15m%h \033[0m\033[1;38;5;4m%w\033[0m "
 set timefmt "2006-01-02 15:04"
 set numberfmt "\033[90m"
-map D delete
 
+map D delete
