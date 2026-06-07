@@ -12,7 +12,7 @@ set $right l
 set $term footclient
 set $term2 kitty
 
-set $menu wmenu-run
+set $menu "${HOME}/.local/bin/wmenu-run"
 set $menu2 fuzzel 
 
     # Start a terminal
