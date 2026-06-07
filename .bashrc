@@ -6,11 +6,6 @@ case $- in   # check shell options
 *) return ;; # don't do anything
 esac
 
-# If terminal is foot, set it to xterm-256color
-if [ "$TERM" = "foot" ]; then
-    export TERM=xterm-256color
-fi
-
 shopt -s histappend
 shopt -s checkwinsize
 shopt -s autocd
@@ -46,11 +41,13 @@ fi
 
 if [ -f "${BASH_CONFIG}/aliases.sh" ]; then . ${BASH_CONFIG}/aliases.sh; fi
 
-if [ "$PREFIX" = /data/data/com.termux/files/usr ]; then
+# "is_termux" had been set in .profile
+if [ -v "$is_termux" ] || [ "$PREFIX" = /data/data/com.termux/files/usr ]; then
 
     # Termux config
     if [ -f "${BASH_CONFIG}/termux/aliases.sh" ]; then . ${BASH_CONFIG}/termux/aliases.sh; fi
     if [ -f "${BASH_CONFIG}/termux/prompt.sh" ]; then . ${BASH_CONFIG}/termux/prompt.sh; fi
+    if [ -f "$INPUTRC" ]; then bind -f "$INPUTRC"; fi
 
     if [ -d "${BASH_CONFIG}/termux/completions" ]; then
         for completion in "${BASH_CONFIG}"/termux/completions/*; do . "${completion}"; done
@@ -62,7 +59,7 @@ if [ "$PREFIX" = /data/data/com.termux/files/usr ]; then
 
 else
 
-    # PC config
+    # GNU/Linux config
     if [ -f "/usr/share/doc/pkgfile/command-not-found.bash" ]; then . /usr/share/doc/pkgfile/command-not-found.bash; fi
     if [ -f "${BASH_CONFIG}/${HOSTNAME}/aliases.sh" ]; then . ${HOME}/.config/bash/${HOSTNAME}/aliases.sh; fi
     if [ -f "${BASH_CONFIG}/${HOSTNAME}/prompt.sh" ]; then . ${HOME}/.config/bash/${HOSTNAME}/prompt.sh; fi
