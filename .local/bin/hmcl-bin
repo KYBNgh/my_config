@@ -1,2 +1,2 @@
 #!/bin/sh
-firejail --profile=$HOME/.config/firejail/hmcl-bin.profile /usr/bin/hmcl-bin
+firejail --profile=$HOME/.config/firejail/hmcl-bin.profile /usr/bin/hmcl-bin "$@"

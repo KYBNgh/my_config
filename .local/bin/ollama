@@ -1,0 +1,2 @@
+#!/bin/sh
+firejail --quiet --profile=$HOME/.config/firejail/ollama.profile /usr/bin/ollama "$@"
