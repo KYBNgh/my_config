@@ -48,6 +48,7 @@ alias ff='fastfetch --logo none --color cyan'
 alias df='df -h'
 alias du='du -h -c'
 alias free='free -h'
+alias t='tmux'
 
 if command -v bat 2>&1 >/dev/null; then
     alias cat='command bat --paging=never --color=auto --style="plain" --italic-text=never'
