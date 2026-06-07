@@ -11,3 +11,6 @@ set timefmt "2006-01-02 15:04"
 set numberfmt "\033[90m"
 
 map D delete
+map <enter> $bat "$f"
+map A :push %mkdir<space>
+map a :push %touch<space>

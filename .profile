@@ -25,12 +25,6 @@ fi
 
 export EDITOR=vim
 
-# Set vim config dirctory
-if [ "$EDITOR" = "vim" ]; then
-    export VIMINIT='source ~/.config/vim/vimrc'
-    export VIMCONFIG=~/.config/vim
-fi
-
 # XDG dirctories
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"

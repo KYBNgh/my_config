@@ -7,7 +7,7 @@ if [ $# -lt 2 ] || [ $# -gt 3 ]; then
 fi
 
 src="$1"
-outdir="$2"
+outdir="${2:-.}"
 prefix="${3:-crypted_dump}"
 
 if [ ! -d "$src" ]; then
