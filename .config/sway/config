@@ -12,8 +12,8 @@ set $right l
 set $term footclient
 set $term2 kitty
 
-set $menu fuzzel 
-set $menu2 wmenu-run
+set $menu wmenu-run
+set $menu2 fuzzel 
 
     # Start a terminal
     bindsym $mod+Return exec $term
