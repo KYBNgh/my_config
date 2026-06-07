@@ -155,9 +155,9 @@ bindsym $mod+r mode "resize"
     bindsym --locked Shift+KP_Subtract exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%- -l 1.0
     
     # Special key to take a screenshot with grim
-    bindsym Print exec $HOME/.local/bin/screenshoter_full.sh
-    bindsym Shift+Print exec $HOME/.local/bin/screenshoter_slurp.sh
-    bindsym $mod+Print exec $HOME/.local/bin/screenshoter_slurp_tmp.sh
+    bindsym Print exec $HOME/.local/bin/shoter full
+    bindsym Shift+Print exec $HOME/.local/bin/shoter slurp
+    bindsym $mod+Print exec $HOME/.local/bin/shoter tmp
 
     # Lock the screen
     bindsym $mod+Alt+l exec swaylock

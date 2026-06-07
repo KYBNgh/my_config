@@ -1,0 +1,48 @@
+#!/bin/sh
+set -u
+
+filename=$(date +%Y%m%d-%H%M%S).png
+filedir=${HOME}/pic/shot
+
+full_shot() {
+    # -c means including the cursor
+    # by default, grim will choose XDG_PICTURES_DIR as fallback
+    if grim -c "${filedir}/${filename}"; then
+        notify-send -u low 'Screenshot' "Saved: ${filename}"
+    else
+        grim && notify-send 'Screenshot' "Saved in $XDG_PICTURES_DIR"
+    fi
+}
+
+slurp_shot() {
+    if grim -g "$(slurp)" "${filedir}/${filename}"; then
+        wl-copy < "$filedir/$filename" && notify-send -u low 'Screenshot' "Saved: ${filename} and copied to clipboard"
+    fi
+}
+
+tmp_shot() {
+    filedir="$HOME/tmp"
+    if grim -g "$(slurp)" -c "${filedir}/${filename}"; then
+        notify-send -u low -i camera-photo-symbolic 'Screenshot' "Saved: ${filedir}/${filename}"
+    fi
+}
+
+if [ $# -lt 1 ]; then
+    printf "%s\n" "Error: too few args" >&2
+fi
+
+case "$1" in
+    full)
+        full_shot
+        ;;
+    slurp)
+        slurp_shot
+        ;;
+    tmp)
+        tmp_shot
+        ;;
+    *)
+        printf "%s\n" "Error: unknown arg: $1"
+        exit 1
+        ;;
+esac
