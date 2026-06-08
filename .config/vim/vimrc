@@ -16,6 +16,7 @@ set shiftwidth=4
 set expandtab
 set autoindent
 set clipboard=unnamedplus
+set t_Co=256
 
 set viminfofile=$HOME/.local/state/vim/viminfo
 
@@ -30,7 +31,7 @@ let g:colorizer_auto_filetypes = ['*']
 let mapleader="\\"
 nmap <leader>c :ColorHighlight<CR>
 
-set t_Co=256
-
 highlight CursorLineNr ctermfg=blue guifg=blue cterm=bold
 highlight LineNr ctermfg=darkgray guifg=darkgray
+
+inoremap <C-BS> <C-w>

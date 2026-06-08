@@ -6,6 +6,8 @@ exec bash --rcfile <(echo -e '
         bind "set show-all-if-ambiguous off"
         bind "set menu-complete-display-prefix off"
         bind "set echo-control-characters on"
+        export TERM="xterm-256color"
+        export HISTFILE="${HOME}/.local/share/bash/bash_demo_history"
 
         PS1="XwO:\w\$ "
 
