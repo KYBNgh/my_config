@@ -1,3 +1,5 @@
+# <Device/UUID> <Mount Point>   <Filesystem>  <Options>     <Dump(0)>  <Pass(fsck)>
+
 # Btrfs subvolumes 
 UUID=ROOTUUID   /   btrfs   rw,noatime,compress=zstd:3,ssd,space_cache=v2,discard=async,subvol=@    0 0
 
