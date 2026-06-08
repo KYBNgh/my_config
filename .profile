@@ -55,6 +55,7 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
 export BROWSER="firefox"
 
+export TERM=xterm-256color
 export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
 
 # Man page
