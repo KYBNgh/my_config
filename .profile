@@ -66,7 +66,7 @@ if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
-# Auto-launch Sway on TTY1 login
+# Launch Sway on TTY1 login
 if [ "$(tty)" = "/dev/tty1" ]; then
     read -p "Start Sway? [y]es or [n]o: " -n 1 -r
     echo

@@ -1,3 +1,6 @@
 # Drop it
-blacklist ~/.ollama
+# blacklist ~/.ollama
+private
 blacklist ~/.ssh
+blacklist ~/.gnupg
+blacklist ~/.local/share/gnupg
