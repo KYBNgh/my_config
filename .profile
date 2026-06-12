@@ -67,10 +67,6 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # Launch Sway on TTY1 login
-if [ "$(tty)" = "/dev/tty1" ]; then
-    read -p "Start Sway? [y]es or [n]o: " -n 1 -r
-    echo
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-        exec sway
-    fi
+if [ -z "$WAYLAND_DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] && [ -x "/usr/bin/sway" ] && [ $(tty) = "/dev/tty1" ]; then
+    read -n 1 -p "Launch sway? " QwQ && exec sway
 fi

@@ -1,14 +1,14 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "Source Code Pro", monospace;
-    font-size: 13px;
+    font-family: "Source Code Pro", "Noto Sans Mono CJK SC", monospace;
+    font-size: 15px;
     min-height: 0;
 }
 
 window#waybar {
-    background: #232323;   /* regular0 */
-    color: #ffffff;        /* regular7 */
+    background: #232323;
+    color: #ffffff;
     padding: 0;
 }
 
@@ -19,18 +19,18 @@ window#waybar {
 #workspaces button {
     padding: 0 8px;
     background: transparent;
-    color: #666666;       /* dimmed white */
+    color: #666666; 
     border-bottom: 2px solid transparent;
 }
 
 #workspaces button.focused {
     color: #ffffff;
-    border-bottom: 2px solid #008df8;  /*blue! */
+    border-bottom: 2px solid #008df8; 
 }
 
 #workspaces button.urgent {
-    color: #ff000f;       /*red */
-    border-bottom: 2px solid #ff000f;
+    color: #cec733 ;
+    border-bottom: 2px solid #cec733 ;
 }
 
 #window {
@@ -47,7 +47,7 @@ window#waybar {
 #custom-clock {
     padding: 0 10px;
     margin: 0 4px;
-    background: #2a2a2a;   /* slightly lighter than bg */
+    background: #2a2a2a;
     border-radius: 4px;
     transition: background 0.2s ease;
 }
