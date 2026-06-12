@@ -39,24 +39,24 @@ export XDG_VIDEOS_DIR="$HOME/vid"
 
 export PAGER=less
 export LESS="-R -i -F -X -M -S"
-export LESSHISTFILE="$XDG_CACHE_HOME/less_history"
-export CALCHISTFILE="$XDG_CACHE_HOME/calc_history"
+export LESSHISTFILE="$XDG_DATA_HOME/less/less_history"
+export CALCHISTFILE="$XDG_DATA_HOME/calc/calc_history"
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GOPATH="$XDG_DATA_HOME/go"
 export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
-export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export PYTHON_HISTORY="$XDG_STATE_HOME/python_history"
-export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
 export BROWSER="firefox"
 
 export TERM=xterm-256color
-export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # Man page
 [ -x /usr/bin/bat ] && export MANROFFOPT="-c" && export MANPAGER="sh -c 'col -bx | bat --pager \"less -XR\" -l man -p'"

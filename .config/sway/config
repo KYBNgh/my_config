@@ -172,6 +172,9 @@ bindsym $mod+r mode "resize"
     exec_always pgrep foot || foot --server
     exec_always makoctl reload
 
+    # Set output scale
+    output HDMI-A-2 scale 1
+
     # Waybar
     bar {
         position top
@@ -180,6 +183,7 @@ bindsym $mod+r mode "resize"
     
     # Background
     output * bg $HOME/.local/share/swaypaper fill
+
 
 # Key bindings
 # ESC, CapsLock, all for ESC

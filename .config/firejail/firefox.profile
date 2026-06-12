@@ -20,7 +20,7 @@ ignore read-only ${HOME}/.mozilla/firefox/profiles.ini
 
 noblacklist ${HOME}/.cache/mozilla
 noblacklist ${HOME}/.config/mozilla
-noblacklist ${HOME}/.mozilla
+blacklist ${HOME}/.mozilla
 noblacklist ${RUNUSER}/*firefox*
 noblacklist ${RUNUSER}/psd/*firefox*
 
