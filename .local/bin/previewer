@@ -1,0 +1,21 @@
+#!/bin/sh
+
+case "$(file -Lb --mime-type -- "$1")" in
+    image/*)
+        chafa -f sixel -s "$2x$3" --polite on --animate off "$1"
+        exit 1
+        ;;
+    application/pdf)
+    CACHE="$HOME/.cache/lf/$(echo -n "$1" | sha256sum | cut -d' ' -f1).jpg"
+    mkdir -p "$(dirname "$CACHE")"
+    [ ! -f "$CACHE" ] && pdftoppm -jpeg -f 1 -singlefile "$1" "$(echo "$CACHE" | sed 's/\.jpg$//')"
+    [ -f "$CACHE" ] && chafa -f sixel -s "$2x$3" --polite on --animate off "$CACHE"
+        exit 1
+        ;;
+    text/*|application/json|application/xml)
+        bat --color=always --style=numbers --pager=never "$1"
+        ;;
+    *)
+        cat "$1" 2>/dev/null || echo "binary file"
+        ;;
+esac

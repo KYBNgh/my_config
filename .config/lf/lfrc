@@ -14,3 +14,6 @@ map D delete
 map <enter> $bat "$f"
 map A :push %mkdir<space>
 map a :push %touch<space>
+
+set previewer ~/.local/bin/previewer
+set cleaner ~/.local/bin/cleaner
