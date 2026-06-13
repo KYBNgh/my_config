@@ -1,0 +1,31 @@
+#!/bin/sh
+
+if [ -n "$SSH_CONNECTION" ]; then
+    SUDO=sudo
+else
+    SUDO=""
+fi
+
+tty_off() {
+    $SUDO sh -c " setterm --blank force --term linux < /dev/$1"
+}
+
+tty_on() {
+    $SUDO sh -c " setterm --blank poke --term linux < /dev/$1"
+}
+
+case "$#" in
+    2)
+
+        case "$2" in
+            on)  tty_on "$1" ;;
+            off) tty_off "$1" ;;
+            *) echo "Usage: $0 <tty> [on|off]" ; exit 1 ;;
+        esac
+        ;;
+
+    *)
+        echo "Usage: $0 <tty> [on|off]"
+        exit 1
+        ;;
+esac

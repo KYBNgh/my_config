@@ -1,0 +1,20 @@
+# bash completion for ttyctl
+_ttyctl_completion() {
+    local cur prev words cword
+    _init_completion || return
+
+    case "$cword" in
+        1)
+            # Complete tty devices
+            COMPREPLY=($(compgen -W "$(ls /dev/tty[0-9]* 2>/dev/null | sed 's|/dev/||')" -- "$cur"))
+            ;;
+        2)
+            # Complete on/off options
+            COMPREPLY=($(compgen -W "on off" -- "$cur"))
+            ;;
+        *)
+            # No more completions
+            COMPREPLY=()
+            ;;
+    esac
+} && complete -F _ttyctl_completion ttyctl

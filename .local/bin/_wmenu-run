@@ -1,6 +1,6 @@
 #!/bin/sh
 
-/usr/bin/wmenu-run -f "SourceCodePro 12" \
+wmenu-run -f "SourceCodePro 12" \
     -i \
     -p "Run:" \
     -M "#008df8" \

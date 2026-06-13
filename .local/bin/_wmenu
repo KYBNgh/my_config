@@ -1,0 +1,8 @@
+#!/bin/sh
+
+wmenu -f "SourceCodePro 12" \
+    -i \
+    -M "#008df8" \
+    -S "#333333" \
+    "$@"
+

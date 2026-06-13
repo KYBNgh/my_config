@@ -1,0 +1,10 @@
+#!/bin/sh
+
+SWAYSOCK=$(pgrep -U "$USER" -x sway | head -1 | xargs -I{} echo /run/user/$(id -u)/sway-ipc.$(id -u).{}.sock)
+export SWAYSOCK
+
+if swaymsg -t get_outputs | jq '.[] | select (.name=="HDMI-A-2") | .power' | grep -q "true"; then
+    swaymsg "output * power off"
+else
+    swaymsg "output * power on"
+fi
