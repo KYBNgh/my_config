@@ -63,6 +63,7 @@ else
     if [ -f "/usr/share/doc/pkgfile/command-not-found.bash" ]; then . /usr/share/doc/pkgfile/command-not-found.bash; fi
     if [ -f "${BASH_CONFIG}/${HOSTNAME}/aliases.sh" ]; then . ${HOME}/.config/bash/${HOSTNAME}/aliases.sh; fi
     if [ -f "${BASH_CONFIG}/${HOSTNAME}/prompt.sh" ]; then . ${HOME}/.config/bash/${HOSTNAME}/prompt.sh; fi
+    if [ -f "${BASH_CONFIG}/${HOSTNAME}/proxy.sh" ]; then . ${HOME}/.config/bash/${HOSTNAME}/proxy.sh; fi
 
     if [ -d "${BASH_CONFIG}/${HOSTNAME}/completions" ]; then
         for completion in ${BASH_CONFIG}/${HOSTNAME}/completions/*; do . "${completion}"; done
@@ -72,26 +73,4 @@ else
         for unshare in "${BASH_CONFIG}"/"${HOSTNAME}"/unshare/*; do . "$unshare"; done
     fi
 fi
-
-# Set Proxy, as functions
-proxy-up-lan() {
-    export http_proxy="http://192.168.31.20:8080"
-    export https_proxy=$http_proxy
-    export ftp_proxy="http://192.168.31.20:8080"
-    export no_proxy="localhost,127.0.0.1,.local"
-}
-
-proxy-up-local() {
-    export http_proxy="http://127.0.0.1:7897"
-    export https_proxy=$http_proxy
-    export ftp_proxy="http://127.0.0.1:7897"
-    export no_proxy="localhost,127.0.0.1,.local"
-}
-
-proxy-down() {
-    unset http_proxy
-    unset https_proxy
-    unset ftp_proxy
-    unset no_proxy
-}
 

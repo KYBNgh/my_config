@@ -9,7 +9,7 @@ exec bash --rcfile <(echo -e '
         export TERM="xterm-256color"
         export HISTFILE="${HOME}/.local/share/bash/bash_demo_history"
 
-        PS1="XwO:\w\$ "
+        PS1="\w:\$ "
 
         echo "Entered a demo mode shell"
      ')
