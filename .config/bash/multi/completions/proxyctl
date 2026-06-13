@@ -1,0 +1,25 @@
+_proxyctl_completion() {
+    local cur prev words cword
+    _init_completion || return
+
+    case $cword in
+        1)
+            COMPREPLY=($(compgen -W "lan lo local drop off down status" -- "$cur"))
+            ;;
+        2)
+            case "${prev}" in
+                lan|lo|local)
+                    COMPREPLY=($(compgen -W "up on start down off stop drop" -- "$cur"))
+                    ;;
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            ;;
+        *)
+            COMPREPLY=()
+            ;;
+    esac
+}
+
+complete -F _proxyctl_completion proxyctl
