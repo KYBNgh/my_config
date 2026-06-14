@@ -53,3 +53,6 @@ highlight PmenuThumb guibg=#404040 ctermbg=239
 inoremap <C-BS> <C-w>
 inoremap <C-Del> <C-o>de
 nnoremap <expr> <CR> v:hlsearch ? ":nohlsearch\<CR>\<CR>" : "\<CR>"
+
+xnoremap "+y :call system('wl-copy', @")<CR>
+nnoremap "+p :let @"=system('wl-paste')<CR>p
