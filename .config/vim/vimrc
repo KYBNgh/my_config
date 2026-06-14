@@ -9,6 +9,7 @@ set incsearch
 set ignorecase
 set smartcase
 set wrapscan
+set clipboard=unnamedplus
 
 if &diff
     syntax off
@@ -25,7 +26,6 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set autoindent
-set clipboard=unnamedplus
 
 set viminfofile=$HOME/.local/state/vim/viminfo
 
