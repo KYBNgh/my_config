@@ -1,4 +1,4 @@
-# Bash completion for ollama
+# ~/.config/bash/multi/completions/ollama
 
 _ollama_list_models() {
     ollama list 2>/dev/null | awk 'NR>1 {print $1}'

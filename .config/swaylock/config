@@ -1,17 +1,16 @@
 # Visual effect
 
-# image="${HOME}/.local/share/lockpaper"
-# color=232323
 screenshot
-effect-blur=10x10
+effect-scale=0.5
+effect-blur=7x5
 
 clock
 indicator
 
 font=SourceCodePro Medium
-font-size=20
+font-size=18
 
-indicator-radius=80
+indicator-radius=85
 indicator-thickness=12
 show-failed-attempts
 
@@ -39,3 +38,5 @@ inside-caps-lock-color=bbccddcc
 caps-lock-bs-hl-color=bbccddcc
 caps-lock-key-hl-color=111111
 text-caps-lock-color=111111
+
+separator-color=00000000

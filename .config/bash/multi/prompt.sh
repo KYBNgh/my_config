@@ -6,13 +6,8 @@
 # @since 2023,2024,2025
 #
 # Modifications by @KYBNgh
-# Prompt:
-# 130 foo@bar-host repo master *= $ 
-# Blue and yellow '@' sign and exit code in front of prompt
-# Blue and yellow '>>' in PS2
 
-# Source git prompt
-[ -f "/usr/share/git/completion/git-prompt.sh" ] && . /usr/share/git/completion/git-prompt.sh
+load "/usr/share/git/completion/git-prompt.sh"
 
 GIT_PS1_SHOWDIRTYSTATE=1        # + for staged, * if unstaged
 GIT_PS1_SHOWSTASHSTATE=1        # $ if something is stashed.

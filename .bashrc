@@ -11,15 +11,12 @@ shopt -s checkwinsize
 shopt -s autocd
 shopt -s globstar
 
-# Set vi mode
 set -o vi
 bind -m vi-command 'Control-l: clear-screen'
 bind -m vi-insert 'Control-l: clear-screen'
 
-# Make doas completion as sudo
 complete -F _command doas
 umask 0077
-export GPG_TTY=$(tty) 
 
 # History
 HISTFILE="$XDG_DATA_HOME/bash/bash_history"
@@ -27,26 +24,34 @@ HISTCONTROL=ignoreboth
 HISTSIZE=50000
 HISTFILESIZE=100000
 HISTIGNORE="cd:ls:ll:la:c:pwd:exit:clear:history:bg:fg:ff:lsblk:lb:#:.."
-BASH_CONFIG="${HOME}/.config/bash"
+BASH_CONFIG="$XDG_CONFIG_HOME/bash"
 
 mkdir -p "$(dirname "$HISTFILE")" 2>/dev/null
 
-if command -v fzf 2>&1 >/dev/null; then
+if command -v fzf 2>&1 > /dev/null; then
     eval "$(fzf --bash)"
 fi
 
-if [ -x /usr/bin/dircolors ]; then
+if command -v dircolors 2>&1 > /dev/null; then
     eval "$(dircolors -b)"
 fi
 
-if [ -f "${BASH_CONFIG}/aliases.sh" ]; then . ${BASH_CONFIG}/aliases.sh; fi
+
+load() {
+    if [ -f "$1" ]; then
+        . "$1"
+    fi
+}
+
+load "${BASH_CONFIG}/aliases.sh"
 
 # "is_termux" had been set in .profile
 if [ -v "$is_termux" ] || [ "$PREFIX" = /data/data/com.termux/files/usr ]; then
 
-    # Termux config
-    if [ -f "${BASH_CONFIG}/termux/aliases.sh" ]; then . ${BASH_CONFIG}/termux/aliases.sh; fi
-    if [ -f "${BASH_CONFIG}/termux/prompt.sh" ]; then . ${BASH_CONFIG}/termux/prompt.sh; fi
+    # Termux
+    load "${BASH_CONFIG}/termux/aliases.sh"
+    load "${BASH_CONFIG}/termux/prompt.sh"
+
     if [ -f "$INPUTRC" ]; then bind -f "$INPUTRC"; fi
 
     if [ -d "${BASH_CONFIG}/termux/completions" ]; then
@@ -59,11 +64,11 @@ if [ -v "$is_termux" ] || [ "$PREFIX" = /data/data/com.termux/files/usr ]; then
 
 else
 
-    # GNU/Linux config
-    if [ -f "/usr/share/doc/pkgfile/command-not-found.bash" ]; then . /usr/share/doc/pkgfile/command-not-found.bash; fi
-    if [ -f "${BASH_CONFIG}/${HOSTNAME}/aliases.sh" ]; then . ${HOME}/.config/bash/${HOSTNAME}/aliases.sh; fi
-    if [ -f "${BASH_CONFIG}/${HOSTNAME}/prompt.sh" ]; then . ${HOME}/.config/bash/${HOSTNAME}/prompt.sh; fi
-    if [ -f "${BASH_CONFIG}/${HOSTNAME}/proxy.sh" ]; then . ${HOME}/.config/bash/${HOSTNAME}/proxy.sh; fi
+    # GNU/Linux
+    load "/usr/share/doc/pkgfile/command-not-found.bash" 
+    load "${BASH_CONFIG}/${HOSTNAME}/aliases.sh"
+    load "${BASH_CONFIG}/${HOSTNAME}/prompt.sh" 
+    load "${BASH_CONFIG}/${HOSTNAME}/proxy.sh" 
 
     if [ -d "${BASH_CONFIG}/${HOSTNAME}/completions" ]; then
         for completion in ${BASH_CONFIG}/${HOSTNAME}/completions/*; do . "${completion}"; done
@@ -74,3 +79,5 @@ else
     fi
 fi
 
+# Drop the function
+unset -f load

@@ -57,6 +57,7 @@ export BROWSER="firefox"
 
 export TERM=xterm-256color
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export GPG_TTY=$(tty)
 
 # Man page
 [ -x /usr/bin/bat ] && export MANROFFOPT="-c" && export MANPAGER="sh -c 'col -bx | bat --pager \"less -XR\" -l man -p'"

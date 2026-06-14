@@ -1,5 +1,4 @@
-# ~/.config/bash/arch-desk/aliases.sh
-# Aliases for arch-desk
+# ~/.config/bash/multi/aliases.sh
 #
 # Original copyright notice:
 # @author nate zhou
