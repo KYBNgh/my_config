@@ -1,10 +1,18 @@
 # Visual effect
-image="${HOME}/.local/share/lockpaper"
-font=SourceCodePro
-font-size=18
 
-indicator-radius=70 
-indicator-thickness=10
+# image="${HOME}/.local/share/lockpaper"
+# color=232323
+screenshot
+effect-blur=10x10
+
+clock
+indicator
+
+font=SourceCodePro Medium
+font-size=20
+
+indicator-radius=80
+indicator-thickness=12
 show-failed-attempts
 
 indicator-caps-lock

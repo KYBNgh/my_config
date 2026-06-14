@@ -1,6 +1,5 @@
 clash-verge-rev-bin
 doas-sudo-shim
 fcitx5-skin-fluentdark-git
-piliplus-bin
 vidoas
 wshowkeys-mao-git

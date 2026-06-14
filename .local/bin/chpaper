@@ -18,5 +18,5 @@ if [ ! -f "$image" ]; then
 fi
 
 ln -svf "$image" "$wallpaper" && notify-send -u low 'Wallpaper' "Wallpaper set to $image"
-ln -svf "$image" "$lockpaper" && notify-send -u low 'Lockpaper' "Lockpaper set to $image"
+# ln -svf "$image" "$lockpaper" && notify-send -u low 'Lockpaper' "Lockpaper set to $image"
 swaymsg reload
