@@ -4,6 +4,16 @@ set mouse=a
 syntax on
 filetype plugin indent on
 
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set wrapscan
+
+if &diff
+    syntax off
+endif
+
 if exists('$TMUX')
         set laststatus=1
 else
@@ -16,7 +26,6 @@ set shiftwidth=4
 set expandtab
 set autoindent
 set clipboard=unnamedplus
-set t_Co=256
 
 set viminfofile=$HOME/.local/state/vim/viminfo
 
@@ -28,10 +37,19 @@ call plug#end()
 let g:colorizer_auto_color = 1
 let g:colorizer_auto_filetypes = ['*']
 
-let mapleader="\\"
-nmap <leader>c :ColorHighlight<CR>
+nmap <leader>c :ColorToggle<CR>
 
 highlight CursorLineNr ctermfg=blue guifg=blue cterm=bold
 highlight LineNr ctermfg=darkgray guifg=darkgray
 
+highlight Pmenu      guibg=#232323 guifg=#e0e0e0 ctermbg=235 ctermfg=252
+highlight PmenuSel   guibg=#0092ff guifg=#ffffff ctermbg=33  ctermfg=15
+highlight PmenuKind  guibg=#232323 guifg=#80a0ff ctermbg=235 ctermfg=111
+highlight PmenuKindSel guibg=#0092ff guifg=#ffffff ctermbg=33 ctermfg=15
+highlight PmenuExtra guibg=#232323 guifg=#808080 ctermbg=235 ctermfg=244
+highlight PmenuExtraSel guibg=#0092ff guifg=#ffffff ctermbg=33 ctermfg=15
+highlight PmenuThumb guibg=#404040 ctermbg=239
+
 inoremap <C-BS> <C-w>
+inoremap <C-Del> <C-o>de
+nnoremap <expr> <CR> v:hlsearch ? ":nohlsearch\<CR>\<CR>" : "\<CR>"
