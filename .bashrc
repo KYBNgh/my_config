@@ -26,6 +26,8 @@ HISTFILESIZE=100000
 HISTIGNORE="cd:ls:ll:la:c:pwd:exit:clear:history:bg:fg:ff:lsblk:lb:#:.."
 BASH_CONFIG="$XDG_CONFIG_HOME/bash"
 
+export GPG_TTY=$(tty)
+
 mkdir -p "$(dirname "$HISTFILE")" 2>/dev/null
 
 if command -v fzf 2>&1 > /dev/null; then

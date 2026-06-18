@@ -54,10 +54,10 @@ export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
 export BROWSER="firefox"
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 
 export TERM=xterm-256color
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-export GPG_TTY=$(tty)
 
 # Man page
 [ -x /usr/bin/bat ] && export MANROFFOPT="-c" && export MANPAGER="sh -c 'col -bx | bat --pager \"less -XR\" -l man -p'"
@@ -69,6 +69,5 @@ fi
 
 # Launch Sway on tty1 login
 if [ -z "$WAYLAND_DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] && [ -x "/usr/bin/sway" ]; then
-    echo
     read -n 1 -p "DM: Launch sway QwQ? (^C for not) " QwQ && exec sway 
 fi

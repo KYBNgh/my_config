@@ -4,4 +4,4 @@
 
 .config/bash/*/unshare/
 
- ~/.config/systemd/user/*wants
+.config/systemd/user/*wants
