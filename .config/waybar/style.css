@@ -43,7 +43,8 @@ window#waybar {
 #memory,
 #custom-network-mib,
 #network,
-#pulseaudio,
+#wireplumber,
+#tray,
 #custom-clock {
     padding: 0 10px;
     margin: 0 4px;

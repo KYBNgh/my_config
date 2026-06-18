@@ -9,8 +9,9 @@
         "cpu",
         "memory",
         "network",
-        "pulseaudio",
+        "wireplumber",
         "custom/clock",
+        "tray",
         "custom/cleaner"
     ],
 
@@ -61,15 +62,14 @@
     "tooltip-format": "Network downlink speed (MiB/s)"
 },
 
-    "pulseaudio": {
+    "wireplumber": {
         "format": "{icon} {volume}%",
         "format-muted": "󰝟 {volume}%",
         "format-icons": {
-            "headphone": "",
-            "default": ["", "", ""]
+        "headphone": "",
+        "default": ["", "", ""]
         },
-        "scroll-step": 5,
-        "on-click-right": "pavucontrol"
+        "scroll-step": 5
     },
 
      "custom/clock": {
