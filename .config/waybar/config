@@ -10,7 +10,8 @@
         "memory",
         "network",
         "pulseaudio",
-        "custom/clock"
+        "custom/clock",
+        "custom/cleaner"
     ],
 
     "sway/workspaces": {
@@ -31,7 +32,8 @@
  "cpu": {
         "format": " {usage}% ",
         "interval": 1,
-        "max-length": 10
+        "max-length": 10,
+        "on-click": "${HOME}/.local/bin/show_uptime"
     },
 
     "memory": {
@@ -55,7 +57,8 @@
     "exec": "${XDG_CONFIG_HOME}/waybar/scripts/waybar-net-mib.sh",
     "interval": 1,
     "max-length": 18,
-    "return-type": "json"
+    "return-type": "json",
+    "tooltip-format": "Network downlink speed (MiB/s)"
 },
 
     "pulseaudio": {
@@ -73,6 +76,13 @@
         "exec": "${XDG_CONFIG_HOME}/waybar/scripts/clock.sh",
         "return-type": "json",
         "on-click": "${HOME}/.local/bin/show_cal"
+    },
+
+    "custom/cleaner": {
+        "format": "󰎟",
+        "interval": "once",
+        "on-click": "makoctl dismiss --all",
+        "tooltip-format": "Clean all notifications"
     }
 }
 

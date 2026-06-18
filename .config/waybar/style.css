@@ -51,13 +51,20 @@ window#waybar {
     border-radius: 4px;
     transition: background 0.2s ease;
 }
+#custom-cleaner {
+    padding: 0 10px;
+    margin: 0 4px;
+    background: #2a2a2a;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
 
 #cpu:hover,
 #memory:hover,
 #custom-network-mib:hover,
 #network:hover,
 #pulseaudio:hover,
-#clock:hover {
+#custom-clock:hover {
     background: #333333;
 }
 
