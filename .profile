@@ -36,6 +36,7 @@ export XDG_DOCUMENTS_DIR="$HOME/doc"
 export XDG_MUSIC_DIR="$HOME/mus"
 export XDG_PICTURES_DIR="$HOME/pic"
 export XDG_VIDEOS_DIR="$HOME/vid"
+export XDG_PROJECTS_DIR="$HOME/git"
 
 export PAGER=less
 export LESS="-R -i -F -X -M -S"

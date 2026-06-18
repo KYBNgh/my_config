@@ -25,8 +25,6 @@
     },
 
    "sway/window": {
-//    "max-length": 50,
-//    "min-length": 10,
     "ellipsis": true
 },
 
@@ -73,7 +71,8 @@
 
      "custom/clock": {
         "exec": "${XDG_CONFIG_HOME}/waybar/scripts/clock.sh",
-        "return-type": "json"
+        "return-type": "json",
+        "on-click": "${HOME}/.local/bin/show_cal"
     }
 }
 
