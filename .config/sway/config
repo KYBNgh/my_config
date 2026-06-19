@@ -13,7 +13,6 @@ set $term footclient
 set $term2 kitty
 
 set $menu "${HOME}/.local/bin/_wmenu-run"
-set $menu2 fuzzel 
 
     # Start a terminal
     bindsym $mod+Return exec $term
@@ -24,7 +23,6 @@ set $menu2 fuzzel
 
     # Start your launcher
     bindsym $mod+d exec $menu
-    bindsym $mod+Shift+d exec $menu2
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
