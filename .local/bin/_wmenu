@@ -1,8 +1,11 @@
 #!/bin/sh
 
-wmenu -f "SourceCodePro 12" \
+wmenu -f "Source Code Pro 14" \
     -i \
     -M "#008df8" \
-    -S "#333333" \
+    -m "#232323" \
+    -N "#232323" \
+    -n "#ffffff" \
+    -S "#2a2a2a" \
+    -s "#ffffff" \
     "$@"
-

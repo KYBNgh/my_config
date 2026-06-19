@@ -1,8 +1,12 @@
 #!/bin/sh
 
-wmenu-run -f "SourceCodePro 12" \
+wmenu-run -f "Source Code Pro 14" \
     -i \
-    -p "Run:" \
+    -p "Launch: " \
     -M "#008df8" \
-    -S "#333333" 
-
+    -m "#232323" \
+    -N "#232323" \
+    -n "#ffffff" \
+    -S "#2a2a2a" \
+    -s "#ffffff" \
+    "$@"

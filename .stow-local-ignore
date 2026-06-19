@@ -2,6 +2,7 @@
 
 LICENSE
 README\.md
+PKGBUILD
 
 .*\.sh$
 .*\.txt$
