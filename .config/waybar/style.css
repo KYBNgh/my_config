@@ -64,7 +64,7 @@ window#waybar {
 #memory:hover,
 #custom-network-mib:hover,
 #network:hover,
-#pulseaudio:hover,
+#wireplumber:hover,
 #custom-clock:hover {
     background: #333333;
 }

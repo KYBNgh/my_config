@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# Optimized script with error handling and POSIX compliance
+thing="$1"
+
+# Check if argument is provided
+if [ -z "$thing" ]; then
+    echo "Usage: $0 <file_or_directory>" >&2
+    exit 1
+fi
+
+# Check if the file/directory exists
+if [ ! -e "$thing" ]; then
+    echo "Error: '$thing' does not exist" >&2
+    exit 1
+fi
+
+# Move to ~/pub
+mv "$thing" ~/pub || {
+    echo "Error: Failed to move '$thing'" >&2
+    exit 1
+}
+
+# Get the basename after move
+target="$HOME/pub/$(basename "$thing")"
+
+# Set permissions recursively
+chmod -R g+rwX "$target" || {
+    echo "Error: Failed to set group permissions" >&2
+    exit 1
+}
+
+chmod -R o+rwX "$target" || {
+    echo "Error: Failed to set other permissions" >&2
+    exit 1
+}
+
+echo "Successfully moved '$thing' to ~/pub with proper permissions"
