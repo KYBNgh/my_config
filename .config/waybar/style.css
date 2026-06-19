@@ -45,13 +45,7 @@ window#waybar {
 #network,
 #wireplumber,
 #tray,
-#custom-clock {
-    padding: 0 10px;
-    margin: 0 4px;
-    background: #2a2a2a;
-    border-radius: 4px;
-    transition: background 0.2s ease;
-}
+#custom-clock,
 #custom-cleaner {
     padding: 0 10px;
     margin: 0 4px;
@@ -65,7 +59,9 @@ window#waybar {
 #custom-network-mib:hover,
 #network:hover,
 #wireplumber:hover,
-#custom-clock:hover {
+#tray:hover,
+#custom-clock:hover,
+#custom-cleaner:hover {
     background: #333333;
 }
 

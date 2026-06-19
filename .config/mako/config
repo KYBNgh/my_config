@@ -9,3 +9,14 @@ padding=12,16
 margin=8
 default-timeout=5000
 max-history=10
+
+[urgency=low]
+border-color=#888888
+
+[urgency=normal]
+background-color=#1a1a2aE6
+border-color=#008df8
+
+[urgency=critical]
+background-color=#2a1515E6
+border-color=#ce333c
