@@ -63,6 +63,9 @@ if [ -v "$is_termux" ] || [ "$PREFIX" = /data/data/com.termux/files/usr ]; then
     if [ -d "${BASH_CONFIG}/termux/unshare" ]; then
         for unshare in "${BASH_CONFIG}"/termux/unshare/*; do . "$unshare"; done
     fi
+    
+    # In new tab
+    cd ~
 
 else
 
