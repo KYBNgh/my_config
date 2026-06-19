@@ -2,11 +2,7 @@
 
 case "$(file -Lb --mime-type -- "$1")" in
     image/*)
-        if [ -n "$SSH_CONNECTION"]; then
-            chafa -f symbols -s "$2x$3" --polite off --animate off "$1"
-        else
-            chafa -f sixel -s "$2x$3" --polite on --animate off "$1"
-        fi
+            chafa -f symbols -s "$2x$3" --polite on --animate off "$1"
         exit 1
         ;;
     application/pdf)
