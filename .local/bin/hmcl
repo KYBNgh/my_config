@@ -1,0 +1,2 @@
+#!/bin/sh
+firejail --profile=$HOME/.config/firejail/hmcl.profile /usr/bin/hmcl -Dglass.gtk.uiScale=1.5 "$@"

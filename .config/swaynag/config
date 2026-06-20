@@ -9,3 +9,15 @@ button-border-size=0
 button-padding=8
 border-bottom=008df8
 border-bottom-size=2
+
+[warning]
+edge=top
+font=Source Code Pro 12
+background=232323
+text=ffffff
+button-background=2a2a2a
+button-text=ffffff
+button-border-size=0
+button-padding=8
+border-bottom=ce333c
+border-bottom-size=2

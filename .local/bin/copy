@@ -1,0 +1,39 @@
+#!/bin/sh
+
+MODE=
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_CONNECTION" ]; then
+    MODE=osc52
+elif [ -n "$WAYLAND_DISPLAY" ]; then
+    MODE=wayland
+elif [ -n "$DISPLAY" ]; then
+    MODE=x11
+fi
+
+if [ -z "$MODE" ]; then
+    echo "copy: no clipboard backend detected (try Wayland, X11, or SSH)" >&2
+    exit 1
+fi
+
+if [ $# -gt 0 ]; then
+    input=$(cat -- "$@")
+elif [ ! -t 0 ]; then
+    input=$(cat)
+else
+    echo "Usage: copy <file> [file...]" >&2
+    echo "   or: command | copy" >&2
+    echo "   or: copy < file" >&2
+    exit 1
+fi
+
+case "$MODE" in
+    wayland)
+        printf "%s" "$input" | wl-copy
+        ;;
+    x11)
+        printf "%s" "$input" | xclip -selection clipboard
+        ;;
+    osc52)
+        b64=$(printf "%s" "$input" | base64 -w 0)
+        printf "\033]52;c;%s\007" "$b64" > /dev/tty
+        ;;
+esac

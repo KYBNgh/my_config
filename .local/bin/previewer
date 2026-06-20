@@ -2,7 +2,7 @@
 
 case "$(file -Lb --mime-type -- "$1")" in
     image/*)
-        chafa -f sixel -s "$2x$3" --polite on --animate off "$1"
+        chafa -f sixel -s "$2x$3" --polite on --animate on "$1"
         exit 1
         ;;
     application/pdf)

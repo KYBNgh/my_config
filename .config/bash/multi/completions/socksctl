@@ -1,0 +1,20 @@
+_socksctl_completion() {
+    local cur prev words cword
+    _init_completion || return
+
+    if [[ $cword -eq 1 ]]; then
+        COMPREPLY=($(compgen -W "lan lo drop down status" -- "$cur"))
+        return
+    fi
+
+    if [[ $cword -eq 2 ]]; then
+        case "${words[1]}" in
+            lan|lo)
+                COMPREPLY=($(compgen -W "up down drop" -- "$cur"))
+                ;;
+        esac
+        return
+    fi
+}
+
+complete -F _socksctl_completion socksctl

@@ -74,6 +74,7 @@ else
     load "${BASH_CONFIG}/${HOSTNAME}/aliases.sh"
     load "${BASH_CONFIG}/${HOSTNAME}/prompt.sh" 
     load "${BASH_CONFIG}/${HOSTNAME}/proxy.sh" 
+    load "${BASH_CONFIG}/${HOSTNAME}/socks.sh" 
 
     if [ -d "${BASH_CONFIG}/${HOSTNAME}/completions" ]; then
         for completion in ${BASH_CONFIG}/${HOSTNAME}/completions/*; do . "${completion}"; done

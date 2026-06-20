@@ -56,3 +56,38 @@ nnoremap <expr> <CR> v:hlsearch ? ":nohlsearch\<CR>\<CR>" : "\<CR>"
 
 xnoremap "+y :call system('wl-copy', @")<CR>
 nnoremap "+p :let @"=system('wl-paste')<CR>p
+
+" Send text to system clipboard via OSC 52 escape sequence
+function! SendToClipboardOSC52(text)
+  " Base64 encode the text
+  if exists('*base64encode')
+    let l:b64 = base64encode(a:text)
+  else
+    let l:b64 = system('printf "%s" ' . shellescape(a:text) . ' | base64 -w 0')
+  endif
+
+  " Build OSC 52 sequence: ESC ] 52 ; c ; <data> BEL
+  let l:osc_seq = "\033]52;c;" . l:b64 . "\007"
+
+  " Write directly to /dev/tty to avoid shell subprocess interference
+  silent! call writefile([l:osc_seq], '/dev/tty', 'b')
+endfunction
+
+" Get visually selected text, preserving the register
+function! GetVisualSelection()
+  let l:old_reg = getreg('"')
+  let l:old_type = getregtype('"')
+
+  normal! gvy
+  let l:selected_text = getreg('"')
+
+  call setreg('"', l:old_reg, l:old_type)
+
+  return l:selected_text
+endfunction
+
+" Enable OSC 52 clipboard only under SSH (where "+ register is unavailable)
+if $SSH_CLIENT != '' || $SSH_CONNECTION != ''
+  vnoremap <silent> "+y :<C-u>call SendToClipboardOSC52(GetVisualSelection())<CR>
+  nnoremap <silent> "+yy :<C-u>call SendToClipboardOSC52(getline('.'))<CR>
+endif
