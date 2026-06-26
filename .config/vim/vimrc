@@ -55,9 +55,12 @@ highlight PmenuExtraSel guibg=#0092ff guifg=#ffffff ctermbg=33  ctermfg=15
 highlight PmenuThumb    guibg=#404040               ctermbg=239
 highlight WildMenu      guibg=#0092ff guifg=#000000 ctermbg=33  ctermfg=0 cterm=bold gui=bold
 
+highlight TabLine      guibg=#232323 guifg=#808080 ctermbg=235 ctermfg=244 cterm=NONE gui=NONE
+highlight TabLineSel   guibg=#0092ff guifg=#ffffff ctermbg=33  ctermfg=15  cterm=bold gui=bold
+highlight TabLineFill  guibg=#232323               ctermbg=235
 
-inoremap <C-BS> <C-w>
-inoremap <C-Del> <C-o>de
+inoremap <C-BS> <C-o>de
+inoremap <C-Del> <C-w>
 nnoremap <expr> <CR> v:hlsearch ? ":nohlsearch\<CR>\<CR>" : "\<CR>"
 
 " Send text to system clipboard via OSC 52 escape sequence
@@ -91,3 +94,4 @@ endfunction
 
 vnoremap <silent> "+y :<C-u>call SendToClipboardOSC52(GetVisualSelection())<CR>
 nnoremap <silent> "+yy :<C-u>call SendToClipboardOSC52(getline('.'))<CR>
+
