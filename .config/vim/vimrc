@@ -30,8 +30,7 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set autoindent
-
-set viminfofile=$HOME/.local/state/vim/viminfo
+set viminfofile=$XDG_STATE_HOME/vim/viminfo
 
 call plug#begin('~/.config/vim/plugged')
     Plug 'chrisbra/Colorizer'
@@ -45,14 +44,17 @@ nmap <leader>c :ColorToggle<CR>
 
 highlight CursorLineNr ctermfg=blue guifg=blue cterm=bold
 highlight LineNr ctermfg=darkgray guifg=darkgray
+highlight WildMenu guibg=#0092ff guifg=#000000 ctermbg=33 ctermfg=0 cterm=bold gui=bold
 
-highlight Pmenu      guibg=#232323 guifg=#e0e0e0 ctermbg=235 ctermfg=252
-highlight PmenuSel   guibg=#0092ff guifg=#ffffff ctermbg=33  ctermfg=15
-highlight PmenuKind  guibg=#232323 guifg=#80a0ff ctermbg=235 ctermfg=111
-highlight PmenuKindSel guibg=#0092ff guifg=#ffffff ctermbg=33 ctermfg=15
-highlight PmenuExtra guibg=#232323 guifg=#808080 ctermbg=235 ctermfg=244
-highlight PmenuExtraSel guibg=#0092ff guifg=#ffffff ctermbg=33 ctermfg=15
-highlight PmenuThumb guibg=#404040 ctermbg=239
+highlight Pmenu         guibg=#232323 guifg=#e0e0e0 ctermbg=235 ctermfg=252
+highlight PmenuSel      guibg=#0092ff guifg=#ffffff ctermbg=33  ctermfg=15
+highlight PmenuKind     guibg=#232323 guifg=#80a0ff ctermbg=235 ctermfg=111
+highlight PmenuKindSel  guibg=#0092ff guifg=#ffffff ctermbg=33  ctermfg=15
+highlight PmenuExtra    guibg=#232323 guifg=#808080 ctermbg=235 ctermfg=244
+highlight PmenuExtraSel guibg=#0092ff guifg=#ffffff ctermbg=33  ctermfg=15
+highlight PmenuThumb    guibg=#404040               ctermbg=239
+highlight WildMenu      guibg=#0092ff guifg=#000000 ctermbg=33  ctermfg=0 cterm=bold gui=bold
+
 
 inoremap <C-BS> <C-w>
 inoremap <C-Del> <C-o>de
