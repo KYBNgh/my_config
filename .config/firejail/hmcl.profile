@@ -7,6 +7,10 @@ private ${HOME}/.local/games
 netfilter
 
 env GTK_THEME=Reversal-Dark:dark
+env XMODIFIERS="@im=fcitx"
+env GTK_IM_MODULE=fcitx
+env QT_IM_MODULE=fcitx
+env SDL_IM_MODULE=fcitx
 
 caps.drop all
 seccomp 

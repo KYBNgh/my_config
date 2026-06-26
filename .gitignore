@@ -4,4 +4,6 @@
 
 .config/bash/*/unshare/
 
+.config/fcitx5/conf/cached*
+
 .config/systemd/user/*wants
