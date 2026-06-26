@@ -7,12 +7,14 @@
 #
 # Modifications by @KYBNgh
 
-# Else
 alias n='ncmpcpp'
 alias icat='kitten icat'
 alias lb='lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINTS'
 alias si='swayimg'
 alias lfcd='$(lf -print-last-dir )'
+alias qe='pacman -Qe --color=always | less'
+alias qm='pacman -Qm --color=always | less'
+alias qn='pacman -Qe --color=always | less'
 
 # System
 alias dmesg='doas dmesg'

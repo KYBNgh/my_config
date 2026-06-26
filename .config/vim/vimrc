@@ -3,6 +3,8 @@ set number relativenumber
 set mouse=a
 syntax on
 filetype plugin indent on
+set backspace=indent,eol,start
+set hidden
 
 set hlsearch
 set incsearch
@@ -10,6 +12,8 @@ set ignorecase
 set smartcase
 set wrapscan
 set clipboard=unnamedplus
+set wildmenu
+set wildmode=longest:full,full
 
 if &diff
     syntax off
@@ -54,9 +58,6 @@ inoremap <C-BS> <C-w>
 inoremap <C-Del> <C-o>de
 nnoremap <expr> <CR> v:hlsearch ? ":nohlsearch\<CR>\<CR>" : "\<CR>"
 
-xnoremap "+y :call system('wl-copy', @")<CR>
-nnoremap "+p :let @"=system('wl-paste')<CR>p
-
 " Send text to system clipboard via OSC 52 escape sequence
 function! SendToClipboardOSC52(text)
   " Base64 encode the text
@@ -86,8 +87,5 @@ function! GetVisualSelection()
   return l:selected_text
 endfunction
 
-" Enable OSC 52 clipboard only under SSH (where "+ register is unavailable)
-if $SSH_CLIENT != '' || $SSH_CONNECTION != ''
-  vnoremap <silent> "+y :<C-u>call SendToClipboardOSC52(GetVisualSelection())<CR>
-  nnoremap <silent> "+yy :<C-u>call SendToClipboardOSC52(getline('.'))<CR>
-endif
+vnoremap <silent> "+y :<C-u>call SendToClipboardOSC52(GetVisualSelection())<CR>
+nnoremap <silent> "+yy :<C-u>call SendToClipboardOSC52(getline('.'))<CR>
