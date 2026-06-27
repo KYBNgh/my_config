@@ -20,6 +20,8 @@ set mark-symlinked-directories on
 set colored-completion-prefix on
 set colored-stats on
 
+set skip-completed-text on
+
 set editing-mode vi
 set show-mode-in-prompt on
 

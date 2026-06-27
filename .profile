@@ -39,7 +39,7 @@ export XDG_VIDEOS_DIR="$HOME/vid"
 export XDG_PROJECTS_DIR="$HOME/git"
 
 export PAGER=less
-export LESS="-R -i -F -X -M -S"
+export LESS="-R -i -F -M -S"
 export LESSHISTFILE="$XDG_DATA_HOME/less/less_history"
 export CALCHISTFILE="$XDG_DATA_HOME/calc/calc_history"
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
