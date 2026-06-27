@@ -9,7 +9,7 @@ if [ -f "/usr/share/bash-completion/bash_completion" ]; then
 	. /usr/share/bash-completion/bash_completion
 fi
 
-umask 077
+umask 027
 
 shopt -s histappend
 shopt -s checkwinsize
@@ -46,19 +46,11 @@ alias rd='rmdir'
 alias rm='rm -I'
 alias cp='cp -i'
 alias mv='mv -i'
-alias ul='unlink'
-
-if command -v nvim &>/dev/null; then
-    alias vim='nvim'
-fi
 
 # System
 alias df='df -h'
 alias du='du -h -c'
 alias free='free -h'
-
-alias reboot='systemctl reboot'
-alias poweroff='systemctl poweroff'
 
 # PS1
 PS1='$(EXIT_CODE=$?; if [ $EXIT_CODE -ne 0 ]; then echo "\[\033[1;38;5;15m\]$EXIT_CODE \[\033[0m\]";fi)\[\033[30;107m\]\u@\h\[\033[00;00m\] \[\033[01;40m\]\W\[\033[00;00m\]\[\033[1;38;5;15m\] \$\[\033[0m\] '

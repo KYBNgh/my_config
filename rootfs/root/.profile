@@ -1,7 +1,8 @@
 # /root/.profile
 
-if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
-fi
+EDITOR=vi ; export EDITOR
+PAGER=less ; export PAGER
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+if [ -f $HOME/.bashrc ]; then
+    . $HOME/.bashrc
+fi
