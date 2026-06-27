@@ -59,8 +59,8 @@ highlight TabLine      guibg=#232323 guifg=#808080 ctermbg=235 ctermfg=244 cterm
 highlight TabLineSel   guibg=#0092ff guifg=#ffffff ctermbg=33  ctermfg=15  cterm=bold gui=bold
 highlight TabLineFill  guibg=#232323               ctermbg=235
 
-inoremap <C-BS> <C-o>de
-inoremap <C-Del> <C-w>
+inoremap <C-BS> <C-o>db
+inoremap <C-Del> <C-o>de
 nnoremap <expr> <CR> v:hlsearch ? ":nohlsearch\<CR>\<CR>" : "\<CR>"
 
 " Send text to system clipboard via OSC 52 escape sequence
