@@ -37,22 +37,6 @@ HISTIGNORE="cd:ls:ll:la"
 # Prompt
 PS1='(\u@\h):\w> '
 
-# Some user-friendy functions.
-unmount() {
-    echo "Error: unmount: not found."
-    echo "Try: umount"
-    return 127
-}
-
-su() {
-	if id -Gn | grep -qw wheel; then
-		/usr/bin/su "$@"
-	else
-		echo "Sorry."
-		return 2
-	fi
-}
-
 command_not_found_handle() {
 	echo "bash: command not found..."
 	if [ -f "/usr/share/doc/pkgfile/command-not-found.bash" ]; then 
