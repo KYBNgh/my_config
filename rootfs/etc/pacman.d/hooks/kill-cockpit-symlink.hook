@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = cockpit
+
+[Action]
+Description = Remove cockpit motd and issue
+When = PostTransaction
+Exec = /usr/bin/rm -fv /etc/issue.d/cockpit.issue /etc/motd.d/cockpit

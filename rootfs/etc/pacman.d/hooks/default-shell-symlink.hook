@@ -1,0 +1,9 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = bash
+
+[Action]
+Description = Change default shell to dash against bash's package script
+When = PostTransaction
+Exec = /usr/bin/ln -svf /usr/bin/dash /usr/bin/sh
