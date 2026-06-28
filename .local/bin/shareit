@@ -1,6 +1,5 @@
 #!/bin/sh
 
-# Optimized script with error handling and POSIX compliance
 thing="$1"
 
 # Check if argument is provided
@@ -15,13 +14,13 @@ if [ ! -e "$thing" ]; then
     exit 1
 fi
 
-# Move to ~/pub
-mv "$thing" ~/pub || {
-    echo "Error: Failed to move '$thing'" >&2
+# Copy to ~/pub
+cp "$thing" ~/pub || {
+    echo "Error: Failed to copy '$thing'" >&2
     exit 1
 }
 
-# Get the basename after move
+# Get the basename after copy
 target="$HOME/pub/$(basename "$thing")"
 
 # Set permissions recursively
@@ -35,4 +34,4 @@ chmod -R o+rwX "$target" || {
     exit 1
 }
 
-echo "Successfully moved '$thing' to ~/pub with proper permissions"
+echo "Successfully copied '$thing' to ~/pub with proper permissions"
