@@ -5,6 +5,8 @@ syntax on
 filetype plugin indent on
 set backspace=indent,eol,start
 set hidden
+set cursorline
+set cursorlineopt=number
 
 set hlsearch
 set incsearch
