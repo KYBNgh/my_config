@@ -2,7 +2,7 @@
 
 wmenu-run -f "Source Code Pro 14" \
     -i \
-    -p "Launch: " \
+    -p "Run:" \
     -M "#008df8" \
     -m "#232323" \
     -N "#232323" \

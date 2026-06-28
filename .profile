@@ -57,8 +57,8 @@ export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
 export BROWSER="firefox"
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 
-export TERM=xterm-256color
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
+
 
 # Man page
 [ -x /usr/bin/bat ] && export MANROFFOPT="-c" && export MANPAGER="sh -c 'col -bx | bat --pager \"less -XR\" -l man -p'"

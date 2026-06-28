@@ -42,7 +42,7 @@ let g:colorizer_auto_filetypes = ['*']
 
 nmap <leader>c :ColorToggle<CR>
 
-highlight CursorLineNr ctermfg=blue guifg=blue cterm=bold
+highlight CursorLineNr ctermfg=33 guifg=#0092ff cterm=bold
 highlight LineNr ctermfg=darkgray guifg=darkgray
 highlight WildMenu guibg=#0092ff guifg=#000000 ctermbg=33 ctermfg=0 cterm=bold gui=bold
 

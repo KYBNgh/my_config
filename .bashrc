@@ -27,6 +27,7 @@ HISTIGNORE="cd:ls:ll:la:c:pwd:exit:clear:history:bg:fg:ff:lsblk:lb:#:.."
 BASH_CONFIG="$XDG_CONFIG_HOME/bash"
 
 export GPG_TTY=$(tty)
+export TERM=xterm-256color
 
 mkdir -p "$(dirname "$HISTFILE")" 2>/dev/null
 
