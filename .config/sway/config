@@ -149,16 +149,23 @@ bindsym $mod+r mode "resize"
 # Utilities:
 #
 
-    bindsym --locked Shift+KP_Add exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ -l 1.0
-    bindsym --locked Shift+KP_Subtract exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%- -l 1.0
-    
+#    bindsym --locked Shift+KP_Add exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ -l 1.0
+#    bindsym --locked Shift+KP_Subtract exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%- -l 1.0
+ 
+    bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+    bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
+    bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
+    bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+
     # Special key to take a screenshot with grim
     bindsym Print exec $HOME/.local/bin/shoter full
     bindsym Shift+Print exec $HOME/.local/bin/shoter slurp
     bindsym $mod+Print exec $HOME/.local/bin/shoter tmp
 
     # Lock the screen
-    bindsym $mod+Alt+l exec swaylock
+#    bindsym $mod+Alt+l exec swaylock
+    bindsym XF86Calculator exec swaylock
+
     bindsym $mod+Shift+s exec $HOME/.local/bin/wsk
     bindsym $mod+Ctrl+l exec makoctl dismiss --all
     bindsym $mod+Shift+o exec "$HOME/.local/bin/idle_togger"
