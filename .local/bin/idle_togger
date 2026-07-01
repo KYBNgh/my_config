@@ -4,6 +4,7 @@ SWAYSOCK=$(pgrep -U "$USER" -x sway | head -1 | xargs -I{} echo /run/user/$(id -
 export SWAYSOCK
 
 if swaymsg -t get_outputs | jq '.[] | select (.name=="HDMI-A-2") | .power' | grep -q "true"; then
+    swaylock -C "$HOME/.config/swaylock/config" &
     swaymsg "output * power off"
 else
     swaymsg "output * power on"

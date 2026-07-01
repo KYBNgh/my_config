@@ -1,2 +1,2 @@
 #!/bin/sh
-notify-send "uptime" "$(uptime)"
+notify-send -u low "uptime" "$(uptime)"

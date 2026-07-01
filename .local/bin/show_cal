@@ -3,4 +3,4 @@ DISPLAY=:0
 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
 export DISPLAY DBUS_SESSION_BUS_ADDRESS
 
-notify-send "Calendar of $(date -I)" "$(cal)"
+notify-send -u low "Calendar of $(date -I)" "$(cal)"
