@@ -162,6 +162,9 @@ bindsym $mod+r mode "resize"
     bindsym Shift+Print exec $HOME/.local/bin/shoter slurp
     bindsym $mod+Print exec $HOME/.local/bin/shoter tmp
 
+    # MC IME
+    bindsym Ctrl+Return exec $HOME/.local/bin/mc-input
+
     # Lock the screen
 #    bindsym $mod+Alt+l exec swaylock
     bindsym XF86Calculator exec swaylock

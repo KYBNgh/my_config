@@ -1,0 +1,28 @@
+#!/bin/sh
+# Origin author is fajkli(fajkli@gmail.com)
+# See https://www.bilibili.com/video/BV1myYAzREnA
+
+tmpfile=$(mktemp)
+trap 'rm -f "$tmpfile"' EXIT
+
+# launch ydotoold
+if ! pgrep ydotoold 2>/dev/null; then
+    ydotoold &
+    sleep 0.5
+fi
+
+zenity --entry --title='Zenity Input' 2>/dev/null > "$tmpfile" &
+
+# wait for zenity
+sleep 0.5
+# toggle to chinese
+fcitx5-remote -t
+
+wait
+
+# handle input
+if [ -s "$tmpfile" ]; then
+    wl-copy < "$tmpfile"
+    sleep 0.2
+    ydotool key 29:1 47:1 47:0 29:0 28:1 28:0
+fi
