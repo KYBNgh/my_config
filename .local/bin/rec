@@ -1,12 +1,20 @@
 #!/bin/sh
+export LIBVA_DRIVER_NAME=i965
 
 audio="alsa_output.pci-0000_00_1b.0.analog-stereo.monitor"
 time="$(date +'%Y%m%d_%H%M%S')"
 format='mp4'
 output="${1:-$HOME/vid/shot/$time.$format}"
+fps=30
 
 echo
 echo "$0: the video will be saved as $output" 
 echo
-exec wf-recorder -a="$audio" -f "$output"
+exec wf-recorder -a="$audio" \
+    -c h264_vaapi \
+    -p present=veryfast \
+    -p crf=23 \
+    -p color_range=pc \
+    -r "$fps" \
+    -f "$output" 
 
