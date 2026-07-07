@@ -15,6 +15,5 @@ exec wf-recorder -a="$audio" \
     -p present=veryfast \
     -p crf=23 \
     -p color_range=pc \
-    -r "$fps" \
     -f "$output" 
 

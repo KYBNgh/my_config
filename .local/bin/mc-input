@@ -24,5 +24,6 @@ wait
 if [ -s "$tmpfile" ]; then
     wl-copy < "$tmpfile"
     sleep 0.2
-    ydotool key 29:1 47:1 47:0 29:0 28:1 28:0
+    # ydotool key 29:1 47:1 47:0 29:0 28:1 28:0
+    ydotool key 29:1 47:1 47:0 29:0
 fi
