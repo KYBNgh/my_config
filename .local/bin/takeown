@@ -1,0 +1,27 @@
+#!/bin/sh
+
+thing="$1"
+
+# Check if argument is provided
+if [ -z "$thing" ]; then
+    echo "Usage: $0 <file_or_directory>" >&2
+    exit 1
+fi
+
+# Check if the file/directory exists
+if [ ! -e "$thing" ]; then
+    echo "Error: '$thing' does not exist" >&2
+    exit 1
+fi
+
+sudo chown -Rv $USER:$USER "$thing"
+
+# Purge SGID/SBIT
+chmod -Rv g-s,o-t "$thing"
+
+# Purge ACL
+setfacl -b -R "$thing"
+
+# Set it private
+chmod -Rv go-rwx "$thing"
+

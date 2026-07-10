@@ -38,7 +38,7 @@
     },
 
     "memory": {
-        "format": " {used:0.1f}/{total:0.1f}GiB",
+        "format": " {used:0.1f}/{total:0.1f} GiB",
         "interval": 2,
         "max-length": 15
     },
