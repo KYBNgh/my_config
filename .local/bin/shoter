@@ -8,7 +8,7 @@ full_shot() {
     # -c means including the cursor
     # by default, grim will choose XDG_PICTURES_DIR as fallback
     if grim -c "${filedir}/${filename}"; then
-        notify-send -u low 'Screenshot' "Saved: ${filename}"
+        wl-copy < "$filedir/$filename" && notify-send -u low 'Screenshot' "Saved: ${filename} and copied to clipboard"
     else
         grim && notify-send 'Screenshot' "Saved in $XDG_PICTURES_DIR"
     fi

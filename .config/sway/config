@@ -36,7 +36,7 @@ set $menu "${HOME}/.local/bin/_wmenu-run"
 
     # Exit sway (logs you out of your Wayland session)
     # bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-    bindsym $mod+Shift+e exec swaynag -t blue -m 'Exit sway and end wayland session?' -b 'Yes, exit' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaynag -t blue -m 'Exit sway and end wayland session?' -b 'Sure' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -159,7 +159,7 @@ bindsym $mod+r mode "resize"
     bindsym Shift+Print exec $HOME/.local/bin/shoter slurp
     bindsym $mod+Print exec $HOME/.local/bin/shoter tmp
 
-    # MC IME
+    # Minecraft IME
     bindsym Ctrl+Return exec $HOME/.local/bin/mc-input
 
     # Lock the screen
@@ -168,7 +168,6 @@ bindsym $mod+r mode "resize"
 
     bindsym $mod+Shift+s exec $HOME/.local/bin/wsk
     bindsym $mod+Ctrl+l exec makoctl dismiss --all
-    bindsym $mod+Shift+o exec "$HOME/.local/bin/idle_togger"
 
     # Launcher daemons
     exec autotiling
@@ -182,9 +181,9 @@ bindsym $mod+r mode "resize"
 
     # Idel
     exec swayidle -w \
-    timeout 300 'swaylock -f -c 000000' \
+    timeout 300 'swaylock -f' \
     timeout 300 'if playerctl status 2>&1 | grep -q "Playing"; then swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-    before-sleep 'swaylock -f -c 000000'
+    before-sleep 'swaylock -f'
 
     # Waybar
     bar {
