@@ -1,5 +1,4 @@
 # ~/.bashrc
-# QwQ Meow!!
 
 case $- in   # check shell options
 *i*) ;;      # interactive shell
