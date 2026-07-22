@@ -33,7 +33,7 @@
  "cpu": {
         "format": " {usage}% ",
         "interval": 1,
-        "max-length": 10,
+        "max-length": 15,
         "on-click": "${HOME}/.local/bin/show_uptime"
     },
 
@@ -50,7 +50,7 @@
         "format-disconnected": "󰅛 Disconnected",
         "tooltip-format": "{ifname}: {ipaddr} / {netmask}",
         "interval": 1,
-        "max-length": 20,
+        "max-length": 25,
         "on-click": "nm-connection-editor"
     },
 
