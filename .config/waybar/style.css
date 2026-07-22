@@ -29,8 +29,8 @@ window#waybar {
 }
 
 #workspaces button.urgent {
-    color: #cec733 ;
-    border-bottom: 2px solid #cec733 ;
+    color: #666666;
+    border-bottom: 2px solid #cec733;
 }
 
 #window {
