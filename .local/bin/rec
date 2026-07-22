@@ -12,7 +12,7 @@ echo "$0: the video will be saved as $output"
 echo
 exec wf-recorder -a="$audio" \
     -c h264_vaapi \
-    -p present=veryfast \
+    -p preset=veryfast \
     -p crf=23 \
     -p color_range=pc \
     -f "$output" 

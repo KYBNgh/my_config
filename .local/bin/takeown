@@ -14,7 +14,7 @@ if [ ! -e "$thing" ]; then
     exit 1
 fi
 
-sudo chown -Rv $USER:$USER "$thing"
+sudo chown -Rv $USER:$(id -gn) "$thing"
 
 # Purge SGID/SBIT
 chmod -Rv g-s,o-t "$thing"
