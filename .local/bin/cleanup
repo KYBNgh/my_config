@@ -22,8 +22,6 @@ rm -rf ~/.cache
 
 echo "Mkdiring ..."
 mkdir -vp ~/.cache/mpd
-mkdir -vp ~/.cache/minecraft
-mkdir -vp ~/.cache/zsh
 
 echo "Disk usage:"
 df -h /

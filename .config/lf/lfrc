@@ -10,6 +10,8 @@ set promptfmt "\033[38;5;15m%u\033[0m\033[1;38;5;4m@\033[0m\033[38;5;15m%h \033[
 set timefmt "2006-01-02 15:04"
 set numberfmt "\033[90m"
 
+map b $test -f "$fx" && bat "$fx" && printf '\033[7mPress any key to continue\033[0m' && read dummy
+
 map D delete
 map A :push %mkdir<space>
 map a :push %touch<space>
