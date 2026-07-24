@@ -5,7 +5,7 @@
 
 set -u
 # ssh host
-children_home="$HOME/.local/lib/shell/sync"
+children_home="$HOME/.local/lib/sync"
 remote_host="username"
 remote_user="username"
 
