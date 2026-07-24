@@ -46,6 +46,7 @@ window#waybar {
 #wireplumber,
 #tray,
 #custom-clock,
+#custom-res-toggle,
 #custom-cleaner {
     padding: 0 10px;
     margin: 0 4px;
@@ -61,6 +62,7 @@ window#waybar {
 #wireplumber:hover,
 #tray:hover,
 #custom-clock:hover,
+#custom-res-toggle:hover,
 #custom-cleaner:hover {
     background: #333333;
 }

@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "top",
     "height": 32,
-    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-left": ["custom/res-toggle", "sway/workspaces", "sway/mode" ],
     "modules-center": ["sway/window"],
     "modules-right": [
         "custom/network-mib",
@@ -77,6 +77,15 @@
         "return-type": "json",
         "on-click": "${HOME}/.local/bin/show_cal"
     },
+    
+    "custom/res-toggle": {
+        "exec": "${XDG_CONFIG_HOME}/waybar/scripts/res-toggle.sh",
+        "signal": 1,
+        "return-type": "text",
+        "on-click": "${XDG_CONFIG_HOME}/waybar/scripts/res-toggle.sh toggle",
+        "tooltip-format": "Click to toggle HDMI-A-2 resolution"
+    },
+
 
     "custom/cleaner": {
         "format": "󰎟",
