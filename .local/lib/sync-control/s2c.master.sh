@@ -6,8 +6,8 @@
 set -u
 # ssh host
 children_home="$HOME/.local/lib/sync"
-remote_host="username"
-remote_user="username"
+remote_host="virtcat"
+remote_user="virtcat"
 
 ssh \
   -o ConnectTimeout=1 \
