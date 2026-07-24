@@ -10,11 +10,34 @@ set promptfmt "\033[38;5;15m%u\033[0m\033[1;38;5;4m@\033[0m\033[38;5;15m%h \033[
 set timefmt "2006-01-02 15:04"
 set numberfmt "\033[90m"
 
-map b $test -f "$fx" && bat "$fx" && printf '\033[7mPress any key to continue\033[0m' && read dummy
-
 map D delete
 map A :push %mkdir<space>
 map a :push %touch<space>
 
 set previewer ~/.local/bin/previewer
-set cleaner ~/.local/bin/cleaner
+
+map b $bat --pager=never $fx | env -u LESS less -R -i -M -S
+
+cmd open ${{ 
+    if test -d "$f"; then
+        lf -remote "send $id cd \"$f\""
+        exit 0
+    fi
+    case "$f" in
+        *.mp3|*.flac|*.wav|*.aac|*.ogg|*.m4a|*.wma|*.wv|*.opus|*.ape|*.alac|\
+        *.mp4|*.mkv|*.avi|*.mov|*.wmv|*.flv|*.webm|*.m4v|*.mpg|*.mpeg|*.3gp|*.ogv|*.ts|*.m2ts)
+            mpv "$fx" ;;
+        *.jpg|*.jpeg|*.png|*.gif|*.bmp|*.tiff|*.webp|*.svg|*.ico)
+            swayimg "$fx" ;;
+        *.html|*.htm)
+            w3m "$fx" ;;
+        *.txt|*.md|*.conf|*.log|*.json|*.yml|*.yaml|*.toml|*.ini|*.cfg|*.sh|*.bash|*.zsh|*.fish|*.py|*.go|*.rs|*.c|*.cpp|*.h|*.java|*.js|*.ts|*.css|*.scss|*.xml|*.*rc|*.*profile)
+            vim "$fx" ;;
+        *.pdf)
+            ${OPENER:-xdg-open} "$fx" ;;
+        *.zip|*.tar|*.gz|*.bz2|*.xz|*.7z|*.rar|*.zst)
+            ${OPENER:-xdg-open} "$fx" ;;
+        *)
+            echo "unknown file type"
+    esac
+}}

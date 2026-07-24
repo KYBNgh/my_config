@@ -214,3 +214,5 @@ client.placeholder      #2a2a2a #232323 #555555
 client.background       #232323
 
 font Source Code Pro Medium 10
+
+for_window [ app_id = "mpv" ] floating enabled

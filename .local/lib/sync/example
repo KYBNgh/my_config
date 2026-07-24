@@ -1,0 +1,34 @@
+#!/bin/sh
+# sync what.
+# this script should be sourced by master
+# not execute it directly
+
+# this is an example script
+# don't run it. or your home will be dumped to your phone
+exit 0
+
+remote_path="/home/$remote_user/"
+local_path="/storage/emulated/0/"
+
+# Ensure the local target directory exists
+if [ ! -d "$local_path" ]; then
+    echo "Creating local directory: $local_path"
+    mkdir -p "$local_path" || {
+        echo "Error: cannot create local directory" >&2
+        exit 1
+    }
+fi
+
+echo "Unit: $(basename $0)"
+echo "Syncing from ${remote_host}:${remote_path} to ${local_path} ..."
+time rsync -a --progress \
+    "${remote_host}:${remote_path}" \
+    "${local_path}"
+status=$?
+
+if [ $status -eq 0 ]; then
+    echo "Sync completed successfully."
+else
+    echo "Sync failed with status $status." >&2
+    exit $status
+fi
