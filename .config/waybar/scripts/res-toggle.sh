@@ -12,8 +12,10 @@ if [ "$1" = "toggle" ]; then
     current=$(get_current)
     if [ "$current" = "2560" ]; then
         swaymsg output "$OUTPUT" resolution "$MODE_1080"
+        notify-send -u normal "Resolution" "Set own resolution to $MODE_1080" -t 8000
     else
         swaymsg output "$OUTPUT" resolution "$MODE_1440"
+        notify-send -u normal "Resolution" "Set own resolution to $MODE_1440" -t 8000
     fi
     sleep 1
     pkill -x waybar 2>/dev/null
