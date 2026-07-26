@@ -156,8 +156,8 @@ bindsym $mod+r mode "resize"
 
     # Special key to take a screenshot with grim
     bindsym Print exec $HOME/.local/bin/shoter full
-    bindsym Shift+Print exec $HOME/.local/bin/shoter slurp
-    bindsym $mod+Print exec $HOME/.local/bin/shoter tmp
+    bindsym Shift+Print exec $HOME/.local/bin/shoter tmp
+    bindsym $mod+Print exec $HOME/.local/bin/shoter slurp
 
     # Minecraft IME
     bindsym Ctrl+Return exec $HOME/.local/bin/mc-input

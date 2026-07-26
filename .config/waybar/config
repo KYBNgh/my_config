@@ -2,13 +2,12 @@
     "layer": "top",
     "position": "top",
     "height": 32,
-    "modules-left": [ "custom/res-toggle", "sway/workspaces", "sway/mode", "custom/recorder" ],
+    "modules-left": [ "custom/res-toggle", "sway/workspaces", "custom/recorder", "sway/mode"],
     "modules-center": ["sway/window"],
     "modules-right": [
         "custom/network-mib",
         "cpu",
         "memory",
-        "network",
         "wireplumber",
         "custom/clock",
         "tray",
@@ -26,32 +25,21 @@
         "max-length": 20
     },
 
-   "sway/window": {
+    "sway/window": {
     "ellipsis": true
-},
+    },
 
- "cpu": {
+    "cpu": {
         "format": " {usage}% ",
-        "interval": 1,
+        "interval": 3,
         "max-length": 15,
         "on-click": "${HOME}/.local/bin/show_uptime"
     },
 
     "memory": {
         "format": " {used:0.1f}/{total:0.1f} GiB",
-        "interval": 2,
+        "interval": 10,
         "max-length": 15
-    },
-
-    "network": {
-        "format": " {bandwidthDownBytes}/s ↓↑ {bandwidthUpBytes}/s",
-        "format-wifi": " {essid}",
-        "format-ethernet": "󰈀 {ipaddr}",
-        "format-disconnected": "󰅛 Disconnected",
-        "tooltip-format": "{ifname}: {ipaddr} / {netmask}",
-        "interval": 1,
-        "max-length": 25,
-        "on-click": "nm-connection-editor"
     },
 
     "custom/network-mib": {
@@ -80,7 +68,7 @@
     
     "custom/res-toggle": {
         "exec": "${XDG_CONFIG_HOME}/waybar/scripts/res-toggle.sh",
-        "signal": 1,
+        "signal": 3,
         "return-type": "text",
         "on-click": "${XDG_CONFIG_HOME}/waybar/scripts/res-toggle.sh toggle",
         "tooltip-format": "Click to toggle HDMI-A-2 resolution"

@@ -33,12 +33,8 @@ window#waybar {
     border-bottom: 2px solid #ffd242;
 }
 
-#window {
-    padding: 0 10px;
-    margin: 0 4px;
-    background: transparent;
-}
 
+#window,
 #cpu,
 #memory,
 #custom-network-mib,
@@ -55,6 +51,7 @@ window#waybar {
     transition: background 0.2s ease;
 }
 
+#window:hover,
 #cpu:hover,
 #memory:hover,
 #custom-network-mib:hover,
@@ -75,8 +72,8 @@ window#waybar {
 #mode {
     background: #008df8;
     color: #232323;
-    padding: 0 8px;
-    margin-left: 6px;
+    padding: 0 10px;
+    margin: 0 4px;
     font-weight: bold;
 }
 
@@ -90,5 +87,3 @@ tooltip {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     margin: 4px;
 }
-
-
