@@ -17,6 +17,7 @@ map a :push %touch<space>
 set previewer ~/.local/bin/previewer
 
 map b $bat --pager=never $fx | env -u LESS less -R -i -M -S
+map S &pkill -P $$ mpv
 
 cmd open ${{ 
     if test -d "$f"; then
@@ -26,7 +27,7 @@ cmd open ${{
     case "$f" in
         *.mp3|*.flac|*.wav|*.aac|*.ogg|*.m4a|*.wma|*.wv|*.opus|*.ape|*.alac|\
         *.mp4|*.mkv|*.avi|*.mov|*.wmv|*.flv|*.webm|*.m4v|*.mpg|*.mpeg|*.3gp|*.ogv|*.ts|*.m2ts)
-            mpv "$fx" ;;
+            mpv "$fx" --really-quiet >/dev/null 2>&1 & ;;
         *.jpg|*.jpeg|*.png|*.gif|*.bmp|*.tiff|*.webp|*.svg|*.ico)
             swayimg "$fx" ;;
         *.html|*.htm)

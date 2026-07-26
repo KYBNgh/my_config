@@ -169,6 +169,9 @@ bindsym $mod+r mode "resize"
     bindsym $mod+Shift+s exec $HOME/.local/bin/wsk
     bindsym $mod+Ctrl+l exec makoctl dismiss --all
 
+    # wf-recorder
+    bindsym $mod+Shift+r exec $HOME/.local/bin/rec
+
     # Launcher daemons
     exec autotiling
     exec fcitx5 -d

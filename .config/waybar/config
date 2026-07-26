@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "top",
     "height": 32,
-    "modules-left": ["custom/res-toggle", "sway/workspaces", "sway/mode" ],
+    "modules-left": [ "custom/res-toggle", "sway/workspaces", "sway/mode", "custom/recorder" ],
     "modules-center": ["sway/window"],
     "modules-right": [
         "custom/network-mib",
@@ -86,6 +86,14 @@
         "tooltip-format": "Click to toggle HDMI-A-2 resolution"
     },
 
+    "custom/recorder": {
+        "exec": "${XDG_CONFIG_HOME}/waybar/scripts/rec-status.sh",
+        "return-type": "json",
+        "signal": 8,
+        "interval": 1,
+        "on-click": "$HOME/.local/bin/rec",
+        "format": "{}"
+    },
 
     "custom/cleaner": {
         "format": "󰎟",

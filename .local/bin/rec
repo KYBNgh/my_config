@@ -1,27 +1,56 @@
 #!/bin/sh
 # ~/.local/bin/rec
-# written by claude
 set -u
 
 pidfile="${XDG_RUNTIME_DIR:-/tmp}/wf-recorder.pid"
 logdir="${XDG_STATE_HOME:-$HOME/.local/state/wf-recorder}"
 outdir="$HOME/tmp"
+audio_device='alsa_output.pci-0000_00_1b.0.analog-stereo.monitor'
 
 mkdir -p "$logdir"
 mkdir -p "$outdir"
 
-audio_device='alsa_output.pci-0000_00_1b.0.analog-stereo.monitor'
 # Haswell i965
 export LIBVA_DRIVER_NAME=i965
 
 if [ -f "$pidfile" ] && kill -0 "$(cat "$pidfile")" 2>/dev/null; then
     kill -INT "$(cat "$pidfile")"
+    pkill -RTMIN+8 waybar
     rm -f "$pidfile"
     notify-send "wf-recorder" "Stopped recording" 
     exit 0
 fi
 
-file="$outdir/rec-$(date +%Y%m%d-%H%M%S).mp4"
+name=""
+
+# _wmenu is  ~/.local/bin/_wmenu
+if command -v wmenu >/dev/null 2>&1; then
+    if ! name=$(_wmenu -p "Save as:" < /dev/null 2>>"$logdir/wf-recorder.log"); then
+#        notify-send -u low "wf-recorder" "Cancelled"
+        exit 1
+    fi
+fi
+
+name=$(printf '%s' "$name" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+
+if [ -n "$name" ]; then
+    name=$(basename -- "$name")
+    name=$(printf '%s' "$name" | tr '/' '_' | tr -d '\r\n')
+fi
+
+if [ -z "$name" ] || [ "$name" = "." ] || [ "$name" = ".." ]; then
+    file="$outdir/rec-$(date +%Y%m%d-%H%M%S).mp4"
+else
+    case "$name" in
+        *.mp4)
+            ;;
+        *)
+            name="$name.mp4"
+            ;;
+    esac
+
+    file="$outdir/$name"
+fi
 
 width="$(swaymsg -t get_outputs | grep -o '"width": [0-9]*' | head -1 | grep -o '[0-9]*')"
 
@@ -41,4 +70,5 @@ wf-recorder \
     > "$logdir/wf-recorder.log" 2>&1 &
 
 echo $! > "$pidfile"
+pkill -RTMIN+8 waybar
 notify-send "wf-recorder" "Started recording: $file" 

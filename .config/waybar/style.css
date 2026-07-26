@@ -30,7 +30,7 @@ window#waybar {
 
 #workspaces button.urgent {
     color: #666666;
-    border-bottom: 2px solid #cec733;
+    border-bottom: 2px solid #ffd242;
 }
 
 #window {
@@ -67,6 +67,11 @@ window#waybar {
     background: #333333;
 }
 
+#custom-recorder:hover {
+    background: #2ea3ff;
+}
+
+#custom-recorder,
 #mode {
     background: #008df8;
     color: #232323;
@@ -85,3 +90,5 @@ tooltip {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     margin: 4px;
 }
+
+
