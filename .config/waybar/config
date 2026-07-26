@@ -59,7 +59,8 @@
     "player-icons": {
         "default": "",
         "firefox": "",
-        "mpv": "󰐍"
+        "mpv": "󰐍",
+        "mpd": ""
     },
     "status-icons": {
             "playing": "",
