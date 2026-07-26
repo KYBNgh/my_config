@@ -19,6 +19,7 @@
         "custom/network-mib",
         "cpu",
         "memory",
+        "temperature",
         "wireplumber",
         "custom/clock",
         "tray",
@@ -94,6 +95,14 @@
     "return-type": "json",
     "tooltip-format": "enp3s0 · Downlink speed (MiB/s)"
 },
+    "temperature": {
+        "thermal-zone": 2,
+        "interval": 5,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", ""],
+        "critical-threshold": 80,
+        "tooltip-format": "CPU Package: {temperatureC}°C"
+    },
 
     "wireplumber": {
         "format": "{icon} {volume}%",
