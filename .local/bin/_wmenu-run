@@ -1,12 +1,13 @@
 #!/bin/sh
+# ~/.local/bin/_wmenu-run
 
-wmenu-run -f "Source Code Pro 14" \
+wmenu-run -f "SourceCodePro Medium 14" \
     -i \
     -p "Run:" \
     -M "#008df8" \
     -m "#232323" \
     -N "#232323" \
     -n "#ffffff" \
-    -S "#2a2a2a" \
-    -s "#ffffff" \
+    -S "#008df8" \
+    -s "#000000" \
     "$@"
