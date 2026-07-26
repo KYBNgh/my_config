@@ -219,3 +219,7 @@ client.background       #232323
 font Source Code Pro Medium 10
 
 for_window [ app_id = "mpv" ] floating enabled
+
+for_window [ title="floating" ] floating enable
+for_window [ title = "^Helvum" ] floating enabled, resize set 900 600, move position center
+for_window [ title="floating foot" ] floating enabled, resize set 1200 800, move position center

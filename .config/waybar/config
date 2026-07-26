@@ -2,8 +2,19 @@
     "layer": "top",
     "position": "top",
     "height": 32,
-    "modules-left": [ "custom/res-toggle", "sway/workspaces", "custom/recorder", "sway/mode"],
-    "modules-center": ["sway/window"],
+    
+    "modules-left": [
+        "custom/res-toggle",
+        "mpris",
+        "sway/workspaces",
+        "custom/recorder",
+        "sway/mode"
+    ],
+
+    "modules-center": [
+        "sway/window"
+    ],
+    
     "modules-right": [
         "custom/network-mib",
         "cpu",
@@ -26,20 +37,53 @@
     },
 
     "sway/window": {
-    "ellipsis": true
+    "ellipsis": true,
+    "on-click": "swaymsg fullscreen toggle",
+    "on-click-middle": "swaymsg kill"
     },
+
+ "mpris": {
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "{status_icon} {dynamic}",
+    "interval": 1,
+    "max-length": 50,
+    "dynamic-len": 35,
+    "artist-len": 15,
+    "title-len": 25,
+    "album-len": 12,
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "on-click-middle": "playerctl previous",
+    "on-scroll-up": "playerctl volume 0.05+",
+    "on-scroll-down": "playerctl volume 0.05-",
+    "player-icons": {
+        "default": "",
+        "firefox": "",
+        "mpv": "󰐍"
+    },
+    "status-icons": {
+            "playing": "",
+            "paused": "",
+            "stopped": ""
+    },
+    "tooltip-format": "Left: toggle pause | Middle: previous | Right: next"
+},
 
     "cpu": {
         "format": " {usage}% ",
         "interval": 3,
         "max-length": 15,
-        "on-click": "${HOME}/.local/bin/show_uptime"
+        "on-click": "${HOME}/.local/bin/show_uptime",
+        "tooltip-format": "CPU: {usage}% · Freq: {avgFrequency} GHz"
     },
 
     "memory": {
         "format": " {used:0.1f}/{total:0.1f} GiB",
         "interval": 10,
-        "max-length": 15
+        "max-length": 15,
+        "on-click": "foot -T 'floating foot' -e btop",
+        "tooltip-format": "RAM: {used:0.1f}/{total:0.1f} GiB ({percentage}%)\nClick to open btop"
+
     },
 
     "custom/network-mib": {
@@ -47,7 +91,7 @@
     "interval": 1,
     "max-length": 18,
     "return-type": "json",
-    "tooltip-format": "Network downlink speed (MiB/s)"
+    "tooltip-format": "enp3s0 · Downlink speed (MiB/s)"
 },
 
     "wireplumber": {
@@ -57,7 +101,10 @@
         "headphone": "",
         "default": ["", "", ""]
         },
-        "scroll-step": 5
+        "on-click": "helvum",
+        "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "scroll-step": 5,
+        "tooltip-format": "Left: helvum | Middle: toggle mute"
     },
 
      "custom/clock": {
@@ -71,7 +118,7 @@
         "signal": 3,
         "return-type": "text",
         "on-click": "${XDG_CONFIG_HOME}/waybar/scripts/res-toggle.sh toggle",
-        "tooltip-format": "Click to toggle HDMI-A-2 resolution"
+        "tooltip-format": "HDMI-A-2 · Click to toggle"
     },
 
     "custom/recorder": {
