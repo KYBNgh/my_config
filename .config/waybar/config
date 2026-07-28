@@ -40,7 +40,8 @@
     "sway/window": {
     "ellipsis": true,
     "on-click": "swaymsg fullscreen toggle",
-    "on-click-middle": "swaymsg kill"
+    "on-click-middle": "swaymsg kill",
+    "on-click-right": "swaymsg floating toggle"
     },
 
  "mpris": {
