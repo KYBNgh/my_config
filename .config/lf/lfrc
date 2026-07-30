@@ -17,7 +17,8 @@ map a :push %touch<space>
 set previewer ~/.local/bin/previewer
 
 map b $bat --pager=never $fx | env -u LESS less -R -i -M -S
-map S &pkill -P $$ mpv
+# map E $$SHELL "$f"
+map R reload
 
 cmd open ${{ 
     if test -d "$f"; then

@@ -1,6 +1,13 @@
 #!/bin/sh
 
-printf "\033[2J\033[H"
+colorize() {
+    case "$1" in
+        h264) printf '\033[31m%s\033[0m' "$1" ;;
+        hevc) printf '\033[32m%s\033[0m' "$1" ;;
+        N/A|"") printf '\033[31mN/A\033[0m' ;;
+        *) printf '%s' "$1" ;;
+    esac
+}
 
 case "$(file -Lb --mime-type -- "$1")" in
     image/*)
@@ -12,6 +19,61 @@ case "$(file -Lb --mime-type -- "$1")" in
     mkdir -p "$(dirname "$CACHE")"
     [ ! -f "$CACHE" ] && pdftoppm -jpeg -f 1 -singlefile "$1" "$(echo "$CACHE" | sed 's/\.jpg$//')"
         [ -f "$CACHE" ] && chafa -f sixel -s "$2x$3" "$CACHE"
+        exit 0
+        ;;
+    video/*)
+        vstream=$(ffprobe -v quiet -select_streams v:0 \
+            -show_entries stream=codec_name,width,height,r_frame_rate,bit_rate \
+            -of csv=p=0:nokey=1 "$1" 2>/dev/null)
+        vcodec=$(echo "$vstream" | cut -d, -f1)
+        vwidth=$(echo "$vstream" | cut -d, -f2)
+        vheight=$(echo "$vstream" | cut -d, -f3)
+        fps_raw=$(echo "$vstream" | cut -d, -f4)
+        vbitrate=$(echo "$vstream" | cut -d, -f5)
+
+        astream=$(ffprobe -v quiet -select_streams a:0 \
+            -show_entries stream=codec_name,bit_rate \
+            -of csv=p=0:nokey=1 "$1" 2>/dev/null)
+        acodec=$(echo "$astream" | cut -d, -f1)
+        abitrate=$(echo "$astream" | cut -d, -f2)
+
+        cinfo=$(ffprobe -v quiet \
+            -show_entries format=format_long_name,bit_rate \
+            -print_format default=noprint_wrappers=1 "$1" 2>/dev/null)
+        cformat=$(echo "$cinfo" | sed -n 's/^format_long_name=//p')
+        cbitrate=$(echo "$cinfo" | sed -n 's/^bit_rate=//p')
+
+        echo '── Video ──────────────────────────────'
+        printf '  Codec:      %s\n' "$(colorize "${vcodec:-N/A}")"
+        echo "  Resolution: ${vwidth:-?}x${vheight:-?}"
+        case "$fps_raw" in
+            */*) n=${fps_raw%/*} d=${fps_raw#*/}
+                 fps=$(awk "BEGIN{printf \"%.2f fps\",$n/$d}" 2>/dev/null) || fps="${fps_raw}fps" ;;
+            *)   [ -n "$fps_raw" ] && fps="${fps_raw}fps" ;;
+        esac
+        printf '  Frame Rate: %s\n' "$(colorize "${fps:-N/A}")"
+        if [ -n "$vbitrate" ] && [ "$vbitrate" -gt 0 ] 2>/dev/null; then
+            echo "  Bitrate:    $((vbitrate/1000)) kbps"
+        else
+            printf '  Bitrate:    %s\n' "$(colorize N/A)"
+        fi
+
+        echo '── Audio ──────────────────────────────'
+        printf '  Codec:      %s\n' "$(colorize "${acodec:-N/A}")"
+        if [ -n "$abitrate" ] && [ "$abitrate" -gt 0 ] 2>/dev/null; then
+            echo "  Bitrate:    $((abitrate/1000)) kbps"
+        else
+            printf '  Bitrate:    %s\n' "$(colorize N/A)"
+        fi
+
+        echo '── Container ──────────────────────────'
+        printf '  Format:     %s\n' "$(colorize "${cformat:-N/A}")"
+        if [ -n "$cbitrate" ] && [ "$cbitrate" -gt 0 ] 2>/dev/null; then
+            echo "  Bitrate:    $((cbitrate/1000)) kbps"
+        else
+            printf '  Bitrate:    %s\n' "$(colorize N/A)"
+        fi
+
         exit 0
         ;;
     text/*|application/json|application/xml)

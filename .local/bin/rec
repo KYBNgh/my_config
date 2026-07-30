@@ -39,13 +39,13 @@ if [ -n "$name" ]; then
 fi
 
 if [ -z "$name" ] || [ "$name" = "." ] || [ "$name" = ".." ]; then
-    file="$outdir/rec-$(date +%Y%m%d-%H%M%S).mp4"
+    file="$outdir/rec-$(date +%Y%m%d-%H%M%S).mkv"
 else
     case "$name" in
-        *.mp4)
+        *.mkv)
             ;;
         *)
-            name="$name.mp4"
+            name="$name.mkv"
             ;;
     esac
 
@@ -55,15 +55,16 @@ fi
 width="$(swaymsg -t get_outputs | grep -o '"width": [0-9]*' | head -1 | grep -o '[0-9]*')"
 
 if [ "${width:-0}" -ge 2000 ]; then
-    bitrate="28M"
+    bitrate="24M"
 else
-    bitrate="18M"
+    bitrate="12M"
 fi
 
 wf-recorder \
     -c h264_vaapi \
     -d /dev/dri/renderD128 \
     -p profile=high \
+    -r 60 \
     -b "$bitrate" \
     -f "$file" \
     --audio="$audio_device" \

@@ -6,6 +6,7 @@
     "modules-left": [
         "custom/res-toggle",
         "mpris",
+        "custom/ffmpeg-toggle",
         "sway/workspaces",
         "custom/recorder",
         "sway/mode"
@@ -146,6 +147,13 @@
         "interval": "once",
         "on-click": "makoctl dismiss --all",
         "tooltip-format": "Clean all notifications"
+    },
+
+    "custom/ffmpeg-toggle": {
+        "format": "󰕧",
+        "on-click": "pkill -SIGSTOP ffmpeg && notify-send 'FFmpeg toggle - SIGSTOP' 'Paused all ffmpeg process'",
+        "on-click-right": "pkill -SIGCONT ffmpeg && notify-send 'FFmpeg toggle - SIGCONT' 'Contiuned all ffmpeg process'",
+        "tooltip-format": "Left: pause | Right: continue"
     }
 }
 
