@@ -1,6 +1,14 @@
 #!/bin/sh
 
-systemctl is-active ollama.service || doas systemctl start ollama.service
+systemctl is-active ollama.service || { 
+    printf "ollama.server is not active yet. I should start it? [Y/n] " 
+    read ans
+
+    if [ "$ans" = "y" ] || [ ! "$ans" = "Y" ]; then
+        systemctl start ollama.service
+    fi
+}
+
 podman run -d \
     --network=host \
   -v /srv/open-webui/data:/app/backend/data \

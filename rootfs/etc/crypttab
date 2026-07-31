@@ -11,4 +11,4 @@
 # swap         /dev/sdx4                                    /dev/urandom            swap,cipher=aes-cbc-essiv:sha256,size=256
 # vol          /dev/sdb7                                    none
 
-cryptsys UUID=521763f6-16cb-462b-b300-346fe10d8d83 none luks,discard
+cryptsys UUID=ROOTUUID none luks,discard
