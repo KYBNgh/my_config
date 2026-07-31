@@ -11,7 +11,7 @@ colorize() {
 
 preview_image() {
     if [ -n "$SSH_CONNECTION" ]; then
-        chafa -f symbols "$1"
+        chafa -f symbols -c full "$1"
     elif [ -n "$2" ] && [ -n "$3" ]; then
         chafa -f sixel -s "$2x$3" "$1"
     else

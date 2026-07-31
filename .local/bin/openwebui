@@ -5,7 +5,7 @@ podman run -d \
     --network=host \
   -v /srv/open-webui/data:/app/backend/data \
   -e OLLAMA_BASE_URL=http://localhost:11434 \
-  -e WEBUI_SECRET_KEY='vPs9gf54axAtjTWY' \
+  -e WEBUI_SECRET_KEY='1145141919810' \
   -e RAG_ENABLED=false \
   -e RAG_EMBEDDING_ENGINE="" \
   -e RAG_EMBEDDING_MODEL="" \
