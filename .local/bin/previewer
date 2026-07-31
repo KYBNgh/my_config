@@ -9,16 +9,26 @@ colorize() {
     esac
 }
 
+preview_image() {
+    if [ -n "$SSH_CONNECTION" ]; then
+        chafa -f symbols "$1"
+    elif [ -n "$2" ] && [ -n "$3" ]; then
+        chafa -f sixel -s "$2x$3" "$1"
+    else
+        chafa -f sixel "$1"
+    fi
+}
+
 case "$(file -Lb --mime-type -- "$1")" in
     image/*)
-        chafa -f sixel -s "$2x$3" "$1"
+        preview_image "$1" "$2" "$3"
         exit 0
         ;;
     application/pdf)
-    CACHE="$HOME/.cache/lf/$(echo -n "$1" | sha256sum | cut -d' ' -f1).jpg"
-    mkdir -p "$(dirname "$CACHE")"
-    [ ! -f "$CACHE" ] && pdftoppm -jpeg -f 1 -singlefile "$1" "$(echo "$CACHE" | sed 's/\.jpg$//')"
-        [ -f "$CACHE" ] && chafa -f sixel -s "$2x$3" "$CACHE"
+        CACHE="$HOME/.cache/lf/$(echo -n "$1" | sha256sum | cut -d' ' -f1).jpg"
+        mkdir -p "$(dirname "$CACHE")"
+        [ ! -f "$CACHE" ] && pdftoppm -jpeg -f 1 -singlefile "$1" "$(echo "$CACHE" | sed 's/\.jpg$//')"
+        [ -f "$CACHE" ] && preview_image "$CACHE" "$2" "$3"
         exit 0
         ;;
     video/*)
@@ -75,6 +85,13 @@ case "$(file -Lb --mime-type -- "$1")" in
         fi
 
         exit 0
+        ;;
+    application/x-tar|application/gzip|application/x-bzip2|application/x-xz|application/zstd)
+        if command -v tree >/dev/null 2>&1; then
+            tar tf "$1" 2>/dev/null | tree --fromfile -C 2>/dev/null || tar tf "$1" 2>/dev/null
+        else
+            tar tf "$1" 2>/dev/null
+        fi
         ;;
     text/*|application/json|application/xml)
         bat --color=always --style=numbers --pager=never "$1"

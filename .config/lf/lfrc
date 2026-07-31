@@ -17,7 +17,8 @@ map a :push %touch<space>
 set previewer ~/.local/bin/previewer
 
 map b $bat --pager=never $fx | env -u LESS less -R -i -M -S
-# map E $$SHELL "$f"
+map E ${{ read -p "Execute with sh? [y/N] " ans; [ "$ans" = "y" ] && sh "$f"; }}
+
 map R reload
 
 cmd open ${{ 
