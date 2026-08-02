@@ -1,0 +1,72 @@
+# ~/.config/zathura/zathurarc
+
+set font 'Source Code Pro 16'
+
+set default-bg                  "#141719"
+set default-fg                  "#bec7cf"
+set statusbar-bg                "#232323"
+set statusbar-fg                "#bec7cf"
+set inputbar-bg                 "#232323"
+set inputbar-fg                 "#bec7cf"
+set render-loading-bg           "#232323"
+set notification-error-bg       "#ce333c"
+set notification-error-fg       "#111111"
+set notification-warning-bg     "#cec733"
+set notification-warning-fg     "#111111"
+
+set highlight-color             "rgba(0,146,255,0.35)"
+set highlight-active-color      "rgba(0,146,255,0.55)"
+set highlight-fg                "#111111"
+
+set completion-bg               "#232323"
+set completion-fg               "#e0e0e0"
+set completion-group-bg         "#141719"
+set completion-group-fg         "#0092ff"
+set completion-highlight-bg     "#0092ff"
+set completion-highlight-fg     "#ffffff"
+set index-bg                    "#141719"
+set index-fg                    "#bec7cf"
+set index-active-bg             "#0092ff"
+set index-active-fg             "#ffffff"
+set recolor true
+set recolor-darkcolor           "#bec7cf"
+set recolor-lightcolor          "#141719"
+set recolor-keephue             true
+set recolor-adjust-lightness    true
+
+set scroll-step 60
+set scroll-wrap true
+set zoom-step 20
+set selection-clipboard clipboard
+set selection-notification false
+set statusbar-basename true
+
+map h scroll left
+map l scroll right
+map j scroll down
+map k scroll up
+map <C-f> page down
+map <C-b> page up
+map <C-d> scroll half-down
+map <C-u> scroll half-up
+map gg navigate first
+map G navigate last
+
+map + zoom-in
+map - zoom-out
+map = zoom-fit
+map <a-Equal> zoom-fit
+
+map m toggle-index
+map <Tab> follow
+map <S-Tab> navigate previous
+
+map <C-n> search-next
+map <C-p> search-previous
+
+map r reload
+map R revert
+map q quit
+map Q quit
+map <C-s> print
+map <Space> rotate
