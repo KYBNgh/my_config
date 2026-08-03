@@ -80,8 +80,8 @@ else
         for completion in ${BASH_CONFIG}/${HOSTNAME}/completions/*; do . "${completion}"; done
     fi
 
-    if [ -d "${BASH_CONFIG}/${HOSTNAME}/unshare" ]; then
-        for unshare in "${BASH_CONFIG}"/"${HOSTNAME}"/unshare/*; do . "$unshare"; done
+    if [ -d "$HOME/.local/lib/unshare_scripts" ]; then
+        for unshare in "$HOME"/.local/lib/unshare_scripts/*; do . "$unshare"; done
     fi
 fi
 
