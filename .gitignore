@@ -2,7 +2,7 @@
 .config/vim/autoload/
 .config/vim/.*
 
-.config/bash/multi/unshare/*
+.config/bash/*/unshare/*
 
 .config/fcitx5/conf/cached*
 
