@@ -16,7 +16,7 @@ zenity --entry --title='Zenity Input' 2>/dev/null > "$tmpfile" &
 # wait for zenity
 sleep 0.5
 # toggle to chinese
-fcitx5-remote -t
+# fcitx5-remote -t
 
 wait
 

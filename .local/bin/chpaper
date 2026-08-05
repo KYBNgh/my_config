@@ -1,6 +1,6 @@
 #!/bin/sh
-# ~/.local/bin/chwallpaper
-# Usage: chwallpaper ~/pic/wallpaper.png
+# ~/.local/bin/chpaper
+# Usage: chpaper /path/to/image.png
 
 wallpaper="${HOME}/.local/share/swaypaper"
 lockpaper="${HOME}/.local/share/lockpaper"
@@ -12,11 +12,13 @@ fi
 
 image=$(readlink -f "$1")
 
-if [ ! -f "$image" ]; then
+# /dev/null for black wallpaper
+if [ ! -f "$image" ] && [ "$image" != "/dev/null" ] ; then
     echo "The wallpaper must be a regular file!"
     exit 1
 fi
 
 ln -svf "$image" "$wallpaper" && notify-send -u low 'Wallpaper' "Wallpaper set to $image"
+# comment out, 'cause i use blur effect
 # ln -svf "$image" "$lockpaper" && notify-send -u low 'Lockpaper' "Lockpaper set to $image"
 swaymsg reload

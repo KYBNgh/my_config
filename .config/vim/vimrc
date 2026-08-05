@@ -8,6 +8,8 @@ set hidden
 set cursorline
 set cursorlineopt=number
 
+let mapleader=" "
+
 set hlsearch
 set incsearch
 set ignorecase
@@ -46,7 +48,6 @@ nmap <leader>c :ColorToggle<CR>
 
 highlight CursorLineNr ctermfg=33 guifg=#0092ff cterm=bold
 highlight LineNr ctermfg=darkgray guifg=darkgray
-highlight WildMenu guibg=#0092ff guifg=#000000 ctermbg=33 ctermfg=0 cterm=bold gui=bold
 
 highlight Pmenu         guibg=#232323 guifg=#e0e0e0 ctermbg=235 ctermfg=252
 highlight PmenuSel      guibg=#0092ff guifg=#ffffff ctermbg=33  ctermfg=15
@@ -61,7 +62,6 @@ highlight TabLine      guibg=#232323 guifg=#808080 ctermbg=235 ctermfg=244 cterm
 highlight TabLineSel   guibg=#0092ff guifg=#ffffff ctermbg=33  ctermfg=15  cterm=bold gui=bold
 highlight TabLineFill  guibg=#232323               ctermbg=235
 
-inoremap <C-BS> <C-o>db
 inoremap <C-Del> <C-o>de
 nnoremap <expr> <CR> v:hlsearch ? ":nohlsearch\<CR>\<CR>" : "\<CR>"
 

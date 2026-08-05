@@ -54,12 +54,11 @@ map <C-b> page up
 map <C-d> scroll half-down
 map <C-u> scroll half-up
 map gg navigate first
-    map G navigate last
+map G navigate last
 
 map + zoom-in
 map - zoom-out
 map = zoom-fit
-map <a-Equal> zoom-fit
 
 map m toggle-index
 map <Tab> follow
@@ -74,3 +73,4 @@ map q quit
 map Q quit
 map <C-s> print
 map <Space> rotate
+map <C-r> toggle recolor
