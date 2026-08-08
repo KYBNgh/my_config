@@ -18,7 +18,7 @@ map C $bash -c "catimg \"$f\" && read -p 'Press any key to continue' -s -n 1 dum
 set previewer ~/.local/bin/previewer
 
 map b $bat --pager=never $fx | env -u LESS less -R -i -M -S
-map E ${{ read -p "Execute with sh? [y/N] " ans; [ "$ans" = "y" ] && sh "$f"; }}
+map E ${{ read -p "Execute with sh? [y/N] " ans; [ "$ans" = "y" ] && sh "$f" || exit 0; }}
 
 cmd open ${{ 
     if test -d "$f"; then
