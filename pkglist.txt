@@ -55,10 +55,12 @@ helvum
 hmcl
 htop
 hwloc
+imagemagick
 intel-ucode
 iotop
 jdk-openjdk
 jq
+kdenlive
 kexec-tools
 kitty
 less
@@ -78,6 +80,7 @@ lsof
 mako
 man-db
 mesa-utils
+moreutils
 mpc
 mpd
 mpd-mpris
@@ -85,6 +88,7 @@ mpv
 ncdu
 ncmpcpp
 neovim
+niri
 nload
 noto-fonts-cjk
 noto-fonts-emoji
@@ -160,5 +164,6 @@ yt-dlp
 zathura
 zathura-pdf-mupdf
 zenity
+zip
 zram-generator
 zsh

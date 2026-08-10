@@ -70,5 +70,5 @@ fi
 
 # Launch Sway on tty1 login
 if [ -z "$WAYLAND_DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] && [ -x "/usr/bin/sway" ]; then
-    read -n 1 -p "DM: Launch sway QwQ? (^C for not) " QwQ && exec sway 
+    read -n 1 -p "Launch sway for this user? (^C for not) " QwQ && exec sway 
 fi
