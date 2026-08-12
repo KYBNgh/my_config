@@ -177,6 +177,7 @@ bindsym $mod+r mode "resize"
     exec fcitx5 -d
     exec mako
     exec_always pgrep foot || foot --server
+    exec_always pkill waybar ; waybar
     exec_always makoctl reload
 
     # Set output scale
@@ -189,10 +190,10 @@ bindsym $mod+r mode "resize"
     before-sleep 'swaylock -f'
 
     # Waybar
-    bar {
-        position top
-        swaybar_command waybar
-}
+ #   bar {
+ #       position top
+ #       swaybar_command waybar
+ #}
     
     # Background
     output * bg $HOME/.local/share/swaypaper fill
