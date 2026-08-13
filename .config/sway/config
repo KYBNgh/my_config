@@ -177,11 +177,10 @@ bindsym $mod+r mode "resize"
     exec fcitx5 -d
     exec mako
     exec_always pgrep foot || foot --server
-    exec_always pkill waybar ; waybar
     exec_always makoctl reload
 
     # Set output scale
-    # output HDMI-A-2 scale 1
+    output DP-2 mode 2560x1440@200.000Hz
 
     # Idel
     exec swayidle -w \
@@ -190,10 +189,11 @@ bindsym $mod+r mode "resize"
     before-sleep 'swaylock -f'
 
     # Waybar
- #   bar {
- #       position top
- #       swaybar_command waybar
- #}
+   bar {
+       position top
+       swaybar_command waybar
+       }
+ 
     
     # Background
     output * bg $HOME/.local/share/swaypaper fill

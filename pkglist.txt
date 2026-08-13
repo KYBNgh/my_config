@@ -56,7 +56,7 @@ hmcl
 htop
 hwloc
 imagemagick
-intel-ucode
+amd-ucode
 iotop
 jdk-openjdk
 jq

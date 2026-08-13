@@ -4,7 +4,6 @@
     "height": 32,
     
     "modules-left": [
-        "custom/res-toggle",
         "mpris",
         "sway/workspaces",
         "custom/recorder",
@@ -96,14 +95,15 @@
     "return-type": "json",
     "tooltip-format": "enp3s0 · Downlink speed (MiB/s)"
 },
-    "temperature": {
-        "thermal-zone": 2,
-        "interval": 5,
-        "format": "{icon} {temperatureC}°C",
-        "format-icons": ["", "", ""],
-        "critical-threshold": 80,
-        "tooltip-format": "CPU Package: {temperatureC}°C"
-    },
+"temperature": {
+    "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
+    "input-filename": "temp1_input",
+    "interval": 5,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["", "", ""],
+    "critical-threshold": 80,
+    "tooltip-format": "CPU Package: {temperatureC}°C"
+},
 
     "wireplumber": {
         "format": "{icon} {volume}%",

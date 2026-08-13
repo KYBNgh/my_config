@@ -5,17 +5,13 @@ set -u
 pidfile="${XDG_RUNTIME_DIR:-/tmp}/wf-recorder.pid"
 logdir="${XDG_STATE_HOME:-$HOME/.local/state/wf-recorder}"
 outdir="$HOME/tmp"
-audio_device="$(pactl get-default-sink 2>/dev/null).monitor"
-if [ "$audio_device" = ".monitor" ]; then
-    notify-send -u critical "wf-recorder" "An audio error occured, exited!"
-    exit 1
-fi
+audio_device='alsa_output.pci-0000_00_1b.0.analog-stereo.monitor'
 
 mkdir -p "$logdir"
 mkdir -p "$outdir"
 
-# AMD GPU
-export LIBVA_DRIVER_NAME=radeonsi
+# Haswell i965
+export LIBVA_DRIVER_NAME=i965
 
 if [ -f "$pidfile" ] && kill -0 "$(cat "$pidfile")" 2>/dev/null; then
     kill -INT "$(cat "$pidfile")"
@@ -56,11 +52,18 @@ else
     file="$outdir/$name"
 fi
 
-bitrate="16M"
-encode="hevc_vaapi"
+width="$(swaymsg -t get_outputs | grep -o '"width": [0-9]*' | head -1 | grep -o '[0-9]*')"
+
+if [ "${width:-0}" -ge 2000 ]; then
+    bitrate="24M"
+else
+    bitrate="12M"
+fi
 
 wf-recorder \
-    -c "$encode" \
+    -c h264_vaapi \
+    -d /dev/dri/renderD128 \
+    -p profile=high \
     -r 60 \
     -b "$bitrate" \
     -f "$file" \
