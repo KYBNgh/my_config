@@ -1,7 +1,7 @@
 #!/bin/sh
-# enp3s0 download speed (MiB/s) for Waybar
+# enp6s0 download speed (MiB/s) for Waybar
 
-IFACE="enp3s0"
+IFACE="enp6s0"
 
 # Read RX bytes from /proc/net/dev
 get_rx_bytes() {
