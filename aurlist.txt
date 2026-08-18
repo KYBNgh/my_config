@@ -1,7 +1,6 @@
 base-devel-doas
-clash-verge-rev-bin
 doas-sudo-shim
 fcitx5-skin-fluentdark-git
-unbted
+java-openjfx
+mcaselector
 vidoas
-wshowkeys-mao-git
