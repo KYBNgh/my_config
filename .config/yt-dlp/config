@@ -1,0 +1,5 @@
+--cookies-from-browser firefox
+--embed-metadata
+--format 'bv*+ba[format_note*=original]/bv+ba'
+--concurrent-fragments 3
+

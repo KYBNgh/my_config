@@ -56,7 +56,7 @@ else
     file="$outdir/$name"
 fi
 
-bitrate="16M"
+bitrate="4M"
 encode="hevc_vaapi"
 
 wf-recorder \
