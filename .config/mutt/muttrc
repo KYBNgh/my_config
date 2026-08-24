@@ -1,0 +1,25 @@
+set folder      = "~/doc/maildir"
+
+set mbox_type   = Maildir
+
+set spoolfile   = "~/doc/maildir"
+
+set record      = "+sent"
+set postponed   = "+drafts"
+set trash       = "+trash"
+
+mailboxes       "~/doc/maildir" "+sent" "+drafts" "+trash"
+
+set move        = no
+
+set sort        = threads
+set charset     = "utf-8"
+set editor      = "vim"
+set header_cache     = "~/.cache/mutt/headers"
+set message_cachedir = "~/.cache/mutt/bodies"
+
+set from        = "virtcat@obsidian.localdomain"
+set realname    = "virtcat"
+set use_from    = yes
+set envelope_from = yes
+
