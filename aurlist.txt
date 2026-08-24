@@ -1,6 +1,7 @@
 base-devel-doas
 doas-sudo-shim
 fcitx5-skin-fluentdark-git
-java-openjfx
+fontpreview
+java25-openjfx
 mcaselector
 vidoas

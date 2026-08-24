@@ -11,7 +11,6 @@ base
 bash-completion
 bat
 bc
-blueman
 bluez
 bluez-utils
 btop
@@ -51,6 +50,7 @@ firefox-dark-reader
 firefox-ublock-origin
 firejail
 foot
+freerdp
 fzf
 gc
 gimp
@@ -67,7 +67,9 @@ imagemagick
 iotop
 iw
 iwd
+jdk25-openjdk
 jq
+jre-openjdk
 kdenlive
 kexec-tools
 kitty
@@ -76,19 +78,21 @@ lf
 libisl
 libmpc
 libnotify
+libreoffice-still-zh-cn
 libva-utils
 libvirt
 linux
 linux-firmware-amdgpu
 linux-firmware-realtek
 linux-headers
-linux-lts
+linux-zen
+linux-zen-headers
 localsend
 lsof
-ly
 mako
 man-db
 mesa-utils
+moonlight-qt
 moreutils
 mpc
 mpd
@@ -96,6 +100,7 @@ mpd-mpris
 mpv
 ncdu
 ncmpcpp
+neomutt
 neovim
 nload
 noto-fonts-cjk
@@ -131,8 +136,8 @@ qemu-tools
 qemu-ui-dbus
 qemu-ui-gtk
 qemu-ui-spice-app
+qpwgraph
 qutebrowser
-remmina
 rime-ice-git
 rsync
 s-nail
@@ -140,6 +145,7 @@ s-tui
 scrcpy
 slurp
 smartmontools
+smbclient
 speech-dispatcher
 spice
 stow
@@ -155,11 +161,13 @@ tailscale
 telegram-desktop
 terminus-font
 tesseract-data-eng
+thunar
 tmux
 tree
 ttf-sourcecodepro-nerd
 ttyper
 udisks2
+unrar
 unzip
 usbutils
 vim
@@ -182,4 +190,3 @@ zathura-pdf-mupdf
 zenity
 zip
 zram-generator
-zsh
