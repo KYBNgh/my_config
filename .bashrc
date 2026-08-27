@@ -62,6 +62,7 @@ if [ -v "$is_termux" ] || [ "$PREFIX" = /data/data/com.termux/files/usr ]; then
 
     if [ -d "$HOME/.local/lib/unshare_scripts" ]; then
         for unshare in "$HOME"/.local/lib/unshare_scripts/*; do . "$unshare"; done
+    fi
     
     # In new tab
     cd ~
