@@ -60,9 +60,8 @@ if [ -v "$is_termux" ] || [ "$PREFIX" = /data/data/com.termux/files/usr ]; then
         for completion in "${BASH_CONFIG}"/termux/completions/*; do . "${completion}"; done
     fi
 
-    if [ -d "${BASH_CONFIG}/termux/unshare" ]; then
-        for unshare in "${BASH_CONFIG}"/termux/unshare/*; do . "$unshare"; done
-    fi
+    if [ -d "$HOME/.local/lib/unshare_scripts" ]; then
+        for unshare in "$HOME"/.local/lib/unshare_scripts/*; do . "$unshare"; done
     
     # In new tab
     cd ~
