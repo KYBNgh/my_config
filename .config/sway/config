@@ -185,7 +185,7 @@ bindsym $mod+r mode "resize"
     # Idel
     exec swayidle -w \
     timeout 300 'swaylock -f -C $HOME/.config/swaylock/config &' \
-    timeout 900 'playerctl status 2>&1 | grep -q "Playing" || swaymsg "output * power off"' \
+    timeout 300 'playerctl status 2>&1 | grep -q "Playing" || swaymsg "output * power off"' \
     resume 'swaymsg "output * power on"' \
     before-sleep 'swaylock -f -C $HOME/.config/swaylock/config'
 

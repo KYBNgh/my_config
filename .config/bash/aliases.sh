@@ -43,7 +43,7 @@ alias mv='mv -i'
 # Else
 alias ncdu='ncdu --color dark '
 alias c='clear'
-alias ff='fastfetch --logo none --color cyan'
+alias ff='fastfetch --logo none --color blue'
 alias df='df -h'
 alias du='du -h -c'
 alias free='free -h'
