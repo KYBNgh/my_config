@@ -6,6 +6,7 @@
     "modules-left": [
         "mpris",
         "sway/workspaces",
+        "custom/xrdp-desktop",
         "custom/recorder",
         "sway/mode"
     ],
@@ -114,7 +115,7 @@
         },
         "on-click": "helvum",
         "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "scroll-step": 5,
+        "scroll-step": 1,
         "tooltip-format": "Left: helvum | Middle: toggle mute"
     },
 
@@ -146,6 +147,14 @@
         "interval": "once",
         "on-click": "makoctl dismiss --all",
         "tooltip-format": "Clean all notifications"
+    },
+
+    "custom/xrdp-desktop": {
+        "format": " ",
+        "interval": "once",
+        "on-click": "$HOME/.local/lib/waybar_scripts/xrdp_desktop.sh",
+        "on-click-right": "/usr/bin/moonlight",
+        "tooltip-format": " Left: RDP desktop | Right: Moonlight"
     }
 }
 

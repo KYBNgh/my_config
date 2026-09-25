@@ -184,8 +184,8 @@ bindsym $mod+r mode "resize"
 
     # Idel
     exec swayidle -w \
-    timeout 300 'swaylock -f -C $HOME/.config/swaylock/config &' \
-    timeout 300 'playerctl status 2>&1 | grep -q "Playing" || swaymsg "output * power off"' \
+    timeout 900 'swaylock -f -C $HOME/.config/swaylock/config &' \
+    timeout 3600 'playerctl status 2>&1 | grep -q "Playing" || swaymsg "output * power off"' \
     resume 'swaymsg "output * power on"' \
     before-sleep 'swaylock -f -C $HOME/.config/swaylock/config'
 
@@ -220,11 +220,13 @@ client.background       #232323
 
 font Source Code Pro Medium 10
 
-for_window [app_id="mpv"] floating enable
+# for_window [app_id="mpv"] floating enable
 for_window [title="floating"] floating enable
 for_window [title="^Helvum"] floating enable, resize set 1200 800, move absolute position 1340 50
 for_window [title="floating foot"] floating enable, resize set 1200 800, move absolute position 1340 50
-for_window [title="^Virtual Machine Manager"] floating enable, resize set 600 800, move position mouse
+for_window [title="^Virtual Machine Manager$" app_id="virt-manager"] floating enable, resize set 600 800, move position mouse
+for_window [title="^LocalSend$" app_id="localsend"] floating enable, resize set 600 800, move position mouse
+for_window [title="^QQ$"] floating enable
 
 # GIMP
 for_window [app_id="file-*"] floating enable

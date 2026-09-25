@@ -1,6 +1,4 @@
 #!/bin/sh
 firejail --profile=$HOME/.config/firejail/opencode.profile \
-    --netfilter=$HOME/.config/firejail/lo_only.net \
-    --netfilter6=$HOME/.config/firejail/lo_only.net \
     --quiet \
     $HOME/.local/app/opencode "$@"

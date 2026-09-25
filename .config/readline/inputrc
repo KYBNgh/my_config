@@ -35,3 +35,7 @@ set visible-stats on
 set page-completions off
 set completion-query-items 0
 set keyseq-timeout 15
+
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
+

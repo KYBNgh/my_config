@@ -56,12 +56,11 @@ else
     file="$outdir/$name"
 fi
 
-bitrate="4M"
+bitrate="2M"
 encode="hevc_vaapi"
 
 wf-recorder \
     -c "$encode" \
-    -r 60 \
     -b "$bitrate" \
     -f "$file" \
     --audio="$audio_device" \

@@ -1,0 +1,15 @@
+#!/bin/sh
+cell="$HOME/.local/jails"
+prisoner="tencent_qq"
+profile="$HOME/.config/firejail/${prisoner}.profile"
+appimage_link="$cell/$prisoner/bin/$prisoner"
+
+# Resolve symlink to the real .AppImage file
+appimage="$(readlink -f "$appimage_link" 2>/dev/null)"
+
+if [ -z "$appimage" ] || [ ! -r "$appimage" ]; then
+    echo "Error: cannot read AppImage: ${appimage:-$appimage_link}" >&2
+    exit 1
+fi
+
+exec firejail --profile="$profile" --appimage "$appimage"
