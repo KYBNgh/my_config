@@ -1,7 +1,7 @@
 #!/bin/sh
 # ~/.local/bin/_wmenu
 
-wmenu -f "SourceCodePro Medium 14" \
+wmenu -f "SourceCodePro SemiBold 14" \
     -i \
     -M "#008df8" \
     -m "#232323" \

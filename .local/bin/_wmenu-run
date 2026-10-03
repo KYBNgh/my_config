@@ -1,9 +1,9 @@
 #!/bin/sh
 # ~/.local/bin/_wmenu-run
 
-wmenu-run -f "SourceCodePro Medium 14" \
+wmenu-run -f "SourceCodePro SemiBold 14" \
     -i \
-    -p "Run:" \
+    -p "Execute:" \
     -M "#008df8" \
     -m "#232323" \
     -N "#232323" \

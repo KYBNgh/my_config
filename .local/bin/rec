@@ -29,7 +29,7 @@ name=""
 
 # _wmenu is  ~/.local/bin/_wmenu
 if command -v wmenu >/dev/null 2>&1; then
-    if ! name=$(_wmenu -p "Save as:" < /dev/null 2>>"$logdir/wf-recorder.log"); then
+    if ! name=$(_wmenu -p "Recording as:" < /dev/null 2>>"$logdir/wf-recorder.log"); then
 #        notify-send -u low "wf-recorder" "Cancelled"
         exit 1
     fi
@@ -56,13 +56,12 @@ else
     file="$outdir/$name"
 fi
 
-bitrate="2M"
 encode="hevc_vaapi"
 
 wf-recorder \
     -c "$encode" \
-    -b "$bitrate" \
     -f "$file" \
+    -r 60 \
     --audio="$audio_device" \
     > "$logdir/wf-recorder.log" 2>&1 &
 

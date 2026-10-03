@@ -13,6 +13,7 @@ base
 bash-completion
 bat
 bc
+blender
 blockbench
 bluez
 bluez-utils
@@ -23,6 +24,7 @@ calc
 calcurse
 catimg
 chafa
+chromium
 cockpit
 cockpit-files
 cockpit-machines
@@ -70,6 +72,7 @@ grim
 guvcview
 helvum
 hmcl
+hostapd
 htop
 hwloc
 i2c-tools
@@ -79,15 +82,16 @@ iw
 iwd
 jdk-openjdk
 jq
+jre17-openjdk
 kdenlive
 kexec-tools
 kitty
+krita
 less
 lf
 libisl
 libmpc
 libnotify
-libreoffice-still-zh-cn
 libva-utils
 libvirt
 linux
@@ -103,6 +107,7 @@ man-db
 mesa-utils
 moonlight-qt
 moreutils
+mosh
 mpc
 mpd
 mpd-mpris
@@ -133,6 +138,7 @@ pipewire-roc
 pkgfile
 podman
 polkit
+prismlauncher
 pv
 qemu-base
 qemu-desktop
@@ -147,6 +153,7 @@ slurp
 smartmontools
 speech-dispatcher
 spice
+squashfs-tools
 stow
 strace
 stress-ng
@@ -164,6 +171,7 @@ tesseract-data-eng
 thunar
 tmux
 tree
+ttf-jetbrains-mono
 ttf-sourcecodepro-nerd
 ttyper
 udisks2
@@ -172,6 +180,8 @@ unzip
 usbutils
 vim
 virt-manager
+vulkan-radeon
+vulkan-tools
 waybar
 waydroid
 waydroid-helper
@@ -179,6 +189,7 @@ waydroid-image
 waypipe
 wev
 wf-recorder
+wireless-regdb
 wl-clipboard
 wmenu
 xdg-desktop-portal-wlr

@@ -9,7 +9,7 @@ set $down j
 set $up k
 set $right l
 
-set $term footclient
+set $term footclient 
 set $term2 kitty
 
 set $menu "${HOME}/.local/bin/_wmenu-run"
@@ -172,6 +172,9 @@ bindsym $mod+r mode "resize"
     # wf-recorder
     bindsym $mod+Shift+r exec $HOME/.local/bin/rec
 
+    # power-menu
+    bindsym $mod+Shift+p exec $HOME/.local/bin/power-menu
+
     # Launcher daemons
     exec autotiling
     exec fcitx5 -d
@@ -226,7 +229,7 @@ for_window [title="^Helvum"] floating enable, resize set 1200 800, move absolute
 for_window [title="floating foot"] floating enable, resize set 1200 800, move absolute position 1340 50
 for_window [title="^Virtual Machine Manager$" app_id="virt-manager"] floating enable, resize set 600 800, move position mouse
 for_window [title="^LocalSend$" app_id="localsend"] floating enable, resize set 600 800, move position mouse
-for_window [title="^QQ$"] floating enable
+# for_window [title="^QQ$"] floating enable
 
 # GIMP
 for_window [app_id="file-*"] floating enable

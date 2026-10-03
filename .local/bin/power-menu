@@ -1,0 +1,7 @@
+#!/bin/sh
+choice=$(printf '%s\n' poweroff reboot suspend | _wmenu -p 'Powerctl:')
+case "$choice" in
+  poweroff) systemctl poweroff ;;
+  reboot) systemctl reboot ;;
+  suspend) systemctl suspend ;;
+esac

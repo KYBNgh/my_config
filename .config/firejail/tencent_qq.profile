@@ -4,6 +4,7 @@ include /etc/firejail/disable-common.inc
 private ${HOME}/.local/jails/tencent_qq
 private-dev
 noblacklist /dev/fuse
+noblacklist ${HOME}/tmp
 
 netfilter
 
