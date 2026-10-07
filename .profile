@@ -57,7 +57,10 @@ export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
 export BROWSER="firefox"
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
+
+export GREP_COLORS='mt=01;34'
 
 
 # Man page

@@ -1,7 +1,4 @@
 #!/bin/sh
-set -e
-
 virsh start "$1" 2>&1 | grep -v 'Domain is already active'
-
 exec virsh console "$1"
 

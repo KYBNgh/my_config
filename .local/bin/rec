@@ -62,6 +62,7 @@ wf-recorder \
     -c "$encode" \
     -f "$file" \
     -r 60 \
+    -b 10M \
     --audio="$audio_device" \
     > "$logdir/wf-recorder.log" 2>&1 &
 
