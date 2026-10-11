@@ -37,11 +37,11 @@ alias ip='ip -c'
 alias md='mkdir -p'
 alias rd='rmdir'
 alias rm='rm -I'
-alias cp='cp -i'
+alias cp='cp -ia'
 alias mv='mv -i'
 
 # Else
-alias ncdu='ncdu --color dark '
+alias ncdu='ncdu -1 --color dark '
 alias c='clear'
 alias ff='fastfetch --logo none --color blue'
 alias df='df -h'

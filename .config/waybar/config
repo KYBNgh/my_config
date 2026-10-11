@@ -94,7 +94,7 @@
     "interval": 1,
     "max-length": 18,
     "return-type": "json",
-    "tooltip-format": "enp3s0 · Downlink speed (MiB/s)"
+    "tooltip-format": "enp6s0 · Downlink speed (MiB/s)"
 },
 "temperature": {
     "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
