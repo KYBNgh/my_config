@@ -173,7 +173,7 @@ bindsym $mod+r mode "resize"
     bindsym $mod+Shift+r exec $HOME/.local/bin/rec
 
     # power-menu
-    bindsym $mod+Shift+p exec $HOME/.local/bin/power-menu
+    bindsym Ctrl+Alt+Delete exec $HOME/.local/bin/power-menu
 
     # Launcher daemons
     exec autotiling

@@ -4,6 +4,7 @@ fcitx5-skin-fluentdark-git
 fontpreview
 java-openjfx
 mcaselector
+swaylock-effects
 unbted
 vidoas
 wshowkeys-mao-git
