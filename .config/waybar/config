@@ -16,6 +16,7 @@
     ],
     
     "modules-right": [
+        "bluetooth",
         "custom/network-mib",
         "cpu",
         "memory",
@@ -94,7 +95,9 @@
     "interval": 1,
     "max-length": 18,
     "return-type": "json",
-    "tooltip-format": "enp6s0 · Downlink speed (MiB/s)"
+    "on-click": "footclient -T 'floating foot' -e nload",
+    "on-click-right": "footclient -T 'floating foot' -e bash -c 'ip addr && read -n 1 dummy'",
+    "tooltip-format": "enp6s0 · Downlink speed (MiB/s)\nLeft: nload | Right: ip addr"
 },
 "temperature": {
     "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
@@ -125,14 +128,6 @@
         "on-click": "${HOME}/.local/bin/show_cal"
     },
     
-    "custom/res-toggle": {
-        "exec": "${XDG_CONFIG_HOME}/waybar/scripts/res-toggle.sh",
-        "signal": 3,
-        "return-type": "text",
-        "on-click": "${XDG_CONFIG_HOME}/waybar/scripts/res-toggle.sh toggle",
-        "tooltip-format": "HDMI-A-2 · Click to toggle"
-    },
-
     "custom/recorder": {
         "exec": "${XDG_CONFIG_HOME}/waybar/scripts/rec-status.sh",
         "return-type": "json",
@@ -141,6 +136,20 @@
         "on-click": "$HOME/.local/bin/rec",
         "format": "{}"
     },
+
+"bluetooth": {
+    "format": "{icon}",
+    "format-icons": {
+        "enabled": "󰂯",
+        "disabled": "󰂲"
+    },
+    "format-connected": "󰂱",
+    "format-disconnected": "󰂲",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "foot -T 'floating foot' -e bluetui"
+},
 
     "custom/cleaner": {
         "format": "󰎟",

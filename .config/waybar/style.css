@@ -44,6 +44,7 @@ window#waybar {
 #mpris,
 #tray,
 #custom-clock,
+#bluetooth,
 #custom-xrdp-desktop,
 #custom-cleaner {
     padding: 0 10px;
@@ -62,6 +63,7 @@ window#waybar {
 #mpris:hover,
 #tray:hover,
 #custom-clock:hover,
+#bluetooth:hover,
 #custom-xrdp-desktop:hover,
 #custom-cleaner:hover {
     background: #333333;
