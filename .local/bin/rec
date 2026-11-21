@@ -3,34 +3,63 @@
 set -u
 
 pidfile="${XDG_RUNTIME_DIR:-/tmp}/wf-recorder.pid"
-logdir="${XDG_STATE_HOME:-$HOME/.local/state/wf-recorder}"
+statefile="${XDG_RUNTIME_DIR:-/tmp}/wf-recorder.file"
+logdir="${XDG_STATE_HOME:-$HOME/.local/state}/wf-recorder"
 outdir="$HOME/tmp"
 audio_device="$(pactl get-default-sink 2>/dev/null).monitor"
 if [ "$audio_device" = ".monitor" ]; then
-    notify-send -u critical "wf-recorder" "An audio error occured, exited!"
+    notify-send -u critical "wf-recorder" "Audio error occurred, exiting."
     exit 1
 fi
 
-mkdir -p "$logdir"
-mkdir -p "$outdir"
+mkdir -p "$logdir" "$outdir"
 
 # AMD GPU
 export LIBVA_DRIVER_NAME=radeonsi
 
 if [ -f "$pidfile" ] && kill -0 "$(cat "$pidfile")" 2>/dev/null; then
+    saved_file=""
+    [ -f "$statefile" ] && saved_file=$(cat "$statefile" 2>/dev/null)
     kill -INT "$(cat "$pidfile")"
-    pkill -RTMIN+8 waybar
-    rm -f "$pidfile"
-    notify-send "wf-recorder" "Stopped recording" 
+    pkill -RTMIN+8 -u "$USER" waybar
+    rm -f "$pidfile" "$statefile"
+    if [ -n "$saved_file" ]; then
+        notify-send "wf-recorder" "Stopped recording: $saved_file"
+    else
+        notify-send "wf-recorder" "Stopped recording"
+    fi
     exit 0
+fi
+
+preset="supa"
+# Name column padded to equal width so the brackets line up.
+supa_label="supa        [AV1_1440p@60fps_QP20 Opus_256k_10bit pc]"
+ultra_label="ultra       [AV1_1440p@120fps_QP20 FLAC_10bit pc]"
+commonplace_label="commonplace [AVC_1080p@30fps 6MbpsVBR_AAC_128k_8bit tv]"
+dumb_label="dumb        [HEVC_1080p@30fps_3MbpsVBR AAC_128k_8bit tv]"
+preset_label="$supa_label"
+
+# _wmenu is ~/.local/bin/_wmenu
+have_menu=0
+if command -v _wmenu >/dev/null 2>&1 && command -v wmenu >/dev/null 2>&1; then
+    have_menu=1
+fi
+
+if [ "$have_menu" -eq 1 ]; then
+    choice=$(printf '%s\n' "$supa_label" "$ultra_label" "$commonplace_label" "$dumb_label" | _wmenu -l 4 -p "Recording preset:" 2>>"$logdir/wf-recorder.log") || exit 1
+    case "$choice" in
+        "$supa_label") preset="supa"; preset_label="$supa_label" ;;
+        "$ultra_label") preset="ultra"; preset_label="$ultra_label" ;;
+        "$commonplace_label") preset="commonplace"; preset_label="$commonplace_label" ;;
+        "$dumb_label") preset="dumb"; preset_label="$dumb_label" ;;
+        *) exit 1 ;;
+    esac
 fi
 
 name=""
 
-# _wmenu is  ~/.local/bin/_wmenu
-if command -v wmenu >/dev/null 2>&1; then
-    if ! name=$(_wmenu -p "Recording as:" < /dev/null 2>>"$logdir/wf-recorder.log"); then
-#        notify-send -u low "wf-recorder" "Cancelled"
+if [ "$have_menu" -eq 1 ]; then
+    if ! name=$(_wmenu -p "$preset_label: File name:" < /dev/null 2>>"$logdir/wf-recorder.log"); then
         exit 1
     fi
 fi
@@ -42,30 +71,93 @@ if [ -n "$name" ]; then
     name=$(printf '%s' "$name" | tr '/' '_' | tr -d '\r\n')
 fi
 
+stamp=$(date +%Y%m%d-%H%M%S)
+
 if [ -z "$name" ] || [ "$name" = "." ] || [ "$name" = ".." ]; then
-    file="$outdir/rec-$(date +%Y%m%d-%H%M%S).mkv"
+    file="$outdir/$stamp.mkv"
 else
     case "$name" in
         *.mkv)
-            ;;
-        *)
-            name="$name.mkv"
+            name=${name%.mkv}
             ;;
     esac
 
-    file="$outdir/$name"
+    if [ -z "$name" ]; then
+        file="$outdir/$stamp.mkv"
+    else
+        file="$outdir/${stamp}_${name}.mkv"
+    fi
 fi
 
-encode="hevc_vaapi"
+start_recording() {
+    wf-recorder \
+        -c "$encode" \
+        -f "$file" \
+        -r "$fps" \
+        "$@" \
+        --audio="$audio_device" \
+        > "$logdir/wf-recorder.log" 2>&1 &
+    echo "$!" > "$pidfile"
+    printf '%s\n' "$file" > "$statefile"
+}
 
-wf-recorder \
-    -c "$encode" \
-    -f "$file" \
-    -r 60 \
-    -b 10M \
-    --audio="$audio_device" \
-    > "$logdir/wf-recorder.log" 2>&1 &
+case "$preset" in
+    dumb)
+        # Small file for sharing: 1080p30, HEVC VBR ~3 Mbps average / 5 Mbps peak.
+        encode="hevc_vaapi"
+        fps=30
+        start_recording \
+            -F "scale_vaapi=w=1920:h=1080:format=nv12:out_range=tv" \
+            -p color_range=tv \
+            -p b=3000000 \
+            -p maxrate=5000000 \
+            -p bufsize=5000000 \
+            -p rc_mode=3 \
+            -C aac \
+            -P b=128000
+        ;;
+    commonplace)
+        # Most compatible: 1080p30 AVC, VBR ~6 Mbps, AAC 192k, 8-bit.
+        # Plays everywhere (browsers, phones, editors) without transcoding.
+        encode="h264_vaapi"
+        fps=30
+        start_recording \
+            -F "scale_vaapi=w=1920:h=1080:format=nv12:out_range=tv" \
+            -p color_range=tv \
+            -p b=6000000 \
+            -p maxrate=8000000 \
+            -p bufsize=8000000 \
+            -p rc_mode=3 \
+            -C aac \
+            -P b=192000
+        ;;
+    supa)
+        # Archive master: native 1440p60, 10-bit AV1 CQP 20, no bitrate cap.
+        # 256 kbps Opus; needs the local wf-recorder build in ~/.local/app
+        # (stock 0.6.0 ignores audio codec params due to an avcodec_open2 bug).
+        encode="av1_vaapi"
+        fps=60
+        start_recording \
+            -F "scale_vaapi=format=p010le:out_range=full" \
+            -p color_range=pc \
+            -p rc_mode=1 \
+            -p qp=20 \
+            -C libopus \
+            -P b=256000
+        ;;
+    ultra)
+        # Maximum quality: native 1440p120, 10-bit AV1 CQP 20, lossless FLAC.
+        # FLAC has no bitrate parameter, so none is passed.
+        encode="av1_vaapi"
+        fps=120
+        start_recording \
+            -F "scale_vaapi=format=p010le:out_range=full" \
+            -p color_range=pc \
+            -p rc_mode=1 \
+            -p qp=20 \
+            -C flac
+        ;;
+esac
 
-echo $! > "$pidfile"
-pkill -RTMIN+8 waybar
-notify-send "wf-recorder" "Started recording: $file" 
+pkill -RTMIN+8 -u "$USER" waybar
+notify-send "wf-recorder" "Started recording ($preset): $file"

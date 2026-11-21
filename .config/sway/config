@@ -173,7 +173,7 @@ bindsym $mod+r mode "resize"
     bindsym $mod+Shift+r exec $HOME/.local/bin/rec
 
     # power-menu
-    bindsym Ctrl+Alt+Delete exec $HOME/.local/bin/power-menu
+    bindsym $mod+Shift+p exec $HOME/.local/bin/power-menu
 
     # Launcher daemons
     exec autotiling
@@ -181,6 +181,9 @@ bindsym $mod+r mode "resize"
     exec mako
     exec_always pgrep foot || foot --server
     exec_always makoctl reload
+    exec $HOME/.local/bin/pkmenu
+
+    exec setfacl -m u:1001000:rw /run/user/1000/wayland-1
 
     # Set output scale
     output DP-2 mode 2560x1440@200.000Hz
@@ -229,6 +232,7 @@ for_window [title="^Helvum"] floating enable, resize set 1200 800, move absolute
 for_window [title="floating foot"] floating enable, resize set 1200 800, move absolute position 1340 50
 for_window [title="^Virtual Machine Manager$" app_id="virt-manager"] floating enable, resize set 600 800, move position mouse
 for_window [title="^LocalSend$" app_id="localsend"] floating enable, resize set 600 800, move position mouse
+for_window [title="^Hello Minecraft\! Launcher"] floating enable, resize set 900 600, move position mouse
 # for_window [title="^QQ$"] floating enable
 
 # GIMP

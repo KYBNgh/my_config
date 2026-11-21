@@ -9,7 +9,7 @@
 
 alias n='ncmpcpp'
 alias icat='kitten icat'
-alias lb='lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINTS'
+alias lb='lsblk -o NAME,SIZE,TYPE,LABEL,FSTYPE,MOUNTPOINTS'
 alias si='swayimg'
 alias lfcd='$(lf -print-last-dir )'
 alias qe='pacman -Qe --color=always | less'

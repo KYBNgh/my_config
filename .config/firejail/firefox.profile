@@ -60,4 +60,5 @@ whitelist ${HOME}/tmp
 blacklist ${HOME}/.mozilla
 blacklist ${HOME}/dls
 blacklist ${HOME}/.pki
+blacklist /data
 

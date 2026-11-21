@@ -42,13 +42,14 @@ alias mv='mv -i'
 
 # Else
 alias ncdu='ncdu -1 --color dark '
+alias rsync='rsync -avPhhh'
 alias c='clear'
 alias ff='fastfetch --logo none --color blue'
 alias df='df -h'
 alias du='du -h -c'
 alias free='free -h'
 alias t='tmux'
-alias m='neomutt'
+alias m='mail'
 alias mutt='neomutt'
 
 alias lsbit='for i in *; do echo "$i"; ffprobe "$i" 2>&1| grep bitrate; echo; done'

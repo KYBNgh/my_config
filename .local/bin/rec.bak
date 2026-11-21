@@ -1,0 +1,130 @@
+#!/bin/sh
+# ~/.local/bin/rec
+set -u
+
+pidfile="${XDG_RUNTIME_DIR:-/tmp}/wf-recorder.pid"
+statefile="${XDG_RUNTIME_DIR:-/tmp}/wf-recorder.file"
+logdir="${XDG_STATE_HOME:-$HOME/.local/state}/wf-recorder"
+outdir="$HOME/tmp"
+audio_device="$(pactl get-default-sink 2>/dev/null).monitor"
+if [ "$audio_device" = ".monitor" ]; then
+    notify-send -u critical "wf-recorder" "Audio error occurred, exiting."
+    exit 1
+fi
+
+mkdir -p "$logdir" "$outdir"
+
+# AMD GPU
+export LIBVA_DRIVER_NAME=radeonsi
+
+if [ -f "$pidfile" ] && kill -0 "$(cat "$pidfile")" 2>/dev/null; then
+    saved_file=""
+    [ -f "$statefile" ] && saved_file=$(cat "$statefile" 2>/dev/null)
+    kill -INT "$(cat "$pidfile")"
+    pkill -RTMIN+8 waybar
+    rm -f "$pidfile" "$statefile"
+    if [ -n "$saved_file" ]; then
+        notify-send "wf-recorder" "Stopped recording: $saved_file"
+    else
+        notify-send "wf-recorder" "Stopped recording"
+    fi
+    exit 0
+fi
+
+preset="archive"
+share_label="Share [1080p30fps@3Mbps]"
+archive_label="Archive [1440p60fps@QP20]"
+preset_label="$archive_label"
+
+# _wmenu is ~/.local/bin/_wmenu
+have_menu=0
+if command -v _wmenu >/dev/null 2>&1 && command -v wmenu >/dev/null 2>&1; then
+    have_menu=1
+fi
+
+if [ "$have_menu" -eq 1 ]; then
+    choice=$(printf '%s\n' "$archive_label" "$share_label" | _wmenu -p "Recording preset:" 2>>"$logdir/wf-recorder.log") || exit 1
+    case "$choice" in
+        "$archive_label") preset="archive"; preset_label="$archive_label" ;;
+        "$share_label") preset="share"; preset_label="$share_label" ;;
+        *) exit 1 ;;
+    esac
+fi
+
+name=""
+
+if [ "$have_menu" -eq 1 ]; then
+    if ! name=$(_wmenu -p "$preset_label: File name:" < /dev/null 2>>"$logdir/wf-recorder.log"); then
+        exit 1
+    fi
+fi
+
+name=$(printf '%s' "$name" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+
+if [ -n "$name" ]; then
+    name=$(basename -- "$name")
+    name=$(printf '%s' "$name" | tr '/' '_' | tr -d '\r\n')
+fi
+
+stamp=$(date +%Y%m%d-%H%M%S)
+
+if [ -z "$name" ] || [ "$name" = "." ] || [ "$name" = ".." ]; then
+    file="$outdir/$stamp.mkv"
+else
+    case "$name" in
+        *.mkv)
+            name=${name%.mkv}
+            ;;
+    esac
+
+    if [ -z "$name" ]; then
+        file="$outdir/$stamp.mkv"
+    else
+        file="$outdir/${stamp}_${name}.mkv"
+    fi
+fi
+
+encode="hevc_vaapi"
+
+start_recording() {
+    wf-recorder \
+        -c "$encode" \
+        -f "$file" \
+        -r "$fps" \
+        "$@" \
+        --audio="$audio_device" \
+        > "$logdir/wf-recorder.log" 2>&1 &
+    echo "$!" > "$pidfile"
+    printf '%s\n' "$file" > "$statefile"
+}
+
+case "$preset" in
+    share)
+        # Small file for sharing: 1080p30, VBR ~3 Mbps average / 5 Mbps peak.
+        fps=30
+        start_recording \
+            -F "scale_vaapi=w=1920:h=1080:format=nv12:out_range=tv" \
+            -p color_range=tv \
+            -p b=3000000 \
+            -p maxrate=5000000 \
+            -p bufsize=5000000 \
+            -p rc_mode=3
+        ;;
+    archive)
+        # Archive master: native 1440p60, CQP 20, no bitrate cap.
+        # Intended as the first pass before SVT-AV1 re-encoding.
+        # 320 kbps AAC needs the local wf-recorder build in ~/.local/app;
+        # stock 0.6.0 ignores audio codec params due to an avcodec_open2 bug.
+        fps=60
+        start_recording \
+            -F "scale_vaapi=format=nv12:out_range=full" \
+            -p color_range=pc \
+            -p rc_mode=1 \
+            -p qp=20 \
+            -C aac \
+            -P b=320000
+        ;;
+esac
+
+pkill -RTMIN+8 waybar
+notify-send "wf-recorder" "Started recording ($preset): $file"

@@ -1,0 +1,64 @@
+#!/bin/sh
+# pkmenu (debug): PolicyKit helper using _wmenu
+VERSION="1.0.4-debug"
+
+SELF="$(readlink -f "$0" 2>/dev/null || echo "$0")"
+log() { echo "pkmenu: $*" >&2; }
+
+print_usage_and_exit() {
+    echo "usage: $0 [-a \"wmenu args\"] [-v]"
+    exit $1
+}
+
+get_response() {
+    log "prompt=[$prompt] message=[$message] args=[$LAUNCHER_ARGS]"
+    printf '%s\n' "$message" | _wmenu -P -p "$prompt" $LAUNCHER_ARGS
+    rc=$?
+    log "wmenu exit=$rc response=[$response]"
+    return $rc
+}
+
+prep_params() {
+    for i in "$@"; do printf "'%s' " "$i"; done
+}
+
+if [ "$1" != '_CALLED_INTERNALLY' ]; then
+    LAUNCHER_ARGS=""
+    while [ $# -gt 0 ]; do
+        case "$1" in
+            "-a"|"--launcher-args") [ -z "$2" ] && print_usage_and_exit 1 >&2; LAUNCHER_ARGS="$2"; shift 2 ;;
+            "-h"|"--help") print_usage_and_exit 0 ;;
+            "-v"|"--version") echo "pkmenu $VERSION"; exit 0 ;;
+            -*) echo "$0: unknown option: $1" >&2; print_usage_and_exit 1 >&2 ;;
+            *) shift ;;
+        esac
+    done
+
+    command -v _wmenu >/dev/null 2>&1 || { echo "$0: _wmenu not found in PATH" >&2; exit 1; }
+    command -v cmd-polkit-agent >/dev/null 2>&1 || { echo "$0: cmd-polkit-agent not found in PATH" >&2; exit 1; }
+
+    log "starting cmd-polkit-agent (self=$SELF)"
+    exec cmd-polkit-agent -s -c "$SELF _CALLED_INTERNALLY $(prep_params -a "$LAUNCHER_ARGS")"
+else
+    shift 1
+    LAUNCHER_ARGS=""
+    while [ $# -gt 0 ]; do
+        case "$1" in
+            -a) LAUNCHER_ARGS="$2"; shift 2 ;;
+            *) shift ;;
+        esac
+    done
+    log "child started, waiting for polkit requests..."
+fi
+
+while read -r msg; do
+    log "got msg: $msg"
+    if echo "$msg" | jq -e '.action == "request password"' >/dev/null 2>&1; then
+        prompt="$(printf '%s' "$msg" | jq -rc '.prompt // "Password:"')"
+        message="$(printf '%s' "$msg" | jq -rc '.message // "No message given!"')"
+        response="$(get_response)"
+        [ -z "$response" ] && echo '{"action":"cancel"}' || echo "{\"action\":\"authenticate\",\"password\": \"$response\"}"
+    else
+        log "ignoring non-password action"
+    fi
+done

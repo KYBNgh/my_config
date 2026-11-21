@@ -1,0 +1,8 @@
+mpd_host = "/run/user/1000/mpd/socket"
+mpd_music_dir = "~/mus"
+lyrics_directory = "~/.cache/ncmpcpp/lyrics"
+visualizer_data_source = "/run/user/1000/mpd.fifo"
+visualizer_output_name = "visualizer"
+visualizer_in_stereo = "yes"
+visualizer_type = "spectrum"
+visualizer_look = "+|"

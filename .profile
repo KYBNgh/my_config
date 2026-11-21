@@ -7,15 +7,15 @@ if [ -v TERMUX_VERSION ]; then
 fi
 
 # Set PATH
+# Add user's private Appimage
+if [ -d "${HOME}/.local/app" ]; then
+    export PATH="${HOME}/.local/app:${PATH}"
+fi
+
 # Add user's private bin(scripts)
 if [ -d "${HOME}/.local/bin" ]; then
     export PATH="${HOME}/.local/bin:${PATH}"
 fi
-
-# Add user's private Appimage
-# if [ -d "${HOME}/.local/app" ]; then
-#     export PATH="${HOME}/.local/app:${PATH}"
-# fi
 
 # Add android bin and customize dgobal bin for Termux
 if [ -v is_termux ]; then

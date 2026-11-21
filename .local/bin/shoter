@@ -6,23 +6,23 @@ filedir=${HOME}/pic/shot
 
 full_shot() {
     # -c means including the cursor
-    # by default, grim will choose XDG_PICTURES_DIR as fallback
-    if grim -c "${filedir}/${filename}"; then
+    # by default, grim -l 9 will choose XDG_PICTURES_DIR as fallback
+    if grim -l 9 -c "${filedir}/${filename}"; then
         wl-copy < "$filedir/$filename" && notify-send -u low 'Screenshot - full' "Saved: ${filename} and copied to clipboard"
     else
-        grim && notify-send 'Screenshot' "Saved in $XDG_PICTURES_DIR"
+        grim -l 9 && notify-send 'Screenshot' "Saved in $XDG_PICTURES_DIR"
     fi
 }
 
 slurp_shot() {
-    if grim -g "$(slurp)" "${filedir}/${filename}"; then
+    if grim -l 9 -g "$(slurp)" "${filedir}/${filename}"; then
         wl-copy < "$filedir/$filename" && notify-send -u low 'Screenshot - slurp' "Saved: ${filename} and copied to clipboard"
     fi
 }
 
 tmp_shot() {
     filedir="$HOME/tmp"
-    if grim -g "$(slurp)" -c "${filedir}/${filename}"; then
+    if grim -l 9 -g "$(slurp)" -c "${filedir}/${filename}"; then
         wl-copy < "$filedir/$filename" && notify-send -u low 'Screenshot - tmp' "Saved: ${filedir}/${filename}"
     fi
 }
